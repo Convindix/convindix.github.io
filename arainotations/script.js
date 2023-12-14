@@ -4,7 +4,36 @@ class CSymbol { //Constant symbol
   }
 }
 
+class MultExp{ //A single "a*base^b". Base intended to be infinite and exponentially principal, a intended to be <base
+  //Not sure how to make it so that CSymbol not a sybtype of this, but this is a subtype of Term
+  constructor(coeff, exp, base){
+    /*typeof coeff is LCNFTerm
+    typeof base is APTerm
+    typeof exp is LCNFTerm*/
+    this.coeff = coeff;
+    this.base = base;
+    this.exp = exp;
+  }
+  static equ(a, b){
+    return JSON.stringify(a) == JSON.stringify(b);
+  }
+  static lss(a, b){
+    if(APTerm.equ(a.base, b.base)){
+      return LCNFTerm.lss(a.exp, b.exp) || (LCNFTerm.equ(a.exp, b.exp) && LCNFTerm.lss(a.coeff, b.coeff));
+    }else if(Term.lss(a.base, b.base){
+      if(b.coeff.func == "0"){ //b==0
+        return a.coeff.func != "0";
+      }else{ //b>0
+        return true; //b.base assumed to be exponentially principal and >a
+      }
+    }
+  }
+}
+
 class LCNFTerm extends CSymbol { //Base-Lambda CNF
+  /*Assumptions:
+    Bases of any MulBtExpTerms appering in this.arg match
+    All summands are >0*/
   constructor(func, arg) {
     super(func);
     this.arg = arg;
@@ -42,25 +71,21 @@ class LCNFTerm extends CSymbol { //Base-Lambda CNF
               i++;
             }
             return false;
-          case "lexp": //Lambda exponent
-            if (a.arg.length == 1) {
-              return LCNFTerm.lss(a.arg[0], b);
-            } else {
-              for (var i = 0; i < a.arg.length; i++) {
-                if (!LCNFTerm.lss(a.arg[i], b)) { //If a has a summand that is >=b
-                  return false;
-                }
+          case "multexp": //MultExp as a summand
+            for (var i = 0; i < a.arg.length; i++) {
+              if (!MultExpTerm.lss(a.arg[i], b)) { //If a has a summand that is >=b
+                return false;
               }
-              return true;
             }
+            return true;
         }
-      case "lexp":
+      case "multexp":
         switch (b.func) {
           case "0":
           case "sum":
             return !LCNFTerm.equ(a, b) && !LCNFTerm.lss(b, a);
-          case "wexp":
-            return LCNFTerm.lss(a.arg, b.arg);
+          case "multexp":
+            return MultExpTerm.lss(a.arg, b.arg);
         }
     }
   }
