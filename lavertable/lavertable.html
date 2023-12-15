@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Laver Tables</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <h1>Drawing Laver tables</h1>
+  <p>Size: (will lag if &gt;10): </p>
+  <input type="text" id="size" placeholder="5"></input>
+  <button onclick="drawTable(document.getElementById('size').value)">Draw</button>
+  <br />
+  <canvas id="output" width="512" height="512"></canvas>
+  <hr />
+  <h2>What is this?</h2>
+  <p>This draws a <a href="https://en.wikipedia.org/wiki/Laver_table">Laver table</a>, which is a specific binary
+    operation defined on the set {0, 1, 2, ..., 2<sup>n</sup>-1} for a given natural number n. Given a natural number n,
+    the 2<sup>n</sup>-by-2<sup>n</sup> Laver table is unique, and this page uses Patrick Dehornoy's algorithm for
+    filling out the table. Lesser values appear as
+    darker.</p>
+  <script>
+    c = document.getElementById("output").getContext("2d");
+    function drawRect(x, y, w, h, color) {
+      c.fillStyle = color;
+      c.fillRect(x, y, w, h);
+    }
+    function drawCell(x, y, k, n) { //Fills in hex color code that's k/2**n of the way from black to white
+      var oSize = document.getElementById("output").width;
+      var cellSize = document.getElementById("output").width / (2 ** n);
+      console.log(k);
+      var oneByte = Math.floor((256 * k) / (2 ** n - 1)).toString();
+      oneByte = ("000" + oneByte).slice(-3); //Zero padding
+      var color = "rgb(" + oneByte + "," + oneByte + "," + oneByte + ")";
+      drawRect(x * cellSize, y * cellSize, cellSize, cellSize, color);
+    }
+    function drawTable(n) { //Draws the 2**n by 2**n Laver table
+      //Uses Patrick Dehornoy's algorithm for filling out Laver tables
+      //table[y][x] is L_n(y,x), or infix y*x
+      drawRect(0, 0, document.getElementById("output").width, document.getElementById("output").height, "#FFFFFF"); //Clear canvas first
+      var theTable = []; //Will get filled up first, then correct values filled in
+      if (n > 16) {
+        alert("Too large! Please input a smaller number");
+        return;
+      }
+      for (var y = 0; y <= 2 ** n - 1; y++) { //Fill in left column
+        theTable.push([(y + 1) % (2 ** n), ...Array(2 ** n - 1).fill(0)]); //0s are placeholders
+      }
+      for (var y = 2 ** n - 1; y >= 0; y--) { //Everything other than left column
+        for (var x = 1; x <= 2 ** n - 1; x++) {
+          theTable[y][x] = theTable[theTable[y][x - 1]][theTable[y][0]];
+        }
+      }
+      for (var y = 0; y <= 2 ** n - 1; y++) { //Drawing table
+        for (var x = 0; x <= 2 ** n - 1; x++) {
+          drawCell(x, y, theTable[y][x], n);
+        }
+      }
+      console.log(theTable);
+    }
+  </script>
+</body>
+</html>

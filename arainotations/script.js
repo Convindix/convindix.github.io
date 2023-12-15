@@ -20,7 +20,7 @@ class MultExp{ //A single "a*base^b". Base intended to be infinite and exponenti
   static lss(a, b){
     if(APTerm.equ(a.base, b.base)){
       return LCNFTerm.lss(a.exp, b.exp) || (LCNFTerm.equ(a.exp, b.exp) && LCNFTerm.lss(a.coeff, b.coeff));
-    }else if(Term.lss(a.base, b.base){
+    }else if(Term.lss(a.base, b.base)){
       if(b.coeff.func == "0"){ //b==0
         return a.coeff.func != "0";
       }else{ //b>0
