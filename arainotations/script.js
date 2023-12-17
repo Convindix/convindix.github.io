@@ -20,8 +20,9 @@ class MultLambdaExp{ //A single "a*Lambda^b", a intended to be <base
   }
 }
 
-class LCNFTerm extends CSymbol { //Base-Lambda CNF, an array of MultLambdaExp's
-  /*Assumptions:
+class LCNFTerm extends CSymbol { //Base-Lambda CNF, an array of MultLambdaExp's.
+  /*Note that implementation of "0" is rolled into MultLambdaExp (i.e. to use 0 in a hereditary LCNF representation, e.g. as in 3*L^(0*L^0)), use a MultLambdaExp as in 0*^L^0 or similar.
+    Assumptions:
     Bases of any MultLambdaExp's appearing in this.arg match
     All summands are >0*/
   constructor(func, arg) {
