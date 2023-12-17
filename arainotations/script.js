@@ -32,7 +32,6 @@ class LCNFTerm extends CSymbol { //Base-Lambda CNF, an array of MultLambdaExp's
     return JSON.stringify(a) == JSON.stringify(b);
   }
   static lss(a, b) {
-    //TODO: Redo so that there are coefficients <Lambda rather than using finite sums
     //Lexicographical comparison
     for(var i = 0; i < a.args.length; i++){
       if(i > b.args.length){
@@ -83,6 +82,19 @@ class LCNFTerm extends CSymbol { //Base-Lambda CNF, an array of MultLambdaExp's
     } else {
       throw "Invalid term";
     }
+  }
+}
+
+class VNFTerm{
+  constructor(func, args){
+    this.func = func;
+    this.args = args;
+  }
+  static equ(a, b){
+    return JSON.strongofy(a) == JSON.stringify(b);
+  }
+  static lss(a, b){
+    //TODO
   }
 }
 
