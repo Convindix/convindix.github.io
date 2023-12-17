@@ -95,7 +95,9 @@ class VNFTerm{
     return JSON.strongofy(a) == JSON.stringify(b);
   }
   static lss(a, b){
-    //TODO
+    switch(a.func){
+      //TODO
+    }
   }
 }
 
