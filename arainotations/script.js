@@ -44,6 +44,7 @@ class LCNFTerm extends CSymbol { //Base-Lambda CNF, an array of MultLambdaExp's.
         return false;
       }
     }
+    return false; //Equal
   }
   isStd() {
     switch (this.func) {
@@ -87,16 +88,38 @@ class LCNFTerm extends CSymbol { //Base-Lambda CNF, an array of MultLambdaExp's.
 }
 
 class VNFTerm{
+  /* func is "0", "sum", or "phi"
+  args is array of Terms */
   constructor(func, args){
     this.func = func;
     this.args = args;
   }
   static equ(a, b){
-    return JSON.strongofy(a) == JSON.stringify(b);
+    return JSON.stringify(a) == JSON.stringify(b);
   }
   static lss(a, b){
     switch(a.func){
-      //TODO
+      case "0":
+        return b.func != "0";
+        break;
+      case "sum":
+        switch(b.func){
+          case "0":
+            return false; //a's summands assumed to be >0
+            break;
+          case "sum":
+            //TODO
+            break;
+          case "phi":
+            for(var i = 0; i<a.args.length; i++){
+              //TODO
+            }
+            return false; //Equal
+        }
+        break;
+      case "phi":
+        //TODO
+        break;
     }
   }
 }
