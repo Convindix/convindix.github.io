@@ -108,7 +108,14 @@ class VNFTerm{
             return false; //a's summands assumed to be >0
             break;
           case "sum":
-            //TODO
+            for(var i = 0; i<a.args.length; i++){
+              if(VNFTerm.lss(a.args[i], b.args[i]){
+                return true;
+              }else if(VNFTerm.lss(b.args[i], a.args[i]){
+                return false;
+              }
+              //TODO
+            }
             break;
           case "phi":
             for(var i = 0; i<a.args.length; i++){
