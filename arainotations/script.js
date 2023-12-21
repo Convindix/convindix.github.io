@@ -132,12 +132,40 @@ class VNFTerm extends CSymbol{
         switch(b.func){
           case "0":
           case "sum":
-            return !(VNFTerm.equ(a, b) || VNFTerm.lss(a, b));
+            return !(VNFTerm.equ(a, b) || VNFTerm.lss(b, a));
           case "phi":
-            //TODO
+            var asub = a.args[0];
+            var aarg = a.args[1];
+            var bsub = b.args[0];
+            var barg = b.args[1];
+            if(VNFTerm.lss(asub, bsub)){
+              return VNFTerm.lss(aarg, b);
+            }else if(VNFTerm.equ(asub, bsub)){
+              return VNFTerm.lss(aarg, barg);
+            }else{ //asub > bsub
+              return !(VNFTerm.equ(a, b) || VNFTerm.lss(b, a));
+            }
             break;
         }
         break;
+    }
+  }
+  static parseToTerm(str) {
+    /*Parses string to VNFTerm, looking for these tokens:
+    0 - becomes CSymbol {func: '0'}
+    f(a,b) - becomes Term {func: "phi", args: [a,b]}
+    a+b+...+z (expanded greedily) - becomes CSymbol {type: "sum", arg: [a,b,...,z]}
+    Will throw error for any string with balanced parentheses, since only the outermost pair of parentheses is removed at each step of recursion
+    */
+    if (str == "0") {
+      return new CSymbol('0');
+    } else if (hasPlusOnBaseLevel(str)) { //Sum
+      var summands = splitOnBasePluses(str);
+      return new LCNFTerm("sum", summands.map(LCNFTerm.parseToTerm));
+    } else if (str.slice(0, 2) == "f(" && str[str.length - 1] == ")") { //phi(a,b)
+      return new LCNFTerm("lexp", LCNFTerm.parseToTerm(str.slice(3, -1)));
+    } else {
+      throw "Invalid term";
     }
   }
 }
