@@ -1,6 +1,6 @@
 class CSymbol { //Constant symbol
   constructor(func) {
-    this.func = func; //Func is the symbol, like a 0-ary function symbol
+    this.func = func; //Func is the symbol, like a 0-ary function symbol. Currently only "0" used
   }
 }
 
@@ -87,7 +87,7 @@ class LCNFTerm extends CSymbol { //Base-Lambda CNF, an array of MultLambdaExp's.
   }
 }
 
-class VNFTerm{
+class VNFTerm extends CSymbol{
   /* func is "0", "sum", or "phi"
   args is array of Terms */
   constructor(func, args){
@@ -114,18 +114,29 @@ class VNFTerm{
               }else if(VNFTerm.lss(b.args[i], a.args[i]){
                 return false;
               }
-              //TODO
-            }
-            break;
-          case "phi":
-            for(var i = 0; i<a.args.length; i++){
-              //TODO
+              if(i == a.args.length-1 && a.args.length < b.args.length){ //a ran out of addends
+                return true;
+              }
             }
             return false; //Equal
+          case "phi":
+            for(var i = 0; i<a.args.length; i++){
+              if(!VNFTerm.lss(a.args[i], b)){
+                return false;
+              }
+            }
+            return true;
         }
         break;
       case "phi":
-        //TODO
+        switch(b.func){
+          case "0":
+          case "sum":
+            return !(VNFTerm.equ(a, b) || VNFTerm.lss(a, b));
+          case "phi":
+            //TODO
+            break;
+        }
         break;
     }
   }
