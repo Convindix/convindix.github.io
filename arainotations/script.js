@@ -109,9 +109,9 @@ class VNFTerm extends CSymbol{
             break;
           case "sum":
             for(var i = 0; i<a.args.length; i++){
-              if(VNFTerm.lss(a.args[i], b.args[i]){
+              if(VNFTerm.lss(a.args[i], b.args[i])){
                 return true;
-              }else if(VNFTerm.lss(b.args[i], a.args[i]){
+              }else if(VNFTerm.lss(b.args[i], a.args[i])){
                 return false;
               }
               if(i == a.args.length-1 && a.args.length < b.args.length){ //a ran out of addends
