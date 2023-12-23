@@ -161,9 +161,9 @@ class VNFTerm extends CSymbol{
       return new CSymbol('0');
     } else if (hasPlusOnBaseLevel(str)) { //Sum
       var summands = splitOnBasePluses(str);
-      return new LCNFTerm("sum", summands.map(LCNFTerm.parseToTerm));
+      return new VNFTerm("sum", summands.map(VNFTerm.parseToTerm));
     } else if (str.slice(0, 2) == "f(" && str[str.length - 1] == ")") { //phi(a,b)
-      return new LCNFTerm("phi", LCNFTerm.parseToTerm(str.slice(3, -1)));
+      return new VNFTerm("phi", VNFTerm.parseToTerm(str.slice(3, -1)));
     } else {
       throw "Invalid term";
     }
