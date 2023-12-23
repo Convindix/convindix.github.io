@@ -211,3 +211,10 @@ function testcnfstd() {
   console.log(term);
   console.log(term.isStd());
 }
+
+function testvnfstd() {
+  var str = document.getElementById("testvnf").value;
+  var term = VNFTerm.parseToTerm(str);
+  console.log(term);
+  console.log(term.isStd());
+}
