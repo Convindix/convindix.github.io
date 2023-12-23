@@ -163,7 +163,7 @@ class VNFTerm extends CSymbol{
       var summands = splitOnBasePluses(str);
       return new LCNFTerm("sum", summands.map(LCNFTerm.parseToTerm));
     } else if (str.slice(0, 2) == "f(" && str[str.length - 1] == ")") { //phi(a,b)
-      return new LCNFTerm("lexp", LCNFTerm.parseToTerm(str.slice(3, -1)));
+      return new LCNFTerm("phi", LCNFTerm.parseToTerm(str.slice(3, -1)));
     } else {
       throw "Invalid term";
     }
