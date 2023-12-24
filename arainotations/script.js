@@ -91,7 +91,7 @@ class VNFTerm extends CSymbol{
   /* func is "0", "sum", or "phi"
   args is array of Terms */
   constructor(func, args){
-    this.func = func;
+    super(func);
     this.args = args;
   }
   static equ(a, b){
