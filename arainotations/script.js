@@ -162,8 +162,8 @@ class VNFTerm extends CSymbol{
     } else if (hasPlusOnBaseLevel(str)) { //Sum
       var summands = splitOnBasePluses(str);
       return new VNFTerm("sum", summands.map(VNFTerm.parseToTerm));
-    } else if (str.slice(0, 1) == "f(" && str[str.length - 1] == ")") { //phi(a,b)
-      return new VNFTerm("phi", VNFTerm.parseToTerm(str.slice(3, -1)));
+    } else if (str.slice(0, 2) == "f(" && str[str.length - 1] == ")") { //phi(a,b)
+      return new VNFTerm("phi", VNFTerm.parseToTerm(str.slice(2, -1)));
     } else {
       throw "Invalid term";
     }
