@@ -76,8 +76,8 @@ class LCNFTerm extends CSymbol { //Base-Lambda CNF, an array of MultLambdaExp's.
     */
     if (str == "0") {
       return new CSymbol('0');
-    } else if (hasPlusOnBaseLevel(str)) { //Sum
-      var summands = splitOnBasePluses(str);
+    } else if (hasCharOnBaseLevel(str, '+')) { //Sum
+      var summands = splitOnBaseChars(str, '+');
       return new LCNFTerm("sum", summands.map(LCNFTerm.parseToTerm));
     } else if (str.slice(0, 3) == "L^(" && str[str.length - 1] == ")") { //w^a
       return new LCNFTerm("lexp", LCNFTerm.parseToTerm(str.slice(3, -1)));
@@ -159,18 +159,20 @@ class VNFTerm extends CSymbol{
     */
     if (str == "0") {
       return new CSymbol('0');
-    } else if (hasPlusOnBaseLevel(str)) { //Sum
-      var summands = splitOnBasePluses(str);
+    } else if (hasCharOnBaseLevel(str, '+')) { //Sum
+      var summands = splitOnBaseChars(str, '+');
       return new VNFTerm("sum", summands.map(VNFTerm.parseToTerm));
-    } else if (str.slice(0, 2) == "f(" && str[str.length - 1] == ")") { //phi(a,b)
-      return new VNFTerm("phi", VNFTerm.parseToTerm(str.slice(2, -1)));
+    } else if (str.slice(0, 2) == "f(" && str[str.length - 1] == ")" && hasCharOnBaseLevel(str, ',')) { //phi(a,b)
+      var argument = str.slice(2, -1);
+      var args = splitOnBaseChars(argument, ',');
+      return new VNFTerm("phi", args.map(VNF.parseToTerm));
     } else {
       throw "Invalid term";
     }
   }
 }
 
-function hasPlusOnBaseLevel(str) { //Is there a '+' on the "base level" of str, not enclosed in any pairs of parentheses?
+function hasCharOnBaseLevel(str, char) { //Is there a given character on the "base level" of str, not enclosed in any pairs of parentheses? E.g. '+' or ',' characters on base level
   var depth = 0;
   for (var i = 0; i < str.length; i++) {
     if (str[i] == '(') {
@@ -179,14 +181,14 @@ function hasPlusOnBaseLevel(str) { //Is there a '+' on the "base level" of str, 
     if (str[i] == ')') {
       depth--;
     }
-    if (str[i] == '+' && depth == 0) {
+    if (str[i] == char && depth == 0) {
       return true;
     }
   }
   return false;
 }
 
-function splitOnBasePluses(str) { //Returns array of pieces of str split on base-level pluses
+function splitOnBaseChars(str) { //Returns array of pieces of str split on base-level instances of a given character (e.g. '+')
   var pieces = [""];
   var depth = 0;
   for (var i = 0; i < str.length; i++) {
@@ -196,7 +198,7 @@ function splitOnBasePluses(str) { //Returns array of pieces of str split on base
     if (str[i] == ')') {
       depth--;
     }
-    if (str[i] == '+' && depth == 0) {
+    if (str[i] == char && depth == 0) {
       pieces.push("");
     } else { //Other characters fall into pieces
       pieces[pieces.length - 1] = pieces[pieces.length - 1] + str[i];
