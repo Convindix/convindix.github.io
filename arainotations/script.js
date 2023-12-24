@@ -162,7 +162,7 @@ class VNFTerm extends CSymbol{
     } else if (hasCharOnBaseLevel(str, '+')) { //Sum
       var summands = splitOnBaseChars(str, '+');
       return new VNFTerm("sum", summands.map(VNFTerm.parseToTerm));
-    } else if (str.slice(0, 2) == "f(" && str[str.length - 1] == ")" && hasCharOnBaseLevel(str, ',')) { //phi(a,b)
+    } else if (str.slice(0, 2) == "f(" && str[str.length - 1] == ")" && splitOnBaseChars(str, ',').length == 2) { //phi(a,b), with two arguments separated by comma
       var argument = str.slice(2, -1);
       var args = splitOnBaseChars(argument, ',');
       return new VNFTerm("phi", args.map(VNF.parseToTerm));
@@ -207,15 +207,15 @@ function splitOnBaseChars(str) { //Returns array of pieces of str split on base-
   return pieces;
 }
 
-function testcnfstd() {
-  var str = document.getElementById("testcnf").value;
+function testCNFStd() {
+  var str = document.getElementById("testCNF").value;
   var term = LCNFTerm.parseToTerm(str);
   console.log(term);
   console.log(term.isStd());
 }
 
-function testvnfstd() {
-  var str = document.getElementById("testvnf").value;
+function testVNFStd() {
+  var str = document.getElementById("testVNF").value;
   var term = VNFTerm.parseToTerm(str);
   console.log(term);
   console.log(term.isStd());
