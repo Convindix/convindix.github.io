@@ -188,7 +188,7 @@ function hasCharOnBaseLevel(str, char) { //Is there a given character on the "ba
   return false;
 }
 
-function splitOnBaseChars(str) { //Returns array of pieces of str split on base-level instances of a given character (e.g. '+')
+function splitOnBaseChars(str, char) { //Returns array of pieces of str split on base-level instances of a given character (e.g. '+')
   var pieces = [""];
   var depth = 0;
   for (var i = 0; i < str.length; i++) {
