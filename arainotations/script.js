@@ -159,12 +159,12 @@ class VNFTerm extends CSymbol{
     */
     if (str == "0") {
       return new CSymbol('0');
-    } else if (hasCharOnBaseLevel(str, '+')) { //Sum
+    } else if (hasCharAtBaseLevel(str, '+')) { //Sum
       var summands = splitOnBaseChars(str, '+');
       return new VNFTerm("sum", summands.map(VNFTerm.parseToTerm));
-    } else if (str.slice(0, 2) == "f(" && str[str.length - 1] == ")" && splitOnBaseChars(str, ',').length == 2) { //phi(a,b), with two arguments separated by comma
+    } else if (str.slice(0, 2) == "f(" && str[str.length - 1] == ")" && splitOnCharsAtGivenDepth(str, ',', 1).length == 2) { //phi(a,b), with two arguments separated by comma
       var argument = str.slice(2, -1);
-      var args = splitOnBaseChars(argument, ',');
+      var args = splitOnCharsAtGivenDepth(argument, ',', 1);
       return new VNFTerm("phi", args.map(VNF.parseToTerm));
     } else {
       throw "Invalid term";
@@ -172,7 +172,8 @@ class VNFTerm extends CSymbol{
   }
 }
 
-function hasCharOnBaseLevel(str, char) { //Is there a given character on the "base level" of str, not enclosed in any pairs of parentheses? E.g. '+' or ',' characters on base level
+function hasCharAtGivenDepth(str, char, givenDepth) { //Does char appear in str within pairs of parentheses to the given depth?
+  //For example, hasCharAtGivenDepth("f(c+d,e+f(g,h))", "+", 1) is true, hasCharAtGivenDepth("f(c+d,e+f(g,h))", "+", 0) is false
   var depth = 0;
   for (var i = 0; i < str.length; i++) {
     if (str[i] == '(') {
@@ -181,14 +182,14 @@ function hasCharOnBaseLevel(str, char) { //Is there a given character on the "ba
     if (str[i] == ')') {
       depth--;
     }
-    if (str[i] == char && depth == 0) {
+    if (str[i] == char && depth == givenDepth) {
       return true;
     }
   }
   return false;
 }
 
-function splitOnBaseChars(str, char) { //Returns array of pieces of str split on base-level instances of a given character (e.g. '+')
+function splitOnCharAtGivenDepth(str, char, givenDepth) { //Splits str on every instance of char that's at depth givenDepth in parentheses
   var pieces = [""];
   var depth = 0;
   for (var i = 0; i < str.length; i++) {
@@ -198,13 +199,21 @@ function splitOnBaseChars(str, char) { //Returns array of pieces of str split on
     if (str[i] == ')') {
       depth--;
     }
-    if (str[i] == char && depth == 0) {
+    if (str[i] == char && depth == givenDepth) {
       pieces.push("");
     } else { //Other characters fall into pieces
       pieces[pieces.length - 1] = pieces[pieces.length - 1] + str[i];
     }
   }
   return pieces;
+}
+
+function hasCharOnBaseLevel(str, char){ //Does char appear in str at the "base level", not enclosed in parentheses?
+  return hasCharAtGivenDepth(str, char, 0);
+}
+
+function splitOnBaseChars(str, char){ //Splits str on instances of char at "base level"
+  return splitOnCharAtGivenDepth(str, char, 0);
 }
 
 function testCNFStd() {
