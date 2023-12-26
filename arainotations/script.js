@@ -159,7 +159,7 @@ class VNFTerm extends CSymbol{
     */
     if (str == "0") {
       return new CSymbol('0');
-    } else if (hasCharAtBaseLevel(str, '+')) { //Sum
+    } else if (hasCharOnBaseLevel(str, '+')) { //Sum
       var summands = splitOnBaseChars(str, '+');
       return new VNFTerm("sum", summands.map(VNFTerm.parseToTerm));
     } else if (str.slice(0, 2) == "f(" && str[str.length - 1] == ")" && splitOnCharsAtGivenDepth(str, ',', 1).length == 2) { //phi(a,b), with two arguments separated by comma
