@@ -151,6 +151,7 @@ class VNFTerm extends CSymbol{
     }
   }
   static parseToTerm(str) {
+    console.log(str);
     /*Parses string to VNFTerm, looking for these tokens:
     0 - becomes CSymbol {func: '0'}
     f(a,b) - becomes Term {func: "phi", args: [a,b]}
