@@ -165,7 +165,7 @@ class VNFTerm extends CSymbol{
       return new VNFTerm("sum", summands.map(VNFTerm.parseToTerm));
     } else if (str.slice(0, 2) == "f(" && str[str.length - 1] == ")" && splitOnCharAtGivenDepth(str, ',', 1).length == 2) { //phi(a,b), with two arguments separated by comma
       var argument = str.slice(2, -1);
-      var args = splitOnCharAtGivenDepth(argument, ',', 1);
+      var args = splitOnBaseChars(argument, ',');
       console.log(args);
       args[0] = args[0].slice(2); //Remove "f(" from args[0]
       args[1] = args[1].slice(0,-1); //Remove ")" from args[1]
