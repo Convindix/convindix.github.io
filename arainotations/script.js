@@ -177,9 +177,17 @@ class VNFTerm extends CSymbol{
       case "0":
         return true;
       case "sum":
-        //TODO: lexicographic check here
+        if(this.args.length < 2){
+          return false;
+        }
+        for(var i = 0; i < this.args.length - 1; i++){
+          if(VNFTerm.lss(this.args[i], this.args[i+1])){ //Summands that increase
+            return false;
+          }
+        }
+        return true;
       case "phi":
-        return VNFTerm.lss(a.args[0], a) && VNFTerm.lss(a.args[1], a); //From https://googology.fandom.com/wiki/List_of_systems_of_fundamental_sequences#Veblen_Normal_Form
+        return VNFTerm.lss(this.args[0], this) && VNFTerm.lss(this.args[1], this); //From https://googology.fandom.com/wiki/List_of_systems_of_fundamental_sequences#Veblen_Normal_Form
     }
   }
 }
