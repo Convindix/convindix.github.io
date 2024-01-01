@@ -151,7 +151,6 @@ class VNFTerm extends CSymbol{
     }
   }
   static parseToTerm(str) {
-    console.log(str);
     /*Parses string to VNFTerm, looking for these tokens:
     0 - becomes CSymbol {func: '0'}
     f(a,b) - becomes Term {func: "phi", args: [a,b]}
@@ -166,7 +165,6 @@ class VNFTerm extends CSymbol{
     } else if (str.slice(0, 2) == "f(" && str[str.length - 1] == ")" && splitOnCharAtGivenDepth(str, ',', 1).length == 2) { //phi(a,b), with two arguments separated by comma
       var argument = str.slice(2, -1);
       var args = splitOnBaseChars(argument, ',');
-      console.log(args);
       return new VNFTerm("phi", args.map(VNFTerm.parseToTerm));
     } else {
       throw "Invalid term";
