@@ -167,8 +167,6 @@ class VNFTerm extends CSymbol{
       var argument = str.slice(2, -1);
       var args = splitOnBaseChars(argument, ',');
       console.log(args);
-      args[0] = args[0].slice(2); //Remove "f(" from args[0]
-      args[1] = args[1].slice(0,-1); //Remove ")" from args[1]
       return new VNFTerm("phi", args.map(VNFTerm.parseToTerm));
     } else {
       throw "Invalid term";
