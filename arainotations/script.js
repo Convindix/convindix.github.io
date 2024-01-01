@@ -172,6 +172,16 @@ class VNFTerm extends CSymbol{
       throw "Invalid term";
     }
   }
+  isStd(){ //Tentative standardness algorithm
+    switch(this.func){
+      case "0":
+        return true;
+      case "sum":
+        //TODO: lexicographic check here
+      case "phi":
+        return VNFTerm.lss(a.args[0], a) && VNFTerm.lss(a.args[1], a); //From https://googology.fandom.com/wiki/List_of_systems_of_fundamental_sequences#Veblen_Normal_Form
+    }
+  }
 }
 
 function hasCharAtGivenDepth(str, char, givenDepth) { //Does char appear in str within pairs of parentheses to the given depth?
