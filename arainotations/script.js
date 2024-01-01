@@ -133,7 +133,7 @@ class VNFTerm extends CSymbol{
           case "0":
           case "sum":
             return !(VNFTerm.equ(a, b) || VNFTerm.lss(b, a));
-          case "phi":
+          case "phi": //Currently inaccurate for f(0,f(1,0)) vs f(1,0)
             var asub = a.args[0];
             var aarg = a.args[1];
             var bsub = b.args[0];
