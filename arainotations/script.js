@@ -97,7 +97,14 @@ class VNFTerm extends CSymbol{
     this.args = args;
   }
   static equ(a, b){ //TODO: Change this to "practical equality" (e.g. f(0,f(1,0)) == f(1,0))
-    return JSON.stringify(a) == JSON.stringify(b);
+    if(JSON.stringify(a) == JSON.stringify(b)){
+      return true;
+    }
+    if(a.func == "phi" && b.func == "phi"){
+      if(VNFTerm.lss(a.args[0], b.args[0]) && b.args[1].func == "0"){
+        return true;
+      }
+    }
   }
   static lss(a, b){
     switch(a.func){
