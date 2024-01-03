@@ -1,106 +1,48 @@
 class CSymbol { //Constant symbol
-  constructor(symbol) {
-    this.symbol = symbol; //Currently only "0" used
+  constructor(symb) {
+    this.symb = symb; //Currently only "0" used
   }
 }
 
 class Phi{
   /*
-  Phi with index=a and arg=b is phi(a,b)
-  typeof index is Term
+  Phi with sub=a and arg=b is Veblen phi(a,b) (not Rathjen's capital Phi function)
+  typeof sub is Term
   typeof arg is Term*/
-  constructor(index, args){
-    this.index = index;
+  constructor(sub, arg){
+    this.sub = sub;
     this.arg = arg;
   }
   static equ(a, b){ //TODO: Change this to "practical equality" (e.g. f(0,f(1,0)) == f(1,0))
     if(JSON.stringify(a) == JSON.stringify(b)){
       return true;
     }
-    if(a.func == "phi" && b.func == "phi"){
-      if(VNFTerm.lss(a.args[0], b.args[0]) && b.args[1].func == "0"){
-        return true;
-      }
+    if(VNFTerm.lss(a.sub, b.sub) && b.arg.func == "0"){
+      return true;
     }
   }
-  static lss(a, b){
-    switch(a.func){
-      case "0":
-        return b.func != "0";
-        break;
-      case "sum":
-        switch(b.func){
-          case "0":
-            return false; //a's summands assumed to be >0
-            break;
-          case "sum":
-            for(var i = 0; i<a.args.length; i++){
-              if(VNFTerm.lss(a.args[i], b.args[i])){
-                return true;
-              }else if(VNFTerm.lss(b.args[i], a.args[i])){
-                return false;
-              }
-              if(i == a.args.length-1 && a.args.length < b.args.length){ //a ran out of addends
-                return true;
-              }
-            }
-            return false; //Equal
-          case "phi":
-            for(var i = 0; i<a.args.length; i++){
-              if(!VNFTerm.lss(a.args[i], b)){
-                return false;
-              }
-            }
-            return true;
-        }
-        break;
-      case "phi":
-        switch(b.func){
-          case "0":
-          case "sum":
-            return !(VNFTerm.equ(a, b) || VNFTerm.lss(b, a));
-          case "phi": //Currently inaccurate for f(0,f(1,0)) vs f(1,0). The bug is that VNFTerm.equ is not "practical equality", but string equality
-            var asub = a.args[0];
-            var aarg = a.args[1];
-            var bsub = b.args[0];
-            var barg = b.args[1];
-            if(VNFTerm.lss(asub, bsub)){
-              return VNFTerm.lss(aarg, b);
-            }else if(VNFTerm.equ(asub, bsub)){
-              return VNFTerm.lss(aarg, barg);
-            }else{ //asub > bsub
-              return !(VNFTerm.equ(a, b) || VNFTerm.lss(b, a));
-            }
-            break;
-        }
-        break;
+  static lss(a, b){//Currently inaccurate for f(0,f(1,0)) vs f(1,0). The bug is that VNFTerm.equ is not "practical equality", but string equality
+    if(Phi.lss(a.sub, b.sub)){
+      return Phi.lss(a.arg, b);
+    }else if(Phi.equ(a.sub, b.sub)){
+      return Phi.lss(a.arg, b.arg);
+    }else{ //asub > bsub
+      return !(Phi.equ(a, b) || Phi.lss(b, a));
     }
+  }
+  isFixedPoint(a){ //Is this a fixed point of phi_a?
+    return TODO;
   }
   isStd(){ //Tentative standardness algorithm
-    switch(this.func){
-      case "0":
-        return true;
-      case "sum":
-        if(this.args.length < 2){
-          return false;
-        }
-        for(var i = 0; i < this.args.length - 1; i++){
-          if(VNFTerm.lss(this.args[i], this.args[i+1])){ //Summands that increase
-            return false;
-          }
-        }
-        return true;
-      case "phi":
-        return VNFTerm.lss(this.args[0], this) && VNFTerm.lss(this.args[1], this); //From https://googology.fandom.com/wiki/List_of_systems_of_fundamental_sequences#Veblen_Normal_Form
-    }
+    return VNFTerm.lss(this.args[0], this) && VNFTerm.lss(this.args[1], this); //From https://googology.fandom.com/wiki/List_of_systems_of_fundamental_sequences#Veblen_Normal_Form
   }
-  static parseToTerm(str) {
+  /*static parseToTerm(str) {
     /*Parses string to VNFTerm, looking for these tokens:
     0 - becomes CSymbol {func: '0'}
     f(a,b) - becomes Term {func: "phi", args: [a,b]}
     a+b+...+z (expanded greedily) - becomes CSymbol {type: "sum", arg: [a,b,...,z]}
     Will throw error for any string with balanced parentheses, since only the outermost pair of parentheses is removed at each step of recursion
-    */
+    * /
     if (str == "0") {
       return new CSymbol('0');
     } else if (hasCharOnBaseLevel(str, '+')) { //Sum
@@ -113,14 +55,14 @@ class Phi{
     } else {
       throw "Invalid term";
     }
-  }
+  }*/
 }
 
-class MultLambdaExp{ //A single "a*Lambda^b", a intended to be <Lambda
+/*class MultLambdaExp{ //A single "a*Lambda^b", a intended to be <Lambda
   //Not sure how to make it so that CSymbol not a sybtype of this, but this is a subtype of Term
   constructor(coeff, exp){
     /*typeof coeff is LCNFTerm
-    typeof exp is LCNFTerm*/
+    typeof exp is LCNFTerm* /
     this.coeff = coeff;
     this.exp = exp;
   }
@@ -136,10 +78,10 @@ class LCNFTerm extends CSymbol { //Base-Lambda CNF, an array of MultLambdaExp's.
   /*Note that implementation of "0" is rolled into MultLambdaExp (i.e. to use 0 in a hereditary LCNF representation, e.g. as in 3*L^(0*L^0)), use a MultLambdaExp as in 0*^L^0 or similar.
     Assumptions:
     Bases of any MultLambdaExp's appearing in this.arg match
-    All summands are >0*/
+    All summands are >0* /
   constructor(func, arg) {
     /*typeof func is string
-    typeof arg is either undefined or an array of MultLambdaExps*/
+    typeof arg is either undefined or an array of MultLambdaExps* /
     super(func);
     this.arg = arg;
   }
@@ -187,7 +129,7 @@ class LCNFTerm extends CSymbol { //Base-Lambda CNF, an array of MultLambdaExp's.
     L^(a) - becomes Term {func: "lexp", arg: a}
     a+b+...+z (expanded greedily) - becomes CSymbol {type: "sum", arg: [a,b,...,z]}
     Will throw error for any string with unbalanced parentheses, since only the outermost pair of parentheses is removed at each step of recursion
-    */
+    * /
     if (str == "0") {
       return new CSymbol('0');
     } else if (hasCharOnBaseLevel(str, '+')) { //Sum
@@ -199,7 +141,7 @@ class LCNFTerm extends CSymbol { //Base-Lambda CNF, an array of MultLambdaExp's.
       throw "Invalid term";
     }
   }
-}
+}*/
 
 function hasCharAtGivenDepth(str, char, givenDepth) { //Does char appear in str within pairs of parentheses to the given depth?
   //For example, hasCharAtGivenDepth("f(c+d,e+f(g,h))", "+", 1) is true, hasCharAtGivenDepth("f(c+d,e+f(g,h))", "+", 0) is false
@@ -245,12 +187,12 @@ function splitOnBaseChars(str, char){ //Splits str on instances of char at "base
   return splitOnCharAtGivenDepth(str, char, 0);
 }
 
-function testCNFStd() {
+/*function testCNFStd() {
   var str = document.getElementById("testCNF").value;
   var term = LCNFTerm.parseToTerm(str);
   console.log(term);
   console.log(term.isStd());
-}
+}*/
 
 function testVNFStd() {
   var str = document.getElementById("testVNF").value;
