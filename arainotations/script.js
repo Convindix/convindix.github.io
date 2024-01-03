@@ -81,7 +81,7 @@ class LCNFTerm extends CSymbol { //Base-Lambda CNF, an array of MultLambdaExp's.
     } else if (hasCharOnBaseLevel(str, '+')) { //Sum
       var summands = splitOnBaseChars(str, '+');
       return new LCNFTerm("sum", summands.map(LCNFTerm.parseToTerm));
-    } else if (str.slice(0, 3) == "L^(" && str[str.length - 1] == ")") { //w^a
+    } else if (str.slice(0, 3) == "L^(" && str[str.length - 1] == ")") { //L^a, TODO: make this include the coefficients
       return new LCNFTerm("lexp", LCNFTerm.parseToTerm(str.slice(3, -1)));
     } else {
       throw "Invalid term";
