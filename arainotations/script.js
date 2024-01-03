@@ -4,7 +4,7 @@ class CSymbol { //Constant symbol
   }
 }
 
-class MultLambdaExp{ //A single "a*Lambda^b", a intended to be <base
+class MultLambdaExp{ //A single "a*Lambda^b", a intended to be <Lambda
   //Not sure how to make it so that CSymbol not a sybtype of this, but this is a subtype of Term
   constructor(coeff, exp){
     /*typeof coeff is LCNFTerm
