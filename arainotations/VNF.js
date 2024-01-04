@@ -14,11 +14,11 @@ class Phi{
     this.arg = arg;
   }
   static equ(a, b){ //TODO: Change this to "practical equality" (e.g. f(0,f(1,0)) == f(1,0))
-    if(JSON.stringify(a) == JSON.stringify(b)){
-      return true;
+    if(Term.lss(a.sub, b.sub) && !a.arg.isFixedPoint(a.sub)){ //If alpha<gamma and beta not a fixed point of phi_alpha, then phi_alpha(beta) != phi_gamma(delta), since ran(phi_gamma) consists only of f.p.s of phi_alpha
+      return false;
     }
-    if(VNFTerm.lss(a.sub, b.sub) && b.arg.func == "0"){
-      return true;
+    if(Term.equ(a.sub, b.sub) && !Term.equ(a.arg, b.arg)){ //If alpha=gamma and beta != delta, then phi_alpha(beta) != phi_gamma(delta), by injectivity
+      return false;
     }
   }
   static lss(a, b){//Currently inaccurate for f(0,f(1,0)) vs f(1,0). The bug is that VNFTerm.equ is not "practical equality", but string equality
