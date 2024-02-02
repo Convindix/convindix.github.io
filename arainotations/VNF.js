@@ -31,7 +31,7 @@ class Phi{
     }
   }
   isFixedPoint(a){ //Is this a fixed point of phi_a?
-    return TODO;
+    return Phi.lss(a, this.sub) || this.arg.isFixedPoint(a);
   }
   isStd(){ //Tentative standardness algorithm
     return VNFTerm.lss(this.args[0], this) && VNFTerm.lss(this.args[1], this); //From https://googology.fandom.com/wiki/List_of_systems_of_fundamental_sequences#Veblen_Normal_Form
