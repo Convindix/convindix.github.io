@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+
+<h1>Just how big is the smallest worldly cardinal anyway?</h1>
+
+<p>Dr. Kameryn J. Williams has an excellent blog post, "<a href="https://kamerynblog.wordpress.com/2017/01/13/just-how-big-is-the-smallest-inaccessible-cardinal-anyway/">Just how big is the smallest inaccessible cardinal anyway?</a>", which investigates the structure of worldly cardinals below the least inaccessible cardinal.</p> They build longer and longer towers of worldly cardinals situated below the least inaccessible $\kappa$ (Williams calls these "$\eta$-towers" of worldly cardinals, for $\eta<\kappa$), and finally they extend the notion of $\eta$-tower even further using Carmody's meta-ordinal terms (as in "<a href="https://arxiv.org/abs/1506.03432">Force to change large cardinal strength</a>"). In this post I aim to similarly show the immense size below even the smallest worldly cardinal. In this way worldly cardinals are large from their own perspective, like how inaccessible cardinals are large from their own perspective.</p>
+
+<p>As the building blocks Williams used below the least inaccessible cardinal were worldly cardinals, the building blocks we will use below the least worldly cardinal are aleph fixed points. A cardinal $\theta$ is said to be an aleph fixed point if $\aleph_\theta=\theta$. In this post, let $\lambda$ denote the least worldly cardinal.</p>
+
+<!--<h2>Part I: Normal functions</h2>-->
+
+<p>A normal function is a function $f:\mathrm{Ord}\to\mathrm{Ord}$ such that $f$ is strictly increasing and continuous. Oswald Veblen <a href="https://en.wikipedia.org/wiki/Fixed-point_lemma_for_normal_functions">proved</a> in 1908 that every normal function has fixed point (i.e. an $\alpha$ where $f(\alpha)=\alpha$) arbitrarily high. As ZFC proves that the aleph function is normal, $V_\lambda$ satisfies "there are arbitrarily large fixed point of the aleph function", so for any $\beta<\lambda$, an $\alpha$ can be found such that $\beta<\alpha<\lambda$ and $\alpha=\aleph_\alpha$. Taking terminology from Williams, the aleph fixed points below $\lambda$ form something like a $1$-tower.</p>
+
+<p>But Veblen says more: if $f$ is normal, not just do the fixed points of $f$ form an unbounded class, but they form a club class. As normal functions are exactly the enumerating functions of club classes of ordinals, the function enumerating the fixed points of $f$ is again a normal function. If we define $\Phi_0(\alpha)=\aleph_\alpha$, and $\Phi_{n+1}(\alpha)$ to be the function enumerating fixed points of $\Phi_n$ for all natural numbers $n$, ZFC will prove for any natural number $n$ that the range of $\Phi_n$ is nonempty, and $V_\lambda$ satisfies this. Thus below $\lambda$, there is a cardinal that is a fixed point in the enumeration of alephs, a cardinal that is a fixed point in the enumeration of fixed points in the enumeration of alephs, a cardinal that is a fixed point in the enumeration of fixed points in the enumeration of fixed points in the enumeration of alephs, etc. for any finte iteration of taking fixed points.</p>
+
+<p>Veblen goes even further, showing that this construction can be iterated transfinitely, with each function enumerating the fixed points in common between all previous functions in the hierarchy. (The special case where the initial function is $f(\alpha)=\omega^\alpha$ led to what is now known as the <a href="https://en.wikipedia.org/wiki/Veblen_function">Veblen function</a>.) In our aleph fixed point example, for an ordinal $\gamma$, $\Phi_\beta$ is the function enumerating aleph numbers $\alpha$ such that for each $\gamma<\beta$, $\alpha$ is a fixed point of $\Phi_\gamma$. For instance, the aforementioned "fixed point in the enumeration of fixed points in the enumeration of aleph numbers" is $\Phi_2(0)$ in this notation. By considering $\Phi_\beta(\alpha)$ as a class function with two inputs $\alpha$ and $\beta$, ZFC can prove the totality of $\Phi$. Therefore for any $\alpha,\beta<\lambda$, we have $\Phi_\beta(\alpha)<\lambda$. (The $\Phi$ function has been considered before by Michael Rathjen, e.g. in "<a href="http://www1.maths.leeds.ac.uk/~rathjen/Ord_Notation_Weakly_Mahlo.pdf">Ordinal Notations Based on a Weakly Mahlo Cardinal</a>", 1990.)</p>
+
+<p>To put this in the terminology of Williams's work, define a notion of towers for aleph fixed points. In our case it will be easier to unify the successor and limit cases. Let a $0$-tower be a set of aleph numbers which is club in some ordinal, and for $\beta>0$, let a $\beta$-tower be a $0$-tower each of whose members is the supremum of a $\gamma$-tower for all $\gamma<\beta$. Then it can be shown that for all $\beta<\lambda$, there is a $\beta$-tower $C_\beta$ whose supremum is $\lambda$.</p>
+
+<p><b>Proof:</b> By transfinite induction on $\beta<\lambda$. If $\beta=0$, then as $\lambda$ is a weak limit cardinal, it suffices to let $C_0$ be the set of aleph numbers less than $\lambda$, as this is unbounded in $\lambda$. If $\beta>0$, then let $C_\beta$ be the range of $\Phi_\beta$. By induction hypothesis, for any $\gamma<\beta$ we have $\Phi_\gamma$ as a sufficient $C_\gamma$, and as the range of $\Phi_\beta$ consists of fixed points of $\Phi_\gamma$, there will be an unbounded $\gamma$-tower below any $\delta\in C_\beta$ obtained by intersecting $C_\gamma$ with $\delta$. $\square$</p>
+
+<!--<p>Yet this is just the beginning of the work that can be done below $\lambda$.</p>
+
+<h2>Part II: $\Sigma_2$-extendibility</h2>
+
+<p>Williams uses formal arithmetic terms in $\mathrm{Ord}$ to keep track of diagonal intersections, for example an $\mathrm{Ord}$-tower is a $\beta$-tower where $\beta$ is an ordinal that is a supremum of a $\beta$-tower. It would work here to define $\mathrm{Ord}$-towers, $\mathrm{Ord}^\mathrm{Ord}$-towers, etc. below $\lambda$, and show that for any arithmetic term $t$ built up by base-$\mathrm{Ord}$ Cantor normal form, $\lambda$ is a limit of $t$-towers. However, there are smaller cardinals for $\lambda$ that have this property as well, so this would give a looser lower bound than possible on the size of $\lambda$. To name even more structure below $\lambda$, we begin to use the $\Sigma_2$-extendible cardinals.</p>
+
+<p>A cardinal $\theta$ is <a href="https://neugierde.github.io/cantors-attic/Extendible#sigma_n-extendible-cardinals">$\Sigma_2$-extendible</a> if there exists an ordinal $\beta>\theta$ such that $V_\theta\prec_{\Sigma_2}V_\beta$, where $\prec_{\Sigma_2}$ denotes elementary substructurehood except only considering $\Sigma_2$ formulas. If $\theta$ is a $\Sigma_2$-extendible cardinal such that $V_\theta\prec_{\Sigma_2}V_\beta$, then $V_\beta$ satisfies "$\theta$ is $\Sigma_2$-correct", where $\theta$ being <a href="https://neugierde.github.io/cantors-attic/Reflecting#reflection-and-correctness">$\Sigma_2$-correct</a> means $V_\theta\prec_{\Sigma_2}V$.</p> As ZFC proves that there is a correct cardinal, there is a cardinal $\pi$ such that $V_\pi\prec_{\Sigma_2}V_\lambda$ (in fact a set of such $\pi$ club in $\lambda$). Let $\pi$ denote the least of these cardinals.</p>
+
+<p>Define a function $A:\lambda\to\mathcal P(\pi)$ by transfinite recursion: If $\alpha=0$ then $A(\alpha)$ is the set of aleph numbers $<\pi$, if $\alpha=\beta+1$ then $A(\alpha)$ is the set</p>-->
+
+</body>
+</html>
