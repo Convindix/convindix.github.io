@@ -47,7 +47,7 @@ class VNFTerm extends Phi{
     f(a,b) - becomes Term {func: "phi", args: [a,b]}
     a+b+...+z (expanded greedily) - becomes CSymbol {type: "sum", arg: [a,b,...,z]}
     Will throw error for any string with balanced parentheses, since only the outermost pair of parentheses is removed at each step of recursion
-    * /
+    */
     if (str == "0") {
       return new CSymbol('0');
     } else if (hasCharOnBaseLevel(str, '+')) { //Sum
