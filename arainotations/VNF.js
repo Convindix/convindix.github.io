@@ -7,19 +7,19 @@ class CSymbol { //Constant symbol
 class Phi{
   /*
   Phi with sub=a and arg=b is Veblen phi(a,b) (not Rathjen's capital Phi function)
-  typeof sub is Term
-  typeof arg is Term*/
+  typeof sub is Term. For now it is VNFTerm, change this later
+  typeof arg is Term. For now it is VNFTerm, change this later*/
   constructor(sub, arg){
     this.sub = sub;
     this.arg = arg;
   }
   static equ(a, b){
-    if(Term.lss(a.sub, b.sub)){ //If alpha<gamma, then phi_alpha(beta) = phi_gamma(delta) iff phi_alpha(beta) = phi_alpha(phi_gamma(delta)) iff beta = phi_gamma(delta)
-      return Term.equ(a.arg, b);
-    }else if(Term.equ(a.sub, b.sub)){ //phi_alpha(beta) = phi_alpha(delta) iff beta=delta, by injectivity
-      return Term.equ(a.arg, b.arg);
+    if(VNFTerm.lss(a.sub, b.sub)){ //If alpha<gamma, then phi_alpha(beta) = phi_gamma(delta) iff phi_alpha(beta) = phi_alpha(phi_gamma(delta)) iff beta = phi_gamma(delta)
+      return VNFTerm.equ(a.arg, b);
+    }else if(VNFTerm.equ(a.sub, b.sub)){ //phi_alpha(beta) = phi_alpha(delta) iff beta=delta, by injectivity
+      return VNFTerm.equ(a.arg, b.arg);
     }else{
-      return Term.equ(b, a);
+      return VNFTerm.equ(b, a);
     }
   }
   static lss(a, b){ //Is it currently accurate for f(0,f(1,0)) vs f(1,0)?
