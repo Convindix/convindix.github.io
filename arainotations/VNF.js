@@ -23,7 +23,11 @@ class Phi{
     }
   }
   static lss(a, b){ //Is it currently accurate for f(0,f(1,0)) vs f(1,0)?
-    if(Phi.lss(a.sub, b.sub)){
+    if(a instanceof CSymbol && a.symb == '0'){
+      return !(b instanceof CSymbol && b.symb == '0');
+    }else if(b instanceof CSymbol && b.symb == '0'){
+      return !(a instanceof CSymbol && b.symb == '0');
+    }else if(Phi.lss(a.sub, b.sub)){
       return Phi.lss(a.arg, b);
     }else if(Phi.equ(a.sub, b.sub)){
       return Phi.lss(a.arg, b.arg);
