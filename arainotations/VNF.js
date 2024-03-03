@@ -37,13 +37,13 @@ class Phi{
   isStd(){ //Tentative standardness algorithm
     return VNFTerm.lss(this.args[0], this) && VNFTerm.lss(this.args[1], this); //From https://googology.fandom.com/wiki/List_of_systems_of_fundamental_sequences#Veblen_Normal_Form
   }
-  /*static parseToTerm(str) {
+  static parseToTerm(str) {
     /*Parses string to VNFTerm, looking for these tokens:
     0 - becomes CSymbol {func: '0'}
     f(a,b) - becomes Term {func: "phi", args: [a,b]}
     a+b+...+z (expanded greedily) - becomes CSymbol {type: "sum", arg: [a,b,...,z]}
     Will throw error for any string with balanced parentheses, since only the outermost pair of parentheses is removed at each step of recursion
-    * /
+    */
     if (str == "0") {
       return new CSymbol('0');
     } else if (hasCharOnBaseLevel(str, '+')) { //Sum
@@ -56,7 +56,7 @@ class Phi{
     } else {
       throw "Invalid term";
     }
-  }*/
+  }
 }
 
 /*class MultLambdaExp{ //A single "a*Lambda^b", a intended to be <Lambda
