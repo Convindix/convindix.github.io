@@ -13,7 +13,7 @@ class Phi{
     this.sub = sub;
     this.arg = arg;
   }
-  static equ(a, b){ //TODO: Change this to "practical equality" (e.g. f(0,f(1,0)) == f(1,0))
+  static equ(a, b){
     if(Term.lss(a.sub, b.sub)){ //If alpha<gamma, then phi_alpha(beta) = phi_gamma(delta) iff phi_alpha(beta) = phi_alpha(phi_gamma(delta)) iff beta = phi_gamma(delta)
       return Term.equ(a.arg, b);
     }else if(Term.equ(a.sub, b.sub)){ //phi_alpha(beta) = phi_alpha(delta) iff beta=delta, by injectivity
@@ -22,7 +22,7 @@ class Phi{
       return Term.equ(b, a);
     }
   }
-  static lss(a, b){//Currently inaccurate for f(0,f(1,0)) vs f(1,0). The bug is that Phi.equ is not "practical equality", but string equality
+  static lss(a, b){ //Is it currently accurate for f(0,f(1,0)) vs f(1,0)?
     if(Phi.lss(a.sub, b.sub)){
       return Phi.lss(a.arg, b);
     }else if(Phi.equ(a.sub, b.sub)){
