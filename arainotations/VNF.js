@@ -37,13 +37,17 @@ class Phi{
   isStd(){ //Tentative standardness algorithm
     return VNFTerm.lss(this.args[0], this) && VNFTerm.lss(this.args[1], this); //From https://googology.fandom.com/wiki/List_of_systems_of_fundamental_sequences#Veblen_Normal_Form
   }
+}
+
+class VNFTerm extends Phi{
+  /* Term in Veblen normal form, includes all objects of type Phi */
   static parseToTerm(str) {
     /*Parses string to VNFTerm, looking for these tokens:
     0 - becomes CSymbol {func: '0'}
     f(a,b) - becomes Term {func: "phi", args: [a,b]}
     a+b+...+z (expanded greedily) - becomes CSymbol {type: "sum", arg: [a,b,...,z]}
     Will throw error for any string with balanced parentheses, since only the outermost pair of parentheses is removed at each step of recursion
-    */
+    * /
     if (str == "0") {
       return new CSymbol('0');
     } else if (hasCharOnBaseLevel(str, '+')) { //Sum
@@ -52,7 +56,7 @@ class Phi{
     } else if (str.slice(0, 2) == "f(" && str[str.length - 1] == ")" && splitOnCharAtGivenDepth(str, ',', 1).length == 2) { //phi(a,b), with two arguments separated by comma
       var argument = str.slice(2, -1);
       var args = splitOnBaseChars(argument, ',');
-      return new VNFTerm("phi", args.map(VNFTerm.parseToTerm));
+      return new Phi(VNFTerm.parseToTerm(args[0]), VNFTerm.parseToTerm(args[1]));
     } else {
       throw "Invalid term";
     }
