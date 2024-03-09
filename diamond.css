@@ -1,0 +1,32 @@
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+#main{
+  padding: 0.75em;
+  border: 1px solid #777777;
+  margin: 1.25em;
+  overflow: scroll;
+  max-width: 95%;
+  max-height: 90%;
+}
+
+#loseScreen{
+  position: absolute;
+  margin: -8px 0px 0px -8px;
+  width: 0%;
+  height: 0%;
+  overflow: hidden;
+  background-color: #FFFFFF;
+  opacity: 0%;
+}
+
+.fade-in{
+  animation: fadeIn 0.75s;
+}
+
+@keyframes fadeIn{
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
