@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Diamond game</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  A game based on a modified version of &diamondsuit;. Try to avoid constructing a sequence where one column is an
+  initial segment of the next. (It's possible to go on arbitrarily far without losing.)
+  <div id="main">
+    <div id="loseScreen">
+      <p>You made it to height <span id="finalHeight">#</span>, try again?</p>
+      <button onclick="init()">Retry</button>
+    </div>
+    <table>
+      <tbody id="gameTable" style="margin:0.5em">
+        <tr id="row3">
+          <td>
+            <input type="checkbox" id="box3,3" onclick="changeBoardValue(3,3)" enabled />
+          </td>
+        </tr>
+        <tr id="row2">
+          <td>
+            <input type="checkbox" id="box3,2" onclick="changeBoardValue(3,2)" enabled />
+          </td>
+        </tr>
+        <tr id="row1">
+          <td>
+            <input type="checkbox" id="box3,1" onclick="changeBoardValue(3,1)" enabled />
+          </td>
+        </tr>
+        <!-- Set names
+      <tr>
+        <td>A<sub>1</sub></td>
+      </tr> -->
+      </tbody>
+    </table>
+    <br />
+    <button id="nextButton" onclick="nextColumn()">Next &rightarrow;</button></button>
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>
