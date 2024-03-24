@@ -15,7 +15,7 @@
     }
     var c = $("draw").getContext("2d");
     for(var t = -10; t < 10; t += 0.025){
-      point(c, 256+Math.sin(theta)*60, 256-theta*20-Math.cos(theta)*10);
+      point(c, 256+Math.sin(t)*60, 256-t*20-Math.cos(t)*10);
     }
   </script>
 </body>
