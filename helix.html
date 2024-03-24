@@ -4,7 +4,7 @@
   <title>Helix</title>
 </head>
 <body>
-  <canvas id="draw" width="512" height="2048"></canvas>
+  <canvas id="draw" width="512" height="512"></canvas>
   <script>
     function $(id){return document.getElementById(id);}
     function point(canvas, x, y){ //Draws single pixel
@@ -17,7 +17,7 @@
     var y;
     for(var t = -60; t < 15; t += 0.05){
       y = 256-t*20+Math.cos(t)*60;
-      point(c, 256+Math.sin(t/radius(y))*140, y);
+      point(c, 256+Math.sin(t)*140, y);
     }
   </script>
 </body>
