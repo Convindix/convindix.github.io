@@ -10,13 +10,12 @@
     function point(canvas, x, y){ //Draws single pixel
       canvas.fillRect(x, y, 1, 1);
     }
-    function radius(y){ //Radius of the ribbon, controlled by y
+    function scale(y){ //Scaling of the ribbon, controlled by y
       return (768-y)/5;
     }
     var c = $("draw").getContext("2d");
-    var arg, y;
+    var y;
     for(var t = -60; t < 15; t += 0.05){
-      arg = Math.log(t)/Math.log(1.15); //Argument for sin and cos
       y = 256-t*20+Math.cos(arg)*60;
       point(c, 256+Math.sin(arg)*radius(y), y);
     }
