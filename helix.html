@@ -16,8 +16,8 @@
     var c = $("draw").getContext("2d");
     for(var theta = -10; theta < 10; theta+=0.025){
       //Currently a horizontal isometric viewpoint
-      point(c, 256+Math.sin(theta)*60*radius(theta), 256-theta*60);
-      //point(c, 256+Math.sin(theta)*60*radius(theta), 256-theta*60-20);
+      point(c, 256+Math.sin(theta)*60*radius(theta), 256-theta*20);
+      //point(c, 256+Math.sin(theta)*60*radius(theta), 256-theta*20-20);
     }
   </script>
 </body>
