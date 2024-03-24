@@ -11,11 +11,11 @@
       canvas.fillRect(x, y, 1, 1);
     }
     function radius(t){ //Radius of the ribbon, controlled by t
-      return (theta+5)/10;
+      return (t+5)/10;
     }
     var c = $("draw").getContext("2d");
-    for(var t = -10; t < 10; t += 0.025){
-      point(c, 256+Math.sin(t)*60, 256-t*20+Math.cos(t)*60);
+    for(var t = -15; t < 15; t += 0.05){
+      point(c, 256+Math.sin(t/radius(t))*120, 256-t*20+Math.cos(t)*80);
     }
   </script>
 </body>
