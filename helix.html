@@ -10,14 +10,12 @@
     function point(canvas, x, y){ //Draws single pixel
       canvas.fillRect(x, y, 1, 1);
     }
-    function radius(theta){ //Radius of one ring of the ribbon, controlled by theta
+    function radius(t){ //Radius of the ribbon, controlled by t
       return (theta+5)/10;
     }
     var c = $("draw").getContext("2d");
-    for(var theta = -10; theta < 10; theta+=0.025){
-      //Currently a horizontal isometric viewpoint
-      point(c, 256+Math.sin(theta)*60*radius(theta), 256-theta*20);
-      //point(c, 256+Math.sin(theta)*60*radius(theta), 256-theta*20-20);
+    for(var t = -10; t < 10; t += 0.025){
+      point(c, 256+Math.sin(theta)*60, 256-theta*20-Math.cos(theta)*10);
     }
   </script>
 </body>
