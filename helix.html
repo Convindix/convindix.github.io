@@ -11,7 +11,9 @@
       canvas.fillRect(x, y, 1, 1);
     }
     var c = $("draw").getContext("2d");
-    point(c, 50, 50);
+    for(var x = 0; x < 512; x++){
+      point(c, x, 256-Math.sin(x/20)*20);
+    }
   </script>
 </body>
 </html>
