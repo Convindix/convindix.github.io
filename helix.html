@@ -7,8 +7,11 @@
   <canvas id="draw" width="512" height="512"></canvas>
   <script>
     function $(id){return document.getElementById(id);}
-    var c = $("draw").getContent("2d");
-    c.fillRect(50,50,50,50);
+    function point(canvas, x, y){ /Draws single pixel
+      canvas.fillRect(x, y, 1, 1);
+    }
+    var c = $("draw").getContext("2d");
+    point(c, 50, 50);
   </script>
 </body>
 </html>
