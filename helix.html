@@ -11,11 +11,11 @@
       canvas.fillRect(x, y, 1, 1);
     }
     function scale(y){ //Scaling of the ribbon, controlled by y
-      return (768-y)/5;
+      return (1024-y)/5;
     }
     var c = $("draw").getContext("2d");
     var y;
-    for(var t = -60; t < 15; t += 0.05){
+    for(var t = -60; t < 15; t += 0.01){
       y = 256-t*20+Math.cos(arg)*60;
       point(c, 256+Math.sin(arg)*radius(y), y);
     }
