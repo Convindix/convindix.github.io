@@ -19,9 +19,9 @@
     var c = $("draw").getContext("2d");
     var y;
     for(var t = -60; t < 15; t += 0.01){
-      y = 256-t*20+Math.cos(t)*60;
+      y = 256-t*20+Math.cos(t)*30;
       point(c, 256+Math.sin(t)*scale(t), y);
-      point(c, 256+Math.sin(t)*scale(t), y + 20);
+      point(c, 256+Math.sin(t)*scale(t), y + 12);
     }
   </script>
 </body>
