@@ -18,7 +18,7 @@
     }
     var c = $("draw").getContext("2d");
     var y;
-    for(var t = -60; t < 15; t += 0.5){
+    for(var t = -60; t < 15; t += 0.4){
       y = 256-t*20+Math.cos(t)*60;
       dot(c, 256-Math.sin(t)*scale(t), y);
       dot(c, 256-Math.sin(t)*scale(t), y + 20);
