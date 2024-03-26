@@ -4,14 +4,14 @@
   <title>Helix</title>
 </head>
 <body>
-  <canvas id="draw" width="512" height="1234"></canvas>
+  <canvas id="draw" width="512" height="512"></canvas>
   <script>
     function $(id){return document.getElementById(id);}
     function point(canvas, x, y){ //Draws single pixel
       canvas.fillRect(x, y, 1, 1);
     }
     /* function scale(y){ //Scaling of the ribbon, controlled by y
-      return (1024-y)/5;
+      return (1536-y)/5;
     } */
     function scale(t){ //Scaling of the ribbon, controlled by t
       return (t+40)*3;
