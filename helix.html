@@ -11,10 +11,10 @@
       canvas.fillRect(x, y, 1, 1);
     }
     /* function scale(y){ //Scaling of the ribbon, controlled by y
-      return (1536-y)/5;
+      return (1024-y)/5;
     } */
     function scale(t){ //Scaling of the ribbon, controlled by t
-      return (t+40)*3;
+      return (t*0.7+40)*3;
     }
     var c = $("draw").getContext("2d");
     var y;
