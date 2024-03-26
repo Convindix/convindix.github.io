@@ -7,7 +7,8 @@
   <canvas id="draw" width="512" height="512"></canvas>
   <script>
     function $(id){return document.getElementById(id);}
-    function dot(canvas, x, y){ //Draws 4 pixels with upper-left corner (x,y)
+    function dot(canvas, x, y, r){ //Draws 4 pixels with color (r,0,0) with upper-left corner (x,y)
+      canvas.fillStyle = "rgb(" + r + ", 0, 0)";
       canvas.fillRect(x, y, 2, 2);
     }
     /* function scale(y){ //Scaling of the ribbon, controlled by y
@@ -20,8 +21,8 @@
     var y;
     for(var t = -60; t < 15; t += 0.4){
       y = 256-t*20+Math.cos(t)*60;
-      dot(c, 256-Math.sin(t)*scale(t), y);
-      dot(c, 256-Math.sin(t)*scale(t), y + 20);
+      dot(c, 256-Math.sin(t)*scale(t), y, 0);
+      dot(c, 256-Math.sin(t)*scale(t), y + 20, 191);
     }
   </script>
 </body>
