@@ -14,14 +14,14 @@
       return (1024-y)/5;
     } */
     function scale(t){ //Scaling of the ribbon, controlled by t
-      return (t*0.7+40)*3;
+      return (t*0.8+40)*3;
     }
     var c = $("draw").getContext("2d");
     var y;
-    for(var t = -60; t < 15; t += 0.4){
+    for(var t = -60; t < 15; t += 0.5){
       y = 256-t*20+Math.cos(t)*60;
-      dot(c, 256+Math.sin(t)*scale(t), y);
-      dot(c, 256+Math.sin(t)*scale(t), y + 20);
+      dot(c, 256-Math.sin(t)*scale(t), y);
+      dot(c, 256-Math.sin(t)*scale(t), y + 20);
     }
   </script>
 </body>
