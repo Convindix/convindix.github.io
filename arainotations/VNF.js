@@ -23,6 +23,7 @@ class Phi{
     }
   }
   static lss(a, b){ //Is it currently accurate for f(0,f(1,0)) vs f(1,0)?
+    console.log(`Checking VNFTerm.lss(${a}, ${b})`);
     if(a instanceof CSymbol && a.symb == '0'){
       return !(b instanceof CSymbol && b.symb == '0');
     }else if(b instanceof CSymbol && b.symb == '0'){
