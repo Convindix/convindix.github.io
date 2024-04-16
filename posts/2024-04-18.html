@@ -24,81 +24,81 @@ Here are some notes on Friedman's manuscript "<a href="https://bpb-us-w2.wpmucdn
 
 <p>There is a slight simplification that can be applied to the work leading up to lemma 2.8, by using a slightly simpler ordinal notation for $\varepsilon_0$. This also yields a stronger version of lemma 2.7. The following content of this section presents this simplification (adapted from Friedman 2010).</p>
 
-We use base $\omega$ Cantor normal form for ordinals $<\varepsilon_0$. For each $k\geq 0$, define the set of expressions $W(k)$ and a strict linear ordering $<_k$ on $W(k)$, as follows.
+<p>We use base $\omega$ Cantor normal form for ordinals $<\varepsilon_0$. For each $k\geq 0$, define the set of expressions $W(k)$ and a strict linear ordering $<_k$ on $W(k)$, as follows.</p>
 
-$W(0)$ consists of 0 only. $<_0$ is empty. Suppose $W(k)$, $<_k$ have been defined, where $<_k$ is a strict linear ordering on $W(k)$. Use $\leq_k$ to denote the non-strict linear ordering obtained from $<_k$. $W(k+1)$ consists of $0$ and the expressions
+<p>$W(0)$ consists of 0 only. $<_0$ is empty. Suppose $W(k)$, $<_k$ have been defined, where $<_k$ is a strict linear ordering on $W(k)$. Use $\leq_k$ to denote the non-strict linear ordering obtained from $<_k$. $W(k+1)$ consists of $0$ and the expressions
 
 $$\omega^{x_1}+\ldots+\omega^{x_r}$$
 
-where $r\geq 1$ and $x_1 \geq_k \ldots \geq_k x_r$. [The change is the lack of coefficients $c_i$.]
+where $r\geq 1$ and $x_1 \geq_k \ldots \geq_k x_r$. [The change is the lack of coefficients $c_i$.]</p>
 
-$<_{k+1}$ on $W(k+1)$ is defined as follows. $0$ is put at the bottom. Let $x,y\in W(k+1)$ be nonzero and distinct. Write
+<p>$<_{k+1}$ on $W(k+1)$ is defined as follows. $0$ is put at the bottom. Let $x,y\in W(k+1)$ be nonzero and distinct. Write
 
-$$\begin{align*} x = & \omega^{x_1}+\ldots+\omega^{x_r} \\ y = & \omega^{y_1}+\ldots+\omega^{y_s}\end{align*}$$
+$$\begin{align*} x = & \omega^{x_1}+\ldots+\omega^{x_r} \\ y = & \omega^{y_1}+\ldots+\omega^{y_s}\end{align*}$$</p>
 
-case 1. There exists $1\leq i\leq\mathrm{min}(r,s)$ such that for all $1\leq j<i$, $\omega^{x_i}=\omega^{y_i}$ and $\omega^{x_i}\neq\omega_{y_i}$. If $x_i<_k y_i$ then $x<_{k+1}y$. If $y_i<_k x_i$ then $y<_{k+1}x$.
+<p>case 1. There exists $1\leq i\leq\mathrm{min}(r,s)$ such that for all $1\leq j<i$, $\omega^{x_i}=\omega^{y_i}$ and $\omega^{x_i}\neq\omega_{y_i}$. If $x_i<_k y_i$ then $x<_{k+1}y$. If $y_i<_k x_i$ then $y<_{k+1}x$.</p>
 
-case 2. Otherwise. Then $x$ is a proper initial segment of $y$ or $y$ is a proper initial segment of $x$. In the former case, $x<_{k+1}y$. If the latter case, $y<_{k+1}x$.
+<p>case 2. Otherwise. Then $x$ is a proper initial segment of $y$ or $y$ is a proper initial segment of $x$. In the former case, $x<_{k+1}y$. If the latter case, $y<_{k+1}x$.</p>
 
-We can easily prove by induction that $W(k)\subseteq W(k+1)$ and $<_k\subseteq<_{k+1}$ and each $<_k$ is a well-ordering that agrees with the standard ordinal interpretation of $W(k)$. This is all well known and very standard.
+<p>We can easily prove by induction that $W(k)\subseteq W(k+1)$ and $<_k\subseteq<_{k+1}$ and each $<_k$ is a well-ordering that agrees with the standard ordinal interpretation of $W(k)$. This is all well known and very standard.</p>
 
-Fix $k\geq 0$. For $x\in W(k)$ and $i\geq 0$, we define $x[i]$ as follows. For $x=0$, take $0[i]=0$. For $x > 0$, take $x[i]$ to be the $i$-th term of $x$ if $1\leq i\leq \mathrm{lth}(x)$; $0$ otherwise. Note that each nonzero $x[i]$ has an exponent.
+<p>Fix $k\geq 0$. For $x\in W(k)$ and $i\geq 0$, we define $x[i]$ as follows. For $x=0$, take $0[i]=0$. For $x > 0$, take $x[i]$ to be the $i$-th term of $x$ if $1\leq i\leq \mathrm{lth}(x)$; $0$ otherwise. Note that each nonzero $x[i]$ has an exponent.</p>
 
-Let $x,y\in W(k)$. Write $\mathrm{CP}(x,y)$ for the comparison position of $x,y$, which is the least $i$ such that $x[i]\neq y[i]$ if $x\neq y$; $0$ otherwise.
+<p>Let $x,y\in W(k)$. Write $\mathrm{CP}(x,y)$ for the comparison position of $x,y$, which is the least $i$ such that $x[i]\neq y[i]$ if $x\neq y$; $0$ otherwise.</p>
 
-Write $\mathrm{CT}(x,y)$ for the comparison term of $x,y$, which is $x[\mathrm{CP}(x,y)]$.
+<p>Write $\mathrm{CT}(x,y)$ for the comparison term of $x,y$, which is $x[\mathrm{CP}(x,y)]$.</p>
 
-LEMMA 2.4. The following is provable in $\mathrm{EFA}$. $x\neq y\implies\mathrm{CP}(x,y)$ exists and is nonzero. $0 < i\leq j\leq\mathrm{lth}(x)\implies x[j]\leq_k x[i]$. $x\leq_k y\iff x[\mathrm{CP}(x,y)]\leq_k y[\mathrm{CP}(x,y)}]$.
+<p>LEMMA 2.4. The following is provable in $\mathrm{EFA}$. $x\neq y\implies\mathrm{CP}(x,y)$ exists and is nonzero. $0 < i\leq j\leq\mathrm{lth}(x)\implies x[j]\leq_k x[i]$. $x\leq_k y\iff x[\mathrm{CP}(x,y)]\leq_k y[\mathrm{CP}(x,y)}]$.
 
-Proof: Suppose $x\neq y$. If $x$ and $y$ are not both $0$ [originally written as $x,y\neq 0$] then obviously $\mathrm{CP}(x,y)$ exists. Since $x[0]=y[0]$, $\mathrm{CP}(x,y)>0$.
+<p>Proof: Suppose $x\neq y$. If $x$ and $y$ are not both $0$ [originally written as $x,y\neq 0$] then obviously $\mathrm{CP}(x,y)$ exists. Since $x[0]=y[0]$, $\mathrm{CP}(x,y)>0$.</p>
 
-Suppose $0 < i \leq j \leq \mathrm{lth}(x)$. Then since $x$ is made of decreasing terms, $x[j]\leq_k x[i]$.
+<p>Suppose $0 < i \leq j \leq \mathrm{lth}(x)$. Then since $x$ is made of decreasing terms, $x[j]\leq_k x[i]$.</p>
 
-Suppose $x \leq_k y$. [Friedman may have made a typo by writing $x\leq y$.] If $x = y$ then obviously $x[\mathrm{CP}(x,y)] \leq_k y[\mathrm{CP}(x,y)]$. If $0 = x <_k y$ then $x[\mathrm{CP}(x,y)] = 0 \leq_k y[\mathrm{CP}(x,y)]$. If $0 <_k x <_k y$ then $\mathrm{CP}(x,y) > 0$, and $x[\mathrm{CP}(x,y)] <_k y[\mathrm{CP}(x,y)]$.
+<p>Suppose $x \leq_k y$. [Friedman may have made a typo by writing $x\leq y$.] If $x = y$ then obviously $x[\mathrm{CP}(x,y)] \leq_k y[\mathrm{CP}(x,y)]$. If $0 = x <_k y$ then $x[\mathrm{CP}(x,y)] = 0 \leq_k y[\mathrm{CP}(x,y)]$. If $0 <_k x <_k y$ then $\mathrm{CP}(x,y) > 0$, and $x[\mathrm{CP}(x,y)] <_k y[\mathrm{CP}(x,y)]$.</p>
 
-Suppose $y <_k x$. Then $\mathrm{CP}(x,y)\neq 0$. If $y=0$ then $y[\mathrm{CP}(x,y)] = 0 <_k x[\mathrm{CP}(x,y)]$. If $y\neq 0$ then $y[\mathrm{CP}(x,y)] <_k x[\mathrm{CP}(x,y)]$. QED
+<p>Suppose $y <_k x$. Then $\mathrm{CP}(x,y)\neq 0$. If $y=0$ then $y[\mathrm{CP}(x,y)] = 0 <_k x[\mathrm{CP}(x,y)]$. If $y\neq 0$ then $y[\mathrm{CP}(x,y)] <_k x[\mathrm{CP}(x,y)]$. QED</p>
 
-LEMMA 2.5. The following is provable in $\mathrm{EFA}$. Suppose $x,y,z\in W(k)$, $\mathrm{CP}(x,y)\leq\mathrm{CP}(y,z)$, $\mathrm{CT}(x,y) \leq_k \mathrm{CT}(y,z)$. Then $x \leq_k y$.
+<p>LEMMA 2.5. The following is provable in $\mathrm{EFA}$. Suppose $x,y,z\in W(k)$, $\mathrm{CP}(x,y)\leq\mathrm{CP}(y,z)$, $\mathrm{CT}(x,y) \leq_k \mathrm{CT}(y,z)$. Then $x \leq_k y$.</p>
 
-Proof: Let $x,y,z$ be as given. By [Lemma 2.4], if $\mathrm{CP}(x,y)=0$ then $x=y$. So we assume that $0<\mathrm{CP}(x,y)\leq\mathrm{CP}(y,z)$. Using Lemma 2.s1 [perhaps the second part of lemma 2.4?],
+<p>Proof: Let $x,y,z$ be as given. By [Lemma 2.4], if $\mathrm{CP}(x,y)=0$ then $x=y$. So we assume that $0<\mathrm{CP}(x,y)\leq\mathrm{CP}(y,z)$. Using Lemma 2.s1 [perhaps the second part of lemma 2.4?],
 
 $$x[\mathrm{CP}(x,y)] = \mathrm{CT}(x,y) \leq_k \mathrm{CT}(y,z) = y[\mathrm{CP}(y,z)] \leq_k y[\mathrm{CP}(x,y)]$$.
 
-By Lemma 2.4, $x \leq_k y$. QED
+By Lemma 2.4, $x \leq_k y$. QED</p>
 
-Write $\mathrm{CE}(x,y)$ for the comparison exponent of $x,y$, which is the exponent of $\mathrm{CT}(x,y)$ if $\mathrm{CT}(x,y) > 0$; $0$ otherwise.
+<p>Write $\mathrm{CE}(x,y)$ for the comparison exponent of $x,y$, which is the exponent of $\mathrm{CT}(x,y)$ if $\mathrm{CT}(x,y) > 0$; $0$ otherwise.</p>
 
-LEMMA 2.6. The following is provable in $\mathrm{EFA}$. Suppose $x,y,z\in W(k)$, $\mathrm{CP}(x,y) \leq \mathrm{CP}(y,z)$, $\mathrm{CE}(x,y) \leq_k \mathrm{CE}(y,z)$. Then $x \leq_k y$.
+<p>LEMMA 2.6. The following is provable in $\mathrm{EFA}$. Suppose $x,y,z\in W(k)$, $\mathrm{CP}(x,y) \leq \mathrm{CP}(y,z)$, $\mathrm{CE}(x,y) \leq_k \mathrm{CE}(y,z)$. Then $x \leq_k y$.</p>
 
-Proof: Let $x,y,z$ be as given. By Lemma 2.5, it suffices to show that $\mathrm{CT}(x,y) \leq_k \mathrm{CT}(y,z)$.
+<p>Proof: Let $x,y,z$ be as given. By Lemma 2.5, it suffices to show that $\mathrm{CT}(x,y) \leq_k \mathrm{CT}(y,z)$.</p>
 
-Clearly, if $\mathrm{CT}(x,y)$ and $\mathrm{CT}(y,z)$ are not both $0$, then $\mathrm{CT}(x,y) \leq_k \mathrm{CT}(y,z)$.
+<p>Clearly, if $\mathrm{CT}(x,y)$ and $\mathrm{CT}(y,z)$ are not both $0$, then $\mathrm{CT}(x,y) \leq_k \mathrm{CT}(y,z)$.</p>
 
-Suppose $\mathrm{CT}(y,z)=0$. As $y[i]\neq 0$ for all $1\leq i\leq\mathrm{lth}(y)$, $y$ must be $0$, therefore $\mathrm{CE}(y,z) = 0$. Thus $\mathrm{CE}(x,y)=0$ as well, and both $\mathrm{CT}(x,y)$ and $\mathrm{CT}(y,z)$ are $0$. Therefore it holds that $\mathrm{CT}(x,y) \leq_k \mathrm{CT}(y,z)$. QED
+<p>Suppose $\mathrm{CT}(y,z)=0$. As $y[i]\neq 0$ for all $1\leq i\leq\mathrm{lth}(y)$, $y$ must be $0$, therefore $\mathrm{CE}(y,z) = 0$. Thus $\mathrm{CE}(x,y)=0$ as well, and both $\mathrm{CT}(x,y)$ and $\mathrm{CT}(y,z)$ are $0$. Therefore it holds that $\mathrm{CT}(x,y) \leq_k \mathrm{CT}(y,z)$. QED</p>
 
-LEMMA 2.7. The following is provable in $\mathrm{EFA}$. For all $k\geq 1$ there exists $f:W(k)^k \to \mathbb N^k$ such that the following holds. $f(x_1,\ldots,x_k)\leq f(x_1,\ldots,x_{k+1})\implies x_1 \leq_k x_2$.
+<p>LEMMA 2.7. The following is provable in $\mathrm{EFA}$. For all $k\geq 1$ there exists $f:W(k)^k \to \mathbb N^k$ such that the following holds. $f(x_1,\ldots,x_k)\leq f(x_1,\ldots,x_{k+1})\implies x_1 \leq_k x_2$.</p>
 
-Proof: By induction on $k\geq 1$. We first let $k=1$. Note that $W(1) = \{\underbrace{\omega^0+\ldots+\omega^0}_{n} : n\in\mathbb Z^+\}\cup\{0\}$. Set $f(x)$ to be $0$ if $x=0$, and $\mathrm{lth}(x)$ otherwise.
+<p>Proof: By induction on $k\geq 1$. We first let $k=1$. Note that $W(1) = \{\underbrace{\omega^0+\ldots+\omega^0}_{n} : n\in\mathbb Z^+\}\cup\{0\}$. Set $f(x)$ to be $0$ if $x=0$, and $\mathrm{lth}(x)$ otherwise.</p>
 
-Now let $f:W(k)^k \to \mathbb N^k$ be as required. We define $g:W(k+1)^{k+1} \to \mathbb N^{k+1}$ as follows.
+<p>Now let $f:W(k)^k \to \mathbb N^k$ be as required. We define $g:W(k+1)^{k+1} \to \mathbb N^{k+1}$ as follows.</p>
 
-Let $x_1,\ldots,x_{k+1}\in W(k+1)$. Define $g(x_1,\ldots,x_{k+1}) =$
+<p>Let $x_1,\ldots,x_{k+1}\in W(k+1)$. Define $g(x_1,\ldots,x_{k+1}) =$
 
 $$(\mathrm{CP}(x_1,x_2))\frown f(\mathrm{CE}(x_1,x_2),\mathrm{CE}(x_2,x_3),\ldots,\mathrm{CE}(x_k,x_{k+1}))$$,
 
-[where $\frown$ denotes tuple concatenation.]
+[where $\frown$ denotes tuple concatenation.]</p>
 
-Now let $x_1,\ldots,x_{k+1}$\in W(k+1)$, $g(x_1,\ldots,x_{k+1})\leq g(x_2,\ldots,x_{k+2})$. Clearly $g(x_2,\ldots,x_{k+2}) =$
+<p>Now let $x_1,\ldots,x_{k+1}$\in W(k+1)$, $g(x_1,\ldots,x_{k+1})\leq g(x_2,\ldots,x_{k+2})$. Clearly $g(x_2,\ldots,x_{k+2}) =$
 
-$$(\mathrm{CP}(x_2,x_3))\frown f(\mathrm{CE}(x_2,x_3),\mathrm{CE}(x_3,x_4),\ldots,\mathrm{CE}(x_{k+1},x_{k+2}))$$.
+$$(\mathrm{CP}(x_2,x_3))\frown f(\mathrm{CE}(x_2,x_3),\mathrm{CE}(x_3,x_4),\ldots,\mathrm{CE}(x_{k+1},x_{k+2}))$$.</p>
 
-Hence
+<p>Hence
 
-$$\begin{align*} \mathrm{CP}(x_1,x_2) & \leq \mathrm{CP}(x_2,x_3) \\ f(\mathrm{CE}(x_1,x_2),\mathrm{CE}(x_2,x_3),\ldots,\mathrm{CE}(x_k,x_{k+1})) & \leq f(\mathrm{CE}(x_2,x_3),\mathrm{CE}(x_3,x_4),\ldots,\mathrm{CE}(x_{k+1},x_{k+2})) \end{align*}$$.
+$$\begin{align*} \mathrm{CP}(x_1,x_2) & \leq \mathrm{CP}(x_2,x_3) \\ f(\mathrm{CE}(x_1,x_2),\mathrm{CE}(x_2,x_3),\ldots,\mathrm{CE}(x_k,x_{k+1})) & \leq f(\mathrm{CE}(x_2,x_3),\mathrm{CE}(x_3,x_4),\ldots,\mathrm{CE}(x_{k+1},x_{k+2})) \end{align*}$$.</p>
 
-By the induction hypothesis, $\mathrm{CE}(x_1,x_2) \leq_k \mathrm{CE}(x_2,x_3)$.
+<p>By the induction hypothesis, $\mathrm{CE}(x_1,x_2) \leq_k \mathrm{CE}(x_2,x_3)$.</p>
 
-Hence by Lemma 2.6, $x_1 \leq_k x_2$. QED
+<p>Hence by Lemma 2.6, $x_1 \leq_k x_2$. QED</p>
 
 <h2>Part II: Large integers</h2>
 
