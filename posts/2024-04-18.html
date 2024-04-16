@@ -24,15 +24,29 @@ case 2. Otherwise. Then $x$ is a proper initial segment of $y$ or $y$ is a prope
 
 We can easily prove by induction that $W(k)\subseteq W(k+1)$ and $<_k\subseteq<_{k+1}$ and each $<_k$ is a well-ordering that agrees with the standard ordinal interpretation of $W(k)$. This is all well known and very standard.
 
-Fix $k\geq 0$. For $x\in W(k)$ and $i\geq 0$, we define $x[i]$ as follows. For $x=0$, take $0[i]=0$. For $x>0$, take $x[i]$ to be the $i$-th term of $x$ if $1\leq i\leq \mathrm{lth}(x)$; $0$ otherwise. Note that each nonzero $x[i]$ has an exponent.
+Fix $k\geq 0$. For $x\in W(k)$ and $i\geq 0$, we define $x[i]$ as follows. For $x=0$, take $0[i]=0$. For $x > 0$, take $x[i]$ to be the $i$-th term of $x$ if $1\leq i\leq \mathrm{lth}(x)$; $0$ otherwise. Note that each nonzero $x[i]$ has an exponent.
 
 Let $x,y\in W(k)$. Write $\mathrm{CP}(x,y)$ for the comparison position of $x,y$, which is the least $i$ such that $x[i]\neq y[i]$ if $x\neq y$; $0$ otherwise.
 
 Write $\mathrm{CT}(x,y)$ for the comparison term of $x,y$, which is $x[\mathrm{CP}(x,y)]$.
 
-LEMMA 2.4. The following is provablre in $\mathrm{EFA}$. $x\neq y\implies\mathrm{CP}(x,y)$ exists and is nonzero. $0<i\leq j\leq\mathrm{lth}(x)\implies x[j]\leq_k x[i]$. $x\leq_k y\iff x[\mathrm{CP}(x,y)]\leq_k y[\mathrm{CP}(x,y)}]$.
+LEMMA 2.4. The following is provable in $\mathrm{EFA}$. $x\neq y\implies\mathrm{CP}(x,y)$ exists and is nonzero. $0 < i\leq j\leq\mathrm{lth}(x)\implies x[j]\leq_k x[i]$. $x\leq_k y\iff x[\mathrm{CP}(x,y)]\leq_k y[\mathrm{CP}(x,y)}]$.
 
-Proof: To fill in later.
+Proof: Suppose $x\neq y$. If [$x$ and $y$ are not both $0$] then obviously $\mathrm{CP}(x,y)$ exists. Since $x[0]=y[0]$, $\mathrm{CP}(x,y)>0$.
+
+Suppose $0 < i \leq j \leq \mathrm{lth}(x)$. Then since $x$ is made of decreasing terms, $x[j]\leq_k x[i]$.
+
+Suppose $x \leq_k y$. [Friedman may have made a typo by writing $x\leq y$.] If $x = y$ then obviously $x[\mathrm{CP}(x,y)] \leq_k y[\mathrm{CP}(x,y)]$. If $0 = x <_k y$ then $x[\mathrm{CP}(x,y)] = 0 \leq_k y[\mathrm{CP}(x,y)]$. If $0 <_k x <_k y$ then $\mathrm{CP}(x,y) > 0$, and $x[\mathrm{CP}(x,y)] <_k y[\mathrm{CP}(x,y)]$.
+
+Suppose $y <_k x$. Then $\mathrm{CP}(x,y)\neq 0$. If $y=0$ then $y[\mathrm{CP}(x,y)] = 0 <_k x[\mathrm{CP}(x,y)]$. If $y\neq 0$ then $y[\mathrm{CP}(x,y)] <_k x[\mathrm{CP}(x,y)]$. QED
+
+LEMMA 2.5. The following is provable in $\mathrm{EFA}$. Suppose $x,y,z\in W(k)$, $\mathrm{CP}(x,y)\leq\mathrm{CP}(y,z)$, $\mathrm{CT}(x,y) \leq_k \mathrm{CT}(y,z)$. Then $x \leq_k y$.
+
+Proof: Let $x,y,z$ be as given. By [Lemma 2.4], if $\mathrm{CP}(x,y)=0$ then $x=y$. So we assume that $0<\mathrm{CP}(x,y)\leq\mathrm{CP}(y,z)$. Using Lemma 2.s1 [I am not sure which lemma this is],
+
+$$x[\mathrm{CP}(x,y)] = \mathrm{CT}(x,y) \leq_k \mathrm{CT}(y,z) = y[\mathrm{CP}(y,z)] \leq_k y[\mathrm{CP}(x,y)]$$.
+
+By Lemma 2.4, $x \leq_k y$. QED
 
 <h2>Part II: Large integers</h2>
 
