@@ -24,6 +24,8 @@ Here are some notes on Friedman's manuscript "<a href="https://bpb-us-w2.wpmucdn
 
 <p>There is a slight simplification that can be applied to the work leading up to lemma 2.8, by using a slightly simpler ordinal notation for $\varepsilon_0$. This also yields a stronger version of lemma 2.7. The following content of this section presents this simplification (adapted from Friedman 2010).</p>
 
+<p>[$\leq$ denotes componentwise comparison between tuples from $\mathbb N$ of the same length. Say that "Theorem D for $r$" is the statement that for all positive integers $k$ and functions $f:\mathbb N^k \to \mathbb N^r$, there exist $x_1 < \ldots < x_{k+1}$ such that $f(x_1,\ldots,x_k)\leq f(x_2,\ldots,x_{k+1})$.]</p>
+
 <p>We use base $\omega$ Cantor normal form for ordinals $<\varepsilon_0$. For each $k\geq 0$, define the set of expressions $W(k)$ and a strict linear ordering $<_k$ on $W(k)$, as follows.</p>
 
 <p>$W(0)$ consists of 0 only. $<_0$ is empty. Suppose $W(k)$, $<_k$ have been defined, where $<_k$ is a strict linear ordering on $W(k)$. Use $\leq_k$ to denote the non-strict linear ordering obtained from $<_k$. $W(k+1)$ consists of $0$ and the expressions
@@ -90,7 +92,7 @@ $$(\mathrm{CP}(x_1,x_2))\frown f(\mathrm{CE}(x_1,x_2),\mathrm{CE}(x_2,x_3),\ldot
 
 <p>Now let $x_1,\ldots,x_{k+1}\in W(k+1)$, $g(x_1,\ldots,x_{k+1})\leq g(x_2,\ldots,x_{k+2})$. Clearly $g(x_2,\ldots,x_{k+2}) =$
 
-$$(\mathrm{CP}(x_2,x_3))\frown f(\mathrm{CE}(x_2,x_3),\mathrm{CE}(x_3,x_4),\ldots,\mathrm{CE}(x_{k+1},x_{k+2}))$$.</p>
+$$(\mathrm{CP}(x_2,x_3))\frown f(\mathrm{CE}(x_2,x_3),\mathrm{CE}(x_3,x_4),\ldots,\mathrm{CE}(x_{k+1},x_{k+2})).$$</p>
 
 <p>Hence
 
@@ -99,6 +101,20 @@ $$\begin{align*} \mathrm{CP}(x_1,x_2) & \leq \mathrm{CP}(x_2,x_3). \\ f(\mathrm{
 <p>By the induction hypothesis, $\mathrm{CE}(x_1,x_2) \leq_k \mathrm{CE}(x_2,x_3)$.</p>
 
 <p>Hence by Lemma 2.6, $x_1 \leq_k x_2$. QED</p>
+
+<p>LEMMA 2.8. The following is provable in $\mathrm{RCA}_0$. Suppose Theorem D holds for $r = k$. Then $W(k)$ is well-ordered by $<_k$.</p>
+
+<p>Proof: Let $k$ be as given. Let $g:\mathbb N\to W(k)$. Let $f:W(k)^k \to \mathbb N^k$ be given by Lemma 2.7. It suffices to find $i < j$ such that $g(i) <_k g(j)$.</p>
+
+<p>Define $h:\mathbb N^k \to \mathbb N^k$ by
+
+$$h(x_1,\ldots,x_k) = f(g(x_1),\ldots,g(x_k)).$$</p>
+
+<p>By Theorem D for $h$, let $x_1,\ldots,x_{k+1}$, where
+
+$$\begin{align*} h(x_1,\ldots,x_k) & \leq h(x_2,\ldots,x_{k+1}). \\ f(g(x_1),\ldots,g(x_k)) & \leq f(g(x_2),\ldots,g(x_{k+1})). \end{align*}$$</p>
+
+<p>By the choice of $f$, $g(x_1) \leq g(x_2)$. Since $g$ is arbitrary, $W(k)$ is well ordered by $<_k$. QED</p>
 
 <h2>Part II: Large integers</h2>
 
