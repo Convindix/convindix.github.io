@@ -130,9 +130,9 @@ $$\begin{align*} h(x_1,\ldots,x_k) & \leq h(x_2,\ldots,x_{k+1}). \\ f(g(x_1),\ld
 
 <p>Lemma: If $\ell\geq 2$ is a natural number such that there is a $<_2$-decreasing function $h:[\ell]\to W(2)$, then there exists a function $g:[\ell]^2\to \mathbb N^2$ with no adjacent Ramsey sequence, i.e. no $x_1<x_2<x_3$ such that $g(x_1,x_2)\leq g(x_2,x_3)$.</p>
 
-<p>Proof: Let $\ell$, $h$ be as given, and let $f:W(2)^2\to\mathbb N^2$ be as in lemma 2.7. Consider the function $g(x_1,x_2) = f(h(x_1),h(x_2))$. For any $x_1 < x_2 < x_3 \in [\ell]$, $g(x_1,x_2) \leq g(x_2,x_3)$ is equivalent to $f(h(x_1),h(x_2)) \leq f(h(x_2),h(x_3))$. By lemma 2.7 is equivalent to $h(x_1) \leq_2 h(x_2)$, and since $x_1 < x_2$, by $<_2$-decreasingness of $h$, this is false. Therefore for no $x_1 < x_2 < x_3 \in [\ell]$ can we have $g(x_1,x_2) \leq g(x_2,x_3)$. $\square$</p>
+<p>Proof: Let $\ell$, $h$ be as given, and let $f:W(2)^2\to\mathbb N^2$ be as in lemma 2.7. Consider the function $g(x_1,x_2) = f(h(x_1),h(x_2))$. For any $x_1 < x_2 < x_3 \in [\ell]$, $g(x_1,x_2) \leq g(x_2,x_3)$ is equivalent to $f(h(x_1),h(x_2)) \leq f(h(x_2),h(x_3))$. By lemma 2.7 this is equivalent to $h(x_1) \leq_2 h(x_2)$, and since $x_1 < x_2$, by $<_2$-decreasingness of $h$, this is false. Therefore for no $x_1 < x_2 < x_3 \in [\ell]$ can we have $g(x_1,x_2) \leq g(x_2,x_3)$. $\square$</p>
 
-<p>The above lemma is a kind of contrapositive for the $k=2$ case of theorem 2.8, (is it?)</p>
+<p>The above lemma is of the form $\forall\ell\geq 2(\exists\text{ a }<_2\text{-decreasing function }h:[\ell]\to W(2) \implies \lnot\forall(g:[\ell]^2\to\mathbb N^2)\ldots)$. When taking the contrapositive of the implication, the resulting equivalent statement is of the form $\forall\ell\geq 2(\forall(g:[\ell]^2\to\mathbb N^2)\ldots \implies \nexists\text{ a }<_2\text{-decreasing function }h:[\ell]\to W(2))$.</p>
 
 <p>Coming soon. Extend the above to $k$ other than $2$</p>
 
