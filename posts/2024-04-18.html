@@ -120,7 +120,13 @@ $$\begin{align*} h(x_1,\ldots,x_k) & \leq h(x_2,\ldots,x_{k+1}). \\ f(g(x_1),\ld
 
 <p>As in Friedman, call a function $f:\subseteq\mathbb N^k\to\mathbb N^k$ limited if for all $x\in\mathrm{dom}(f)$, $\mathrm{max}(f(x))\leq\mathrm{max}(x)$. Consider the following function $R:\mathbb Z^+\to\mathbb N$: for $k\in\mathbb N$ let $R(k)$ be the least $p$ such that for all limited $f:[p]^k\to\mathbb N^k$, there are $x_1<\ldots<x_{k+1}$ such that $f(x_1,\ldots,x_k)\leq f(x_2,\ldots,x_{k+1})$.</p>
 
-<p>The goal is to prove that $R$ grows at roughly the speed of $H_{\varepsilon_0}$. Coming soon</p>
+<p>The goal is to prove that $R$ grows at roughly the speed of $H_{\varepsilon_0}$.</p>
+
+<p>Take a decreasing sequence of terms $(\alpha_i)_{1\leq i\leq\ell}$ in $W(2)$. Set $\alpha_{\ell+1} = 0$. Let $f:W(2)^2 \to \mathbb N^2$ be from lemma 2.7 above. For any $1\leq i<\ell$, by lemma 2.7 $f(\alpha_i,\alpha_{i+1})\leq f(\alpha_{i+1},\alpha_{i+2})$ implies $\alpha_i \leq_2 \alpha_{i+1}$, so by contrapositive, $\alpha_i \not\leq_2 \alpha_{i+1}$ implies $f(\alpha_i,\alpha_{i+1}) \not\leq f(\alpha_{i+1},\alpha_{i+2})$.</p>
+
+<p>Call a function $f:\subseteq\mathbb N^k\to\mathbb N^k$ $17$-limited if for all $x\in\mathrm{dom}(f)$, $\mathrm{max}(f(x))\leq 17\cdot\mathrm{max}(x)$. Define the norm function $N:\bigcup_{k\in\mathbb N}W(k) \to \mathbb N$ by $N(0) = 0$, $N(\omega^\alpha) = N(\alpha)+1$, and $N(\alpha+\beta) = N(\alpha) + N(\beta)$. Assume $(\alpha_i)_{1\leq i\leq\ell}$ is a $<_2$-decreasing sequence of members of $W(2)$ such that for all $1\leq i\leq\ell$, $N(\alpha_i)\leq 10+i$. Set $\alpha_{\ell+1} = 0$. Let $f:W(2)^2 \to \mathbb N^2$ be from lemma 2.7. For any $1\leq i<\ell$, by contrapositive of lemma 2.7, since $\alpha_i \not\leq_2 \alpha_{i+1}$, we have $f(\alpha_i,\alpha_{i+1}) \not\leq f(\alpha_{i+1},\alpha_{i+2})$, namely $(CP(\alpha_i,\alpha_{i+1}),g(CE(\alpha_i,\alpha_{i+1}))) \not\leq (CP(\alpha_{i+1},\alpha_{i+2}),g(CE(\alpha_{i+1},\alpha_{i+2})))$.
+
+<p>Coming soon</p>
 
 <h2>Part III: Extension attempts</h2>
 
