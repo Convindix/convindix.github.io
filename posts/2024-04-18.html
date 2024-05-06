@@ -122,8 +122,6 @@ $$\begin{align*} h(x_1,\ldots,x_k) & \leq h(x_2,\ldots,x_{k+1}). \\ f(g(x_1),\ld
 
 <p>The goal is to prove that $R$ grows at roughly the speed of $H_{\varepsilon_0}$.</p>
 
-<p>Take a decreasing sequence of terms $(\alpha_i)_{1\leq i\leq\ell}$ in $W(2)$. Set $\alpha_{\ell+1} = 0$. Let $f:W(2)^2 \to \mathbb N^2$ be from lemma 2.7 above. For any $1\leq i<\ell$, by lemma 2.7 $f(\alpha_i,\alpha_{i+1})\leq f(\alpha_{i+1},\alpha_{i+2})$ implies $\alpha_i \leq_2 \alpha_{i+1}$, so by contrapositive, $\alpha_i \not\leq_2 \alpha_{i+1}$ implies $f(\alpha_i,\alpha_{i+1}) \not\leq f(\alpha_{i+1},\alpha_{i+2})$.</p>
-
 <p>Call a function $f:\operatorname{\subseteq}\mathbb N^k\to\mathbb N^k$ $17$-limited if for all $x\in\mathrm{dom}(f)$, $\mathrm{max}(f(x))\leq 17\mathrm{max}(x)$. Define the norm function $N:\bigcup_{k\in\mathbb N}W(k) \to \mathbb N$ by $N(0) = 0$, $N(\omega^\alpha) = N(\alpha)+1$, and $N(\alpha+\beta) = N(\alpha) + N(\beta)$.</p>
 
 <p>Note that $f$ is $17$-limited iff for all $x\in\mathrm{dom}(f)$, $f(x)\leq (\underbrace{17\mathrm{max}(x),\ldots,17\mathrm{max}(x)}_k)$, this characterization will be used for convenience.</p>
