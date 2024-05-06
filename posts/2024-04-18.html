@@ -134,11 +134,11 @@ $$\begin{align*} h(x_1,\ldots,x_k) & \leq h(x_2,\ldots,x_{k+1}). \\ f(g(x_1),\ld
 
 <p>Theorem: If $\ell\geq 2$ is a natural number such that there is a $<_2$-decreasing function $h:[\ell]\to W(2)$ such that for all $1\leq i \leq \ell$, $N(h(i)) < 2+i$, then there exists a $17$-limited function $g:[\ell]^2\to \mathbb N^2$ with no adjacent Ramsey sequence, i.e. no $x_1 < x_2 < x_3$ such that $g(x_1,x_2)\leq g(x_2,x_3)$.</p>
 
-<p>Proof: To be adapted from the above lemma's proof. Let $\ell$, $h$ be as given, and let $f:W(2)^2\to\mathbb N^2$ be as in lemma 2.7. Consider the function $g(x_1,x_2) = f(h(x_1),h(x_2))$. First, we show that $g$ is $17$-limited. (Insert proof here) Let $x\in\mathrm{dom}(g)$.</p>
+<p>Proof: To be adapted from the above lemma's proof. Let $\ell$, $h$ be as given, and let $f:W(2)^2\to\mathbb N^2$ be as in lemma 2.7. Consider the function $g(x_1,x_2) = f(h(x_1),h(x_2))$. First, we show that $g$ is $17$-limited. Let $(x_1,x_2)\in\mathrm{dom}(g).Let $\alpha_1$ denote $h(x_1)$ and $\alpha_2$ denote $h(x_2)$. Then $g(x_1,x_2) = f(\alpha_1,\alpha_2) = (CP(\alpha_1,\alpha_2), g(CE(\alpha_1,\alpha_2)))$. As $CP(\alpha_1,\alpha_2)$ may not exceed $\mathrm{length}(\alpha_1)$ and $\mathrm{length}(\alpha_1)\leq N(\alpha_1)$, we have $CP(\alpha_1,\alpha_2)\leq N(\alpha_1)$. Since $g(CE(\alpha_1,\alpha_2))$ is $\mathrm{length}(CE(\alpha_1,\alpha_2))$, this may not exceed $N(CE(\alpha_1,\alpha_2))$, which in turn is strictly less than $N(\alpha_1)$. So $f(\alpha_1,\alpha_2) \leq (N(\alpha_1),N(\alpha_1))$. As $N(\alpha_1) = N(h(x_1))$, by the bound assumed on $N(h(i))$, we have $N(\alpha_1)\leq 2+x_1$. Thus $f(\alpha_1,\alpha_2) \leq (2+x_1,2+x_1)$, namely $g(x_1,x_2) \leq (2+x_1,2+x_1)$. Since $2+x_1 \leq 2+\mathrm{max}(x_1,x_2) \leq 17\mathrm{max}(x_1,x_2)$, $g$ is $17$-limited.</p>
 
 <p>Now, we show that $g$ has no adjacent Ramsey sequence. For any $x_1 < x_2 < x_3 \in [\ell]$, $g(x_1,x_2) \leq g(x_2,x_3)$ is equivalent to $f(h(x_1),h(x_2)) \leq f(h(x_2),h(x_3))$. By lemma 2.7 this is equivalent to $h(x_1) \leq_2 h(x_2)$, and since $x_1 < x_2$, by $<_2$-decreasingness of $h$, this is false. Therefore for no $x_1 < x_2 < x_3 \in [\ell]$ can we have $g(x_1,x_2) \leq g(x_2,x_3)$. $\square$</p>
 
-<p>Coming soon. Use $h$ where $N(h(i))$ is bounded by some function of $i$. Extend the above to $k$ other than $2$. Remove the "$17$" from $17$-limitedness.</p>
+<p>Coming soon. Extend the above to $k$ other than $2$. Remove the "$17$" from $17$-limitedness.</p>
 
 <h2>Part III: Extension attempts</h2>
 
