@@ -122,11 +122,17 @@ $$\begin{align*} h(x_1,\ldots,x_k) & \leq h(x_2,\ldots,x_{k+1}). \\ f(g(x_1),\ld
 
 <p>The goal is to prove that $R$ grows at roughly the speed of $H_{\varepsilon_0}$. Lower bounds on some large numbers related to adjacent Ramsey theory have ben obtained by Friedman and Pelupessy in "<a href="https://www.ams.org/journals/proc/2016-144-02/S0002-9939-2015-12759-1/S0002-9939-2015-12759-1.pdf">Independence of Ramsey theorem variants using $\varepsilon_0$</a>" (Proceedings of the American Mathematical Society vol. 144, 2016), however instead of bounding the $p$ where any $f:[p]^k\to\mathbb N^k$ has an adjacent Ramsey sequence as in here, they instead bound the $p$ where any $f:[p]^k\to\mathbb N^{2k+1}$ has an adjacent Ramsey sequence.</p>
 
-<p>Call a function $f:\operatorname{\subseteq}\mathbb N^k\to\mathbb N^k$ $17$-limited if for all $x\in\mathrm{dom}(f)$, $\mathrm{max}(f(x))\leq 17\mathrm{max}(x)$. Define the norm function $N:\bigcup_{k\in\mathbb N}W(k) \to \mathbb N$ by $N(0) = 0$, $N(\omega^\alpha) = N(\alpha)+1$, and $N(\alpha+\beta) = N(\alpha) + N(\beta)$.</p>
+<p>Call a function $f:\operatorname{\subseteq}\mathbb N^k\to\mathbb N^k$ limited if for all $x\in\mathrm{dom}(f)$, $\mathrm{max}(f(x))\leq \mathrm{max}(x)$. Define the norm function $N:\bigcup_{k\in\mathbb N}W(k) \to \mathbb N$ by $N(0) = 0$, $N(\omega^\alpha) = N(\alpha)+1$, and $N(\alpha+\beta) = N(\alpha) + N(\beta)$.</p>
 
-<p>Note that $f$ is $17$-limited iff for all $x\in\mathrm{dom}(f)$, $f(x)\leq (\underbrace{17\mathrm{max}(x),\ldots,17\mathrm{max}(x)}_k)$, this characterization will be used for convenience.</p>
+<p>Note that $f$ is limited iff for all $x\in\mathrm{dom}(f)$, $f(x)\leq (\underbrace{\mathrm{max}(x),\ldots,\mathrm{max}(x)}_k)$, this characterization will be used for convenience.</p>
 
-<p>Lemma: If $\ell\geq 2$ is a natural number such that there is a $<_2$-decreasing function $h:[\ell]\to W(2)$, then there exists a function $g:[\ell]^2\to \mathbb N^2$ with no adjacent Ramsey sequence, i.e. no $x_1 < x_2 < x_3$ such that $g(x_1,x_2)\leq g(x_2,x_3)$.</p>
+<p>The next lemma is a straightforward inequality of comparison point, length, and norm.</p>
+
+<p>Lemma 1: For any $k$ and any $\alpha,\beta\in W(k)$, $\mathrm{CP}(\alpha,\beta)\leq\mathrm{length}(\alpha)\leq N(\alpha)$.</p>
+
+<p>Proof: WIP $\square$</p>
+
+<p>Lemma 2: If $\ell\geq 2$ is a natural number such that there is a $<_2$-decreasing function $h:[\ell]\to W(2)$, then there exists a function $g:[\ell]^2\to \mathbb N^2$ with no adjacent Ramsey sequence, i.e. no $x_1 < x_2 < x_3$ such that $g(x_1,x_2)\leq g(x_2,x_3)$.</p>
 
 <p>Proof: Let $\ell$, $h$ be as given, and let $f:W(2)^2\to\mathbb N^2$ be as in lemma 2.7. Consider the function $g(x_1,x_2) = f(h(x_1),h(x_2))$. For any $x_1 < x_2 < x_3 \in [\ell]$, $g(x_1,x_2) \leq g(x_2,x_3)$ is equivalent to $f(h(x_1),h(x_2)) \leq f(h(x_2),h(x_3))$. By lemma 2.7 this is equivalent to $h(x_1) \leq_2 h(x_2)$, and since $x_1 < x_2$, by $<_2$-decreasingness of $h$, this is false. Therefore for no $x_1 < x_2 < x_3 \in [\ell]$ can we have $g(x_1,x_2) \leq g(x_2,x_3)$. $\square$</p>
 
@@ -136,9 +142,9 @@ $$\begin{align*} h(x_1,\ldots,x_k) & \leq h(x_2,\ldots,x_{k+1}). \\ f(g(x_1),\ld
 
 <p>Proof: Let $\ell$, $h$ be as given, and let $f:W(2)^2\to\mathbb N^2$ be as in lemma 2.7. Consider the function $g(x_1,x_2) = f(h(x_1),h(x_2))$. First, we show that $g$ has no adjacent Ramsey sequence. For any $x_1 < x_2 < x_3 \in [\ell]$, $g(x_1,x_2) \leq g(x_2,x_3)$ is equivalent to $f(h(x_1),h(x_2)) \leq f(h(x_2),h(x_3))$. By lemma 2.7 this is equivalent to $h(x_1) \leq_2 h(x_2)$, and since $x_1 < x_2$, by $<_2$-decreasingness of $h$, this is false. Therefore for no $x_1 < x_2 < x_3 \in [\ell]$ can we have $g(x_1,x_2) \leq g(x_2,x_3)$.</p>
 
-<p>Now, we show that $g$ is $17$-limited. Let $(x_1,x_2)\in\mathrm{dom}(g)$. Let $\alpha_1$ denote $h(x_1)$ and $\alpha_2$ denote $h(x_2)$. Then $g(x_1,x_2) = f(\alpha_1,\alpha_2) = (CP(\alpha_1,\alpha_2), g(CE(\alpha_1,\alpha_2)))$. As $CP(\alpha_1,\alpha_2)$ must not exceed $\mathrm{length}(\alpha_1)$ and $\mathrm{length}(\alpha_1)\leq N(\alpha_1)$, we have $CP(\alpha_1,\alpha_2)\leq N(\alpha_1)$. Since $g(CE(\alpha_1,\alpha_2))$ is $\mathrm{length}(CE(\alpha_1,\alpha_2))$, this must not exceed $N(CE(\alpha_1,\alpha_2))$, which in turn is strictly less than $N(\alpha_1)$. So $f(\alpha_1,\alpha_2) \leq (N(\alpha_1),N(\alpha_1))$. As $N(\alpha_1) = N(h(x_1))$, by the bound assumed on $N(h(i))$, we have $N(\alpha_1) \leq x_1$. Thus $f(\alpha_1,\alpha_2) \leq (x_1,x_1)$, namely $g(x_1,x_2) \leq (x_1,x_1)$. Since $x_1 \leq \mathrm{max}(x_1,x_2) \leq 17\mathrm{max}(x_1,x_2)$, $g$ is $17$-limited. $\square$</p>
+<p>Now, we show that $g$ is limited. Let $(x_1,x_2)\in\mathrm{dom}(g)$. Let $\alpha_1$ denote $h(x_1)$ and $\alpha_2$ denote $h(x_2)$. Then $g(x_1,x_2) = f(\alpha_1,\alpha_2) = (CP(\alpha_1,\alpha_2), g(CE(\alpha_1,\alpha_2)))$. For the first component, by lemma 1 we have $CP(\alpha_1,\alpha_2)\leq N(\alpha_1)$. For the second component, since $g(CE(\alpha_1,\alpha_2))$ is $\mathrm{length}(CE(\alpha_1,\alpha_2))$, this must not exceed $N(CE(\alpha_1,\alpha_2))$, which in turn is strictly less than $N(\alpha_1)$. So $f(\alpha_1,\alpha_2) \leq (N(\alpha_1),N(\alpha_1))$. As $N(\alpha_1) = N(h(x_1))$, by the bound assumed on $N(h(i))$, we have $N(\alpha_1) \leq x_1$. Thus $f(\alpha_1,\alpha_2) \leq (x_1,x_1)$, namely $g(x_1,x_2) \leq (x_1,x_1)$. Since $x_1 \leq \mathrm{max}(x_1,x_2)$, $g$ is limited. $\square$</p>
 
-<p>Coming soon. Extend the above to $k$ other than $2$. Remove the "$17$" from $17$-limitedness.</p>
+<p>Coming soon. Extend the above to $k$ other than $2$.</p>
 
 <h2>Part III: Extension attempts</h2>
 
