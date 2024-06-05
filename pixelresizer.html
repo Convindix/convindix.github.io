@@ -4,6 +4,20 @@
     <title>Pixel art resizer</title>
   </head>
   <body>
-    <p>Insert image here:</p><input type="file">Test text</input>
+    <p>Resizes pixel art to 1 pixel per block of color</p>
+    <p>Used in level restoration</p>
+    <p>Insert image here:</p>
+    <input type="file" id="image" accept="image/*" /><button onclick="load()">Load</button>
+    <image id="loadedImage"></image>
+    <script>
+      function $(id){
+        return document.getElementById(id);
+      }
+      var loadCanvas = $("loadedImage").getContext("2d");
+      function load(){
+        //loadCanvas.drawImage(image, 0, 0);
+        $("loadedImage").src = URL.createObjectURL($("image").file);
+      }
+    </script>
   </body>
 </html>
