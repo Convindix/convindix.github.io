@@ -8,15 +8,15 @@
     <p>Used in level restoration</p>
     <p>Insert image here:</p>
     <input type="file" id="image" accept="image/*" /><button onclick="load()">Load</button>
-    <canvas id="loadedImage" width=256 height=256></image>
+    <image id="loadedImage"></image>
     <script>
       function $(id){
         return document.getElementById(id);
       }
       var loadCanvas = $("loadedImage").getContext("2d");
       function load(){
-        loadCanvas.drawImage(image, 0, 0);
-        //$("loadedImage").src = URL.createObjectURL($("image").file);
+        //loadCanvas.drawImage(image, 0, 0);
+        $("loadedImage").src = URL.createObjectURL($("image").file);
       }
     </script>
   </body>
