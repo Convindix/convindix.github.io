@@ -15,8 +15,8 @@
       }
       var loadCanvas = $("loadedImage").getContext("2d");
       function load(){
-        //loadCanvas.drawImage(image, 0, 0);
-        $("loadedImage").src = URL.createObjectURL($("image").file);
+        loadCanvas.drawImage(image, 0, 0);
+        //$("loadedImage").src = URL.createObjectURL($("image").file);
       }
     </script>
   </body>
