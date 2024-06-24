@@ -140,13 +140,13 @@ $$\begin{align*} h(x_1,\ldots,x_k) & \leq h(x_2,\ldots,x_{k+1}). \\ f(g(x_1),\ld
 
 <p>An attempt to extend theorem 1 to $k > 2$. From here the $x$-variables are $0$-indexed, this is to make this next lemma much more convenient:</p>
 
-<p>Lemma 2: Let $k \geq 1$ be a natural number, and $\alpha_0,\ldots,\alpha_{k-1}$ be a sequence of members of $W(k)$. Then $f_k(\alpha_0,\ldots,\alpha_{k-1})\leq\max\{N(\alpha_0),\ldots,N(\alpha_{k-1})\}$.</p>
+<p>Lemma 2: Let $k \geq 1$ be a natural number, and $\alpha_0,\ldots,\alpha_{k-1}$ be a sequence of members of $W(k)$. Then $f_k(\alpha_0,\ldots,\alpha_{k-1})\leq N(\alpha_0)$.</p>
 
 <p>Proof: Shown by induction on $k$.</p>
 
-<p>If $k=1$, then $f_1(\alpha_0) = \mathrm{length}(\alpha_0)$, which by lemma 1 is less than or equal to $N(\alpha_0)$, which is equal to $\max\{N(\alpha_0)\}$.</p>
+<p>If $k=1$, then $f_1(\alpha_0) = \mathrm{length}(\alpha_0)$, which by lemma 1 is less than or equal to $N(\alpha_0)$.</p>
 
-<p>Suppose this has been proven for $k$ and we aim to prove it for $k+1$. Consider $f_{k+1}(\alpha_0,\ldots,\alpha_k) = (CP(\alpha_0,\alpha_1)) \frown f_k(CE(\alpha_0,\alpha_1), \ldots, CE(\alpha_{k-1},\alpha_k))$. For the first component, by lemma 1 $CP(\alpha_0,\alpha_1)\leq N(\alpha_0)$. For the remaining components, by inductive hypothesis we have $f_k(CE(\alpha_0,\alpha_1), \ldots, CE(\alpha_{k-1},\alpha_k)) \leq \max\{N(CE(\alpha_0,\alpha_1)), \ldots, N(CE(\alpha_{k-1},\alpha_k))\}$, which by using lemma in each argument of $N$ is at most $\max\{N(\alpha_0), \ldots, N(\alpha_{k-1})\}$. Thus $f_{k+1}(\alpha_0,\ldots,\alpha_k) \leq \max\{N(\alpha_0), \ldots, N(\alpha_k)\}$. $\square$</p>
+<p>Suppose this has been proven for $k$ and we aim to prove it for $k+1$. Consider $f_{k+1}(\alpha_0,\ldots,\alpha_k) = (CP(\alpha_0,\alpha_1)) \frown f_k(CE(\alpha_0,\alpha_1), \ldots, CE(\alpha_{k-1},\alpha_k))$. For the first component, by lemma 1 $CP(\alpha_0,\alpha_1)\leq N(\alpha_0)$. For the remaining components, by inductive hypothesis we have $f_k(CE(\alpha_0,\alpha_1), \ldots, CE(\alpha_{k-1},\alpha_k)) \leq N(CE(\alpha_0,\alpha_1))$, which by lemma 1 is at most $N(\alpha_0)$. $\square$</p>
 
 <p>Continue 0-indexing from here</p>
 
