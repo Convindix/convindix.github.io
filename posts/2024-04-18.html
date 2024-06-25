@@ -148,12 +148,26 @@ $$\begin{align*} h(x_1,\ldots,x_k) & \leq h(x_2,\ldots,x_{k+1}). \\ f(g(x_1),\ld
 
 <p>Now, we show that $g$ is limited. Let $(x_0,\ldots,x_{k-1})\in\mathrm{dom}(g)$. For $0\leq i\leq k-1$, let $\alpha_i$ denote $h(x_i)$. Then $g(x_0, \ldots, x_{k‐1}) = f_k(\alpha_0, \ldots, \alpha_{k-1})$. By lemma 2, we have $f_k(\alpha_0, \ldots, \alpha_{k-1}) \leq N(\alpha_0)$. By the bound on the norm of $\alpha_0$, this is at most $(k-1)+x_0$. As $x_0 < \ldots < x_{k-1}$, we have $x_{k-1} \geq (k-1)+x_0$ and $x_{k-1} = \max\{x_0,\ldots,x_{k-1}\}$, so $f_k(\alpha_0, \ldots, \alpha_{k-1}) \leq m$. $\square$</p>
 
-<p>Coming soon. Define the hierarchy $(NH_\alpha)_{\alpha<\varepsilon_0}$:</p>
+<p>Define the hierarchy $(NH_\alpha)_{\alpha<\varepsilon_0}$:</p>
 
 <ul>
-  <li>$NH_0(n) = n$</li>
-  <li>$NH_\alpha(n) = $ when $\alpha>0$</li>
+  <li>$NH_0(n) = n$,</li>
+  <li>For $\alpha>0$, $NH_\alpha(n) = NH_\gamma(n+1)$ where $\gamma$ is the greatest ordinal $<\alpha$ such that $N(\gamma)\leq n+1$.</li>
 </ul>
+
+Lemma 4: N(α[n])\leq N(α)^2
+
+Proof: WIP
+
+Lemma 5: For any ordinal $\alpha<\varepsilon_0$ and natural number $n$, $NH_\alpha(n^2)\geq H_\alpha(n)$.
+
+Proof: By transfinite induction on $\alpha<\varepsilon_0$.
+
+Assume α=0. Then $NH_0(n^2) = n^2 \geq H_0(n) = n$.
+
+Assume that $\alpha>0$, that this has been proven for every $\beta<\alpha$, and we intend to show it for $\alpha$. NH_α(n^2) equals NH_γ(n^2+1) for the greatest γ with $N(γ)\leq n^2+1$. By lemma 4 we have N(α[n]) \leq N(α)^2, so γ\geq α[n]. Then by BuchholzCichonWeiermann94, which is applicable since NH is a hierarchy based on norms (check the conditions needed), $NH_\gamma(n^2+1)\geq NH_{\alpha[n]}(n^2+1)\geq NH_{\alpha[n]}(n)$, and by IH the latter is $\geq H_{\alpha[n]}(n)$. $\square$
+
+<p>Coming soon</p>
 
 <h2>Part III: Extension attempts</h2>
 
