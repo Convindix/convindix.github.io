@@ -118,13 +118,13 @@ $$\begin{align*} h(x_1,\ldots,x_k) & \leq h(x_2,\ldots,x_{k+1}). \\ f(g(x_1),\ld
 
 <h2>Part II: Large integers</h2>
 
-<p>As in Friedman, call a function $f:\subseteq\mathbb N^k\to\mathbb N^k$ limited if for all $x\in\mathrm{dom}(f)$, $\mathrm{max}(f(x))\leq\mathrm{max}(x)$. Consider the following function $R:\mathbb Z^+\to\mathbb N$: for $k\in\mathbb N$ let $R(k)$ be the least $p$ such that for all limited $f:[p]^k\to\mathbb N^k$, there are $x_1<\ldots<x_{k+1}$ such that $f(x_1,\ldots,x_k)\leq f(x_2,\ldots,x_{k+1})$.</p>
+<p>As in Friedman, call a function $f:\subseteq\mathbb N^k\to\mathbb N^k$ limited if for all $x\in\mathrm{dom}(f)$, $\max(f(x))\leq\max(x)$. Consider the following function $R:\mathbb Z^+\to\mathbb N$: for $k\in\mathbb N$ let $R(k)$ be the least $p$ such that for all limited $f:[p]^k\to\mathbb N^k$, there are $x_1<\ldots<x_{k+1}$ such that $f(x_1,\ldots,x_k)\leq f(x_2,\ldots,x_{k+1})$.</p>
 
 <p>The goal is to prove that $R$ grows at roughly the speed of $H_{\varepsilon_0}$. Lower bounds on some large numbers related to adjacent Ramsey theory have been obtained by Friedman and Pelupessy in "<a href="https://www.ams.org/journals/proc/2016-144-02/S0002-9939-2015-12759-1/S0002-9939-2015-12759-1.pdf">Independence of Ramsey theorem variants using $\varepsilon_0$</a>" (Proceedings of the American Mathematical Society vol. 144, 2016), however instead of bounding the $p$ where any $f:[p]^k\to\mathbb N^k$ has an adjacent Ramsey sequence as in here, they instead bound the $p$ where any $f:[p]^k\to\mathbb N^{2k+1}$ has an adjacent Ramsey sequence. The work here can be mainly summarized as first showing that the notion of limited function is permissive enough for descending sequences of ordinals to be implemented, then showing that descending sequences of ordinals can be very long.</p>
 
-<p>Call a function $f:\operatorname{\subseteq}\mathbb N^k\to\mathbb N^k$ limited if for all $x\in\mathrm{dom}(f)$, $\mathrm{max}(f(x))\leq \mathrm{max}(x)$. Define the norm function $N:\bigcup_{k\in\mathbb N}W(k) \to \mathbb N$ by $N(0) = 0$, $N(\omega^\alpha) = N(\alpha)+1$, and $N(\alpha+\beta) = N(\alpha) + N(\beta)$.</p>
+<p>Call a function $f:\operatorname{\subseteq}\mathbb N^k\to\mathbb N^k$ limited if for all $x\in\mathrm{dom}(f)$, $\max}f(x))\leq \max(x)$. Define the norm function $N:\bigcup_{k\in\mathbb N}W(k) \to \mathbb N$ by $N(0) = 0$, $N(\omega^\alpha) = N(\alpha)+1$, and $N(\alpha+\beta) = N(\alpha) + N(\beta)$.</p>
 
-<p>Note that $f$ is limited iff for all $x\in\mathrm{dom}(f)$, $f(x)\leq (\underbrace{\mathrm{max}(x),\ldots,\mathrm{max}(x)}_k)$, this characterization will be used for convenience.</p>
+<p>Note that $f$ is limited iff for all $x\in\mathrm{dom}(f)$, $f(x)\leq (\underbrace{\max(x),\ldots,\max(x)}_k)$, this characterization will be used for convenience.</p>
 
 <p>The next lemma is a straightforward inequality of comparison point, length, and norm.</p>
 
@@ -132,13 +132,7 @@ $$\begin{align*} h(x_1,\ldots,x_k) & \leq h(x_2,\ldots,x_{k+1}). \\ f(g(x_1),\ld
 
 <p>Proof: WIP $\square$</p>
 
-<p>Theorem 1: If $\ell\geq 2$ is a natural number such that there is a $<_2$-decreasing function $h:[\ell]\to W(2)$ such that for all $1\leq i \leq \ell$, $N(h(i)) \leq i$, then there exists a limited function $g:[\ell]^2\to \mathbb N^2$ with no adjacent Ramsey sequence, i.e. no $x_1 < x_2 < x_3$ such that $g(x_1,x_2)\leq g(x_2,x_3)$.</p>
-
-<p>Proof: Let $\ell$, $h$ be as given, and let $f_2:W(2)^2\to\mathbb N^2$ and $f_1:W(1)^1\to\mathbb N^1$ be as in lemma 2.7. Consider the function $g(x_1,x_2) = f_2(h(x_1),h(x_2))$, whose domain is also $[\ell]^2$. First, we show that $g$ has no adjacent Ramsey sequence. For any $x_1 < x_2 < x_3 \in [\ell]$, $g(x_1,x_2) \leq g(x_2,x_3)$ is equivalent to $f_2(h(x_1),h(x_2)) \leq f_2(h(x_2),h(x_3))$. By lemma 2.7 this is equivalent to $h(x_1) \leq_2 h(x_2)$, and since $x_1 < x_2$, by $<_2$-decreasingness of $h$, this is false. Therefore for no $x_1 < x_2 < x_3 \in [\ell]$ can we have $g(x_1,x_2) \leq g(x_2,x_3)$.</p>
-
-<p>Now, we show that $g$ is limited. Let $(x_1,x_2)\in\mathrm{dom}(g)$. Let $\alpha_1$ denote $h(x_1)$ and $\alpha_2$ denote $h(x_2)$. Then $g(x_1,x_2) = f_2(\alpha_1,\alpha_2) = (CP(\alpha_1,\alpha_2), f_1(CE(\alpha_1,\alpha_2)))$. For the first component, by lemma 1 we have $CP(\alpha_1,\alpha_2)\leq N(\alpha_1)$. For the second component, since $f_1(CE(\alpha_1,\alpha_2))$ is $\mathrm{length}(CE(\alpha_1,\alpha_2))$, by lemma 1 this must not exceed $N(CE(\alpha_1,\alpha_2))$, which in turn is strictly less than $N(\alpha_1)$. So $f_2(\alpha_1,\alpha_2) \leq (N(\alpha_1),N(\alpha_1))$. As $N(\alpha_1) = N(h(x_1))$, by the bound assumed on $N(h(i))$, we have $N(\alpha_1) \leq x_1$. Thus $f_2(\alpha_1,\alpha_2) \leq (x_1,x_1)$, namely $g(x_1,x_2) \leq (x_1,x_1)$. Since $x_1 \leq \mathrm{max}(x_1,x_2)$, $g$ is limited. $\square$</p>
-
-<p>An attempt to extend theorem 1 to $k > 2$. From here the $x$-variables are $0$-indexed, this is to make this next lemma much more convenient:</p>
+<p>From here the $x$-variables should be $0$-indexed, this does not affect anything but is just convention. The following lemma may be a bit surprising at first, since the bound is only $N(\alpha_0)$, which only relies on the ordinal $\alpha_0$.<!--But it seems to be a correct lemma--></p>
 
 <p>Lemma 2: Let $k \geq 1$ be a natural number, and $\alpha_0,\ldots,\alpha_{k-1}$ be a sequence of members of $W(k)$. Then $f_k(\alpha_0,\ldots,\alpha_{k-1})\leq N(\alpha_0)$.</p>
 
@@ -148,17 +142,18 @@ $$\begin{align*} h(x_1,\ldots,x_k) & \leq h(x_2,\ldots,x_{k+1}). \\ f(g(x_1),\ld
 
 <p>Suppose this has been proven for $k$ and we aim to prove it for $k+1$. Consider $f_{k+1}(\alpha_0,\ldots,\alpha_k) = (CP(\alpha_0,\alpha_1)) \frown f_k(CE(\alpha_0,\alpha_1), \ldots, CE(\alpha_{k-1},\alpha_k))$. For the first component, by lemma 1 $CP(\alpha_0,\alpha_1)\leq N(\alpha_0)$. For the remaining components, by inductive hypothesis we have $f_k(CE(\alpha_0,\alpha_1), \ldots, CE(\alpha_{k-1},\alpha_k)) \leq N(CE(\alpha_0,\alpha_1))$, which by lemma 1 is at most $N(\alpha_0)$. $\square$</p>
 
-<p>Continue 0-indexing from here</p>
-
 <p>Theorem 3: Let $k \geq 1$. If $\ell\geq 2$ is a natural number such that there is a $<_k$-decreasing function $h:[\ell]\to W(k)$ such that for all $0\leq i \leq \ell-1$, $N(h(i)) \leq (k-1)+i$ (Important - $(k-1)+i$!), then there exists a limited function $g:[\ell]^k\to \mathbb N^k$ with no adjacent Ramsey sequence, i.e. no $x_0 < \ldots < x_k$ such that $g(x_0, \ldots,x_{k-1})\leq g(x_1, \ldots, x_k)$.</p>
 
 <p>Proof: Let $\ell$, $h$ be as given, and let $f_k:W(k)^k\to\mathbb N^k$ and $f_{k-1}:W(k-1)^{k-1}\to\mathbb N^{k-1}$ be as in lemma 2.7. Consider the function $g(x_0,\ldots,x_{k-1}) = f_k(h(x_0),\ldots,h(x_{k-1}))$, whose domain is also $[\ell]^k$. First, we show that $g$ has no adjacent Ramsey sequence. For any $x_0 < \ldots < x_k \in [\ell]$, $g(x_0, \ldots, x_{k-1})\leq g(x_1, \ldots, x_k)$ is equivalent to $f_k(h(x_0), \ldots, h(x_{k-1})) \leq f(h(x_1), \ldots, h(x_k))$. By lemma 2.7 this is equivalent to $h(x_0) \leq_k h(x_1)$, and since $x_0 < x_1$, by $<_k$-decreasingness of $h$, this is false. Therefore for no $x_0 < \ldots < x_k \in [\ell]$ can we have $g(x_0, \ldots, x_{k-1}) \leq g(x_1, \ldots, x_k)$.</p>
 
-<p>Now, we show that $g$ is limited. Let $(x_0,\ldots,x_{k-1})\in\mathrm{dom}(g)$, and let $m$ abbreviate $\mathrm{max}(x_0,\ldots,x_{k-1})$. For $0\leq i\leq k-1$, let $\alpha_i$ denote $h(x_i)$. Then $g(x_0, \ldots, x_{k‐1}) = f_k(\alpha_0, \ldots, \alpha_{k-1})$. By lemma 2, we have $f_k(\alpha_0, \ldots, \alpha_{k-1}) \leq N(\alpha_0)$. By the bound on the norm of $\alpha_0$, this is at most $(k-1)+x_0$. As $x_0 < \ldots < x_{k-1}$, we have $x_{k-1} \geq (k-1)+x_0$ and $x_{k-1} = m$, so $f_k(\alpha_0, \ldots, \alpha_{k-1}) \leq m$. $\square$</p>
+<p>Now, we show that $g$ is limited. Let $(x_0,\ldots,x_{k-1})\in\mathrm{dom}(g)$. For $0\leq i\leq k-1$, let $\alpha_i$ denote $h(x_i)$. Then $g(x_0, \ldots, x_{k‐1}) = f_k(\alpha_0, \ldots, \alpha_{k-1})$. By lemma 2, we have $f_k(\alpha_0, \ldots, \alpha_{k-1}) \leq N(\alpha_0)$. By the bound on the norm of $\alpha_0$, this is at most $(k-1)+x_0$. As $x_0 < \ldots < x_{k-1}$, we have $x_{k-1} \geq (k-1)+x_0$ and $x_{k-1} = \max\{x_0,\ldots,x_{k-1}\}$, so $f_k(\alpha_0, \ldots, \alpha_{k-1}) \leq m$. $\square$</p>
 
-<p>However this seems to prove too much. For any positive integer $c$, the norm restriction can be replaced with $N(h(i)) \leq (k-1)+ci$ and the proof of theorem 3 appears to carry out, however if $\alpha_0$ is a term corresponding to an infinite ordinal, then this can produce arbitrarily long decreasing sequences in $W(k)$ that still correspond to bounded functions, meaning $R(k)$ is not defined.</p>
+<p>Coming soon. Define the hierarchy $(NH_\alpha)_{\alpha<\varepsilon_0}$:</p>
 
-<p>Coming soon. Define the hierarchy $(NH_\alpha)_{\alpha<\varepsilon_0}$.</p>
+<ul>
+  <li>$NH_0(n) = n$</li>
+  <li>$NH_\alpha(n) = $ when $\alpha>0$</li>
+</ul>
 
 <h2>Part III: Extension attempts</h2>
 
