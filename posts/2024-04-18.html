@@ -142,7 +142,7 @@ $$\begin{align*} h(x_1,\ldots,x_k) & \leq h(x_2,\ldots,x_{k+1}). \\ f(g(x_1),\ld
 
 <p>Suppose this has been proven for $k$ and we aim to prove it for $k+1$. Consider $f_{k+1}(\alpha_0,\ldots,\alpha_k) = (CP(\alpha_0,\alpha_1)) \frown f_k(CE(\alpha_0,\alpha_1), \ldots, CE(\alpha_{k-1},\alpha_k))$. For the first component, by lemma 1 $CP(\alpha_0,\alpha_1)\leq N(\alpha_0)$. For the remaining components, by inductive hypothesis we have $f_k(CE(\alpha_0,\alpha_1), \ldots, CE(\alpha_{k-1},\alpha_k)) \leq N(CE(\alpha_0,\alpha_1))$, which by lemma 1 is at most $N(\alpha_0)$. $\square$</p>
 
-<p>Theorem 3: Let $k \geq 1$. If $\ell\geq 2$ is a natural number such that there is a $<_k$-decreasing function $h:[\ell]\to W(k)$ such that for all $0\leq i \leq \ell-1$, $N(h(i)) \leq (k-1)+i$ (Important - $(k-1)+i$!), then there exists a limited function $g:[\ell]^k\to \mathbb N^k$ with no adjacent Ramsey sequence, i.e. no $x_0 < \ldots < x_k$ such that $g(x_0, \ldots,x_{k-1})\leq g(x_1, \ldots, x_k)$.</p>
+<p>Theorem 3: Let $k \geq 1$. If $\ell\geq 2$ is a natural number such that there is a $<_k$-decreasing function $h:[\ell]\to W(k)$ such that for all $0\leq i \leq \ell-1$, $N(h(i)) \leq (k-1)+i$. There exists a limited function $g:[\ell]^k\to \mathbb N^k$ with no adjacent Ramsey sequence, i.e. no $x_0 < \ldots < x_k$ such that $g(x_0, \ldots,x_{k-1})\leq g(x_1, \ldots, x_k)$.</p>
 
 <p>Proof: Let $\ell$, $h$ be as given, and let $f_k:W(k)^k\to\mathbb N^k$ and $f_{k-1}:W(k-1)^{k-1}\to\mathbb N^{k-1}$ be as in lemma 2.7. Consider the function $g(x_0,\ldots,x_{k-1}) = f_k(h(x_0),\ldots,h(x_{k-1}))$, whose domain is also $[\ell]^k$. First, we show that $g$ has no adjacent Ramsey sequence. For any $x_0 < \ldots < x_k \in [\ell]$, $g(x_0, \ldots, x_{k-1})\leq g(x_1, \ldots, x_k)$ is equivalent to $f_k(h(x_0), \ldots, h(x_{k-1})) \leq f(h(x_1), \ldots, h(x_k))$. By lemma 2.7 this is equivalent to $h(x_0) \leq_k h(x_1)$, and since $x_0 < x_1$, by $<_k$-decreasingness of $h$, this is false. Therefore for no $x_0 < \ldots < x_k \in [\ell]$ can we have $g(x_0, \ldots, x_{k-1}) \leq g(x_1, \ldots, x_k)$.</p>
 
@@ -166,6 +166,10 @@ Proof: By transfinite induction on $\alpha<\varepsilon_0$.
 Assume α=0. Then $NH_0(n^2) = n^2 \geq H_0(n) = n$.
 
 Assume that $\alpha>0$, that this has been proven for every $\beta<\alpha$, and we intend to show it for $\alpha$. NH_α(n^2) equals NH_γ(n^2+1) for the greatest γ with $N(γ)\leq n^2+1$. By lemma 4 we have N(α[n]) \leq N(α)^2, so γ\geq α[n]. Then by BuchholzCichonWeiermann94, which is applicable since NH is a hierarchy based on norms (check the conditions needed), $NH_\gamma(n^2+1)\geq NH_{\alpha[n]}(n^2+1)\geq NH_{\alpha[n]}(n)$, and by IH the latter is $\geq H_{\alpha[n]}(n)$. $\square$
+
+Lemma 6: Let $k>0$. Let $\ell$ be $NH_{\varepsilon_0[k]}(k)$ (where $\varepsilon_0[0]=1$ and $\varepsilon_0[i+1]=\omega^{\varepsilon_0[i]$). There is a $<_k$-decreasing function $h:[\ell]\to W(k)$ such that for all $0\leq i\leq\ell$, $N(h(i)) leq (k-1)+i$.
+
+Proof: WIP $\square$
 
 <p>Coming soon</p>
 
