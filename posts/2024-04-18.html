@@ -122,9 +122,14 @@ $$\begin{align*} h(x_1,\ldots,x_k) & \leq h(x_2,\ldots,x_{k+1}). \\ f(g(x_1),\ld
 
 <p>The goal is to prove that $R$ grows at roughly the speed of $H_{\varepsilon_0}$. Lower bounds on some large numbers related to adjacent Ramsey theory have been obtained by Friedman and Pelupessy in "<a href="https://www.ams.org/journals/proc/2016-144-02/S0002-9939-2015-12759-1/S0002-9939-2015-12759-1.pdf">Independence of Ramsey theorem variants using $\varepsilon_0$</a>" (Proceedings of the American Mathematical Society vol. 144, 2016), however instead of bounding the $p$ where any $f:[p]^k\to\mathbb N^k$ has an adjacent Ramsey sequence as in here, they instead bound the $p$ where any $f:[p]^k\to\mathbb N^{2k+1}$ has an adjacent Ramsey sequence. The work here can be mainly summarized as first showing that the notion of limited function is permissive enough for descending sequences of ordinals to be implemented, then showing that descending sequences of ordinals can be very long.</p>
 
-<p>Call a function $f:\operatorname{\subseteq}\mathbb N^k\to\mathbb N^k$ limited if for all $x\in\mathrm{dom}(f)$, $\max}f(x))\leq \max(x)$. Define the norm function $N:\bigcup_{k\in\mathbb N}W(k) \to \mathbb N$ by $N(0) = 0$, $N(\omega^\alpha) = N(\alpha)+1$, and $N(\alpha+\beta) = N(\alpha) + N(\beta)$.</p>
+<p>Call a function $f:\operatorname{\subseteq}\mathbb N^k\to\mathbb N^k$ limited if for all $x\in\mathrm{dom}(f)$, $\max}f(x))\leq \max(x)$. Note that $f$ is limited iff for all $x\in\mathrm{dom}(f)$, $f(x)\leq (\underbrace{\max(x),\ldots,\max(x)}_k)$, this characterization will be used for convenience.</p>
 
-<p>Note that $f$ is limited iff for all $x\in\mathrm{dom}(f)$, $f(x)\leq (\underbrace{\max(x),\ldots,\max(x)}_k)$, this characterization will be used for convenience.</p>
+<p>Define the norm function $N:\bigcup_{k\in\mathbb N}W(k) \to \mathbb N$ by $N(0) = 0$, $N(\omega^\alpha) = N(\alpha)+1$, and $N(\alpha+\beta) = N(\alpha) + N(\beta)$. Define fundamental sequences for limit ordinals $\leq\varepsilon_0$ by the following cases:</p>
+
+<ul>
+  <li>If $\alpha,\beta<\varepsilon_0$, then for $n\in\mathbb N$, define $(\alpha+\omega^{\beta+1})[n] = \alpha+\omega^\beta n$, and define $(\alpha+\omega^\beta)[n] = \alpha+\omega^{\beta[n]}$ if $\beta$ is a limit ordinal.</li>
+  <li>For $n\in\mathbb N$, define $\varepsilon_0[n]$ by $\varepsilon_0[0] = 1$ and $\varepsilon_0[n+1] = \omega^{\varepsilon_0[n]}$.</li>
+</ul>
 
 <p>The next lemma is a straightforward inequality of comparison point, length, and norm.</p>
 
@@ -155,23 +160,29 @@ $$\begin{align*} h(x_1,\ldots,x_k) & \leq h(x_2,\ldots,x_{k+1}). \\ f(g(x_1),\ld
   <li>For $\alpha>0$, $NH_\alpha(n) = NH_\gamma(n+1)$ where $\gamma$ is the greatest ordinal $<\alpha$ such that $N(\gamma)\leq n+1$.</li>
 </ul>
 
-Lemma 4: N(α[n])\leq N(α)^2
+Lemma 4: For $\alpha\leq\beta<\varepsilon_0$, for $m\leq n\in\mathbb N$, $NH_\alpha(m)\leq NH_\beta(n)$.
+
+Proof: By transfinite induction on $\beta$. If $\beta=0$, then $\alpha=0$, and $NH_0(m)=m\leq n=NH_0(n)$. If $\beta>0$, then $NH_\alpha(m)=NH_\gamma(m+1)$ for some $\gamma<\alpha$ with $N(\gamma)=m+1$, and $NH_\beta(n)=NH_\delta(n+1)$ for some $\delta<\alpha$ with $N(\delta)=n+1$. As $N(\gamma)\leq N(\delta)$ and $\gamma$ and $\delta$ are the maximum ordinals less than $\alpha$ with these norms, $\gamma\leq\delta$. As $m+1\leq n+1$, by inductive hypothesis we have $NH_\gamma(m+1)\leq NH_\delta(n+1)$. $\square$
+
+Lemma 5: For all $\alpha<\varepsilon_0$ and $n\in\mathbb N$, $N(\alpha[n])\leq N(\alpha)^2$.
 
 Proof: WIP
 
-Lemma 5: For any ordinal $\alpha<\varepsilon_0$ and natural number $n$, $NH_\alpha(n^2)\geq H_\alpha(n)$.
+Lemma 6: For any ordinal $\alpha<\varepsilon_0$ and natural number $n$, $NH_\alpha(n^2)\geq H_\alpha(n)$.
 
 Proof: By transfinite induction on $\alpha<\varepsilon_0$.
 
-Assume α=0. Then $NH_0(n^2) = n^2 \geq H_0(n) = n$.
+Assume $\alpha=0$. Then $NH_0(n^2) = n^2 \geq H_0(n) = n$.
 
-Assume that $\alpha>0$, that this has been proven for every $\beta<\alpha$, and we intend to show it for $\alpha$. $NH_\alpha(n^2)$ equals $NH_\gamma(n^2+1)$ for the greatest $\gamma$ with $N(\gamma)\leq n^2+1$. By lemma 4 we have $N(\alpha[n]) \leq N(\alpha)^2$, so $\gamma\geq \alpha[n]$. Then by BuchholzCichonWeiermann94, which is applicable since NH is a hierarchy based on norms (check the conditions needed), $NH_\gamma(n^2+1)\geq NH_{\alpha[n]}(n^2+1)\geq NH_{\alpha[n]}(n)$, and by IH the latter is $\geq H_{\alpha[n]}(n)$. $\square$
+Assume that $\alpha>0$, that this has been proven for every $\beta<\alpha$, and we intend to show it for $\alpha$. $NH_\alpha(n^2)$ equals $NH_\gamma(n^2+1)$ for the greatest $\gamma$ with $N(\gamma)\leq n^2+1$. By lemma 5 we have $N(\alpha[n]) \leq N(\alpha)^2$, so $\gamma\geq \alpha[n]$. Then by lemma 4, $NH_\gamma(n^2+1)\geq NH_{\alpha[n]}(n^2+1)\geq NH_{\alpha[n]}(n)$, and by inductive hypothesis the latter is $\geq H_{\alpha[n]}(n)$. $\square$
 
-Lemma 6: Let $k>0$. Let $\ell$ be $NH_{\varepsilon_0[k]}(k)$ (where $\varepsilon_0[0]=1$ and $\varepsilon_0[i+1]=\omega^{\varepsilon_0[i]$). There is a $<_k$-decreasing function $h:[\ell]\to W(k)$ such that for all $0\leq i\leq\ell$, $N(h(i)) \leq (k-1)+i$.
+Lemma 7: Let $k>0$. Let $\ell$ be $NH_{\varepsilon_0[k]}(k)$. There is a $<_k$-decreasing function $h:[\ell]\to W(k)$ such that for all $0\leq i\leq\ell$, $N(h(i)) \leq (k-1)+i$.
 
-Proof: WIP $\square$
+Proof: Look at the expansion of $NH_{\varepsilon_0[k]}$ and put the subscripts into a sequence. (Word this better?) $\square$
 
-<p>Coming soon</p>
+Corollary 8: For $k > 0$, $R(k) > NH_{\varepsilon_0[k]}(k)$.
+
+Proof: Let $\ell=NH_{\varepsilon_0[k]}(k)$. Apply lemma 7 then theorem 3. $\square$
 
 <h2>Part III: Extension attempts</h2>
 
