@@ -174,7 +174,7 @@ Recall the definition of the Hardy hierarchy of functions $H:\varepsilon_0\to(\m
 
 <p>Proof: By transfinite induction on $\beta$. If $\beta=0$, then $\alpha=0$, and $NH_0(m)=m\leq n=NH_0(n)$. If $\beta>0$, then $NH_\alpha(m)=NH_\gamma(m+1)$ for some $\gamma<\alpha$ with $N(\gamma)=m+1$, and $NH_\beta(n)=NH_\delta(n+1)$ for some $\delta<\alpha$ with $N(\delta)=n+1$. As $N(\gamma)\leq N(\delta)$ and $\gamma$ and $\delta$ are the maximum ordinals less than $\alpha$ with these norms, $\gamma\leq\delta$. As $m+1\leq n+1$, by inductive hypothesis we have $NH_\gamma(m+1)\leq NH_\delta(n+1)$. $\square$</p>
 
-<p>Lemma 5: For all $\alpha<\varepsilon_0$ and $n\in\mathbb N$, $N(\alpha[n])\leq N(\alpha)^2$.</p>
+<p>Lemma 5: For all $\alpha<\varepsilon_0$ and $n\in\mathbb N$, $N(\alpha[n])\leq N(\alpha)^2$. (Fix this, this theorem is wrong as stated as $n$ does not appear on the RHS.)</p>
 
 <p>Proof: WIP</p>
 
@@ -184,7 +184,7 @@ Recall the definition of the Hardy hierarchy of functions $H:\varepsilon_0\to(\m
 
 <p>Assume $\alpha=0$. Then $NH_0(n^2) = n^2 \geq H_0(n) = n$.</p>
 
-<p>Assume that $\alpha>0$, that this has been proven for every $\beta<\alpha$, and we intend to show it for $\alpha$. $NH_\alpha(n^2)$ equals $NH_\gamma(n^2+1)$ for the greatest $\gamma$ with $N(\gamma)\leq n^2+1$. By lemma 5 we have $N(\alpha[n]) \leq N(\alpha)^2$, so $\gamma\geq \alpha[n]$. Then by lemma 4, $NH_\gamma(n^2+1)\geq NH_{\alpha[n]}(n^2+1)\geq NH_{\alpha[n]}(n)$, and by inductive hypothesis the latter is $\geq H_{\alpha[n]}(n)$. $\square$</p>
+<p>Assume that $\alpha>0$, that this has been proven for every $\beta<\alpha$, and we intend to show it for $\alpha$. $NH_\alpha(n^2)$ equals $NH_\gamma(n^2+1)$ for the greatest $\gamma$ with $N(\gamma)\leq n^2+1$. By lemma 5 we have $N(\alpha[n]) \leq N(\alpha)^2$, so $\gamma\geq \alpha[n]$. (Fix this!) Then by lemma 4, $NH_\gamma(n^2+1)\geq NH_{\alpha[n]}(n^2+1)\geq NH_{\alpha[n]}(n)$, and by inductive hypothesis the latter is $\geq H_{\alpha[n]}(n)$. $\square$</p>
 
 <p>Lemma 7: Let $k>0$. Let $\ell$ be $NH_{\varepsilon_0[k]}(k)$. There is a $<_k$-decreasing function $h:[\ell]\to W(k)$ such that for all $0\leq i\leq\ell$, $N(h(i)) \leq (k-1)+i$.</p>
 
