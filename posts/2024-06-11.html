@@ -15,4 +15,16 @@ Proof: Woodin's universal finite algorithm. $\square$
 A corollary of the first conjecture is that even though the halting of machines may vary from model to model, all the $\omega$-models of ZFC have one correct busy beaver function. However, theorem 2 says that the same cannot be said even for Rayo just for $\Sigma^0_2$ formulas. (And even $\emptyset'$ busy beaver?)
 
 <hr />
-Here is an older (October 2023) result of mine which is related to philosophical problems with Rayo. (Paste eventual domination result here)
+Here is an older (October 2023) result of mine which is related to philosophical problems with Rayo.
+
+Let $\textrm{len}(\phi)$ denote the length of a FOST formula $\phi$. Given a transitive model $M$ of ZFC, say that the Rayo function of $M$ (denoted $\textrm{Rayo}_M$) is the set of $(x,y)\in\mathbb N^M\times\mathbb N^M$ such that $y=\textrm{sup}^+\{w\in\mathbb N\mid\textrm{there is a FOST formula }\phi(z)\textrm{ with len}(\phi)\leq x\textrm{ and one free variable s.t. }M\vDash\ulcorner\forall(z\in\mathbb N)(\phi(z)\iff z=w)\urcorner\}$. This is externally definable since only $M\vDash\ldots$ is used. Since $M$ is $\omega$-standard, all $M$-natural numbers are natural numbers.
+
+Lemma (ZFC?): If $M,M'$ are $\omega$-standard models of ZFC such that $M$ is a definable set in $M'$, then (the $M'$ interpretation of) the Rayo function of $M$ is a definable function over $M'$.
+
+Proof: Carry out the definition of the Rayo function of $M$ within $M'$. $M'$ satisfies that $\{w\in\mathbb N\mid\ldots\}$ exists by $\Sigma_1$-comprehension, since only $M\vDash\ldots$ is used. $\square$
+
+Theorem: For every countable transitive model $M$ of ZFC, there is an $\omega$-standard model $M'$ of ZFC such that the Rayo function of $M'$ eventually dominates the Rayo function of $M$.
+
+Proof: By corollary 10 of Hamkins, Linetsky, Reitz, ``Pointwise Definable Models of Set Theory" (arXiv 1105.4597), there is a countable transitive pointwise definable model $M'$ of ZFC such that $M'$ satisfies ``$M$ is a countable transitive set". (The source uses the notation $M^+$.) Let $\phi_M(x)$ be a FOST formula defining $M$ in $M'$, i.e. such that $M'\vDash\forall z(\phi(z)\iff z=M)$.
+
+By the lemma, let $\chi(x,y)$ be a FOST formula defining the Rayo function of $M$ over $M'$. Let $k\in\mathbb N$, and say that $\psi(t)$ is a winning formula for $\textrm{Rayo}_{M'}(k)$. $\exists x(\psi(x)\land\chi(x,y))$ is a formula of length $\textrm{len}(\psi)+\textrm{len}(\chi)+5\leq k+\textrm{len}(\chi)+5$ with $y$ as its only free variable which, in $M'$, defines $\textrm{Rayo}_M(\textrm{Rayo}_{M'}(k))$. Therefore $\textrm{Rayo}_{M'}(k+\textrm{len}(\chi)+5)>\textrm{Rayo}_M(\textrm{Rayo}_{M'}(k))$. For sufficiently large $k$, $\textrm{Rayo}_{M'}(k)$ is greater than $k+\textrm{len}(\chi)+5$ (which is $k$ plus a constant), for these $k$ we have $\textrm{Rayo}_{M'}(k+\textrm{len}(\chi)+5)>\textrm{Rayo}_M(k+\textrm{len}(\chi)+5)$. Replacing $k+\textrm{len}(\chi)+5$ with a natural number $n$, for sufficiently large $n$, $\textrm{Rayo}_{M'}(n)>\textrm{Rayo}_M(n)$. $\square$
