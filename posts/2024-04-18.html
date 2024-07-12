@@ -166,8 +166,7 @@ Recall the definition of the Hardy hierarchy of functions $H:\varepsilon_0\to(\m
 <p>Define the hierarchy $NH:\varepsilon_0\to(\mathbb N\to\mathbb N)$:</p>
 
 <ul>
-  <!--<li>$NH_0(n) = n$,</li>-->
-  <li>$NH_0(n) = 0$,</li>
+  <li>$NH_0(n) = n$,</li>
   <li>For $\alpha>0$, $NH_\alpha(n) = NH_\gamma(n+1)$ where $\gamma$ is the greatest ordinal $<\alpha$ such that $N(\gamma)\leq n+1$.</li>
 </ul>
 
@@ -193,7 +192,7 @@ Recall the definition of the Hardy hierarchy of functions $H:\varepsilon_0\to(\m
 
 <p>Lemma 7: Let $k>0$, let $n$ be a natural number, and let $\alpha\in W(k)$ be such that $N(\alpha)\leq n$. Let $\ell$ be $NH_\alpha(n)-n$. There is a $<_k$-decreasing function $h:[\ell]\to W(k)$ such that for all $0\leq i\leq\ell$, $N(h(i)) \leq n+i$.</p>
 
-<p>Proof: Define $h(0) = \alpha$, and for $i<\ell-1$ define $h(i+1)$ to be the greatest ordinal $<h(i)$ whose norm is $\leq n+i$. This sequence of ordinals (conflating an ordinal with its corresponding term!) is the sequence of ordinals appearing in the subscripts of $NH$ in the expansion of $NH_{\varepsilon_0[k]}$, and it is a sequence of length $\ell$. (Word this better? Also check the length of the sequence vs. the output of $NH$) $\square$</p>
+<p>Proof: Define $h(0) = \alpha$, and for $i<\ell-1$ define $h(i+1)$ to be the greatest ordinal $<h(i)$ whose norm is $\leq n+i$. This sequence of ordinals (conflating an ordinal with its corresponding term!) is the sequence of ordinals appearing in the subscripts of $NH$ in the expansion of $NH_{\varepsilon_0[k]}$, and it is a sequence of length $\ell$. (Word this better? Also check the length of the sequence vs. the output of $NH$) Use a tail-recursive function $L(\alpha,n,\ell)$? $\square$</p>
 
 <p>Corollary 8: For $k > 0$, $R(k) > NH_{\varepsilon_0[k]}(k)-(k-1)$.</p>
 
