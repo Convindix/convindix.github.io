@@ -191,13 +191,13 @@ Recall the definition of the Hardy hierarchy of functions $H:\varepsilon_0\to(\m
 
 <p>Assume that $\alpha>0$, and that this has been proven for every $\beta<\alpha$, and we intend to show it for $\alpha$. $NH_\alpha(n^2)$ equals $NH_\gamma(n^2+1)$ for the greatest $\gamma<\alpha$ with $N(\gamma)\leq n^2+1$. We have $\alpha[n] < \alpha$, and by lemma 5 we have $N(\alpha[n]) \leq n^2+1$, so $\gamma \geq \alpha[n]$. Then by lemma 4, $NH_\gamma(n^2+1)\geq NH_{\alpha[n]}(n^2+1)$. By lemma 4 we have $n^2+1\geq N(\alpha[n])$, so we can apply the inductive hypothesis to obtain that $NH_{\alpha[n]}(n^2+1) \geq H_{\alpha[n]}(n)$. So $NH_\alpha(n^2) \geq H_\alpha(n)$. $\square$</p>
 
-<p>Lemma 7: Let $k>0$. Let $\ell$ be $NH_{\varepsilon_0[k]}(k)-(k-1)$. There is a $<_k$-decreasing function $h:[\ell]\to W(k)$ such that for all $0\leq i\leq\ell$, $N(h(i)) \leq (k-1)+i$.</p>
+<p>Lemma 7: Let $k>0$, let $n$ be a natural number, and let $\alpha\in W(k)$ be such that $N(\alpha)\leq n$. Let $\ell$ be $NH_\alpha(n)-n$. There is a $<_k$-decreasing function $h:[\ell]\to W(k)$ such that for all $0\leq i\leq\ell$, $N(h(i)) \leq n+i$.</p>
 
-<p>Proof: Define $h(0) = \varepsilon_0[k]$, and for $i<\ell-1$ define $h(i+1)$ to be the greatest ordinal $<h(i)$ whose norm is $\leq k+i$. This sequence of ordinals (conflating an ordinal with its corresponding term!) is the sequence of ordinals appearing in the subscripts of $NH$ in the expansion of $NH_{\varepsilon_0[k]}$, and it is a sequence of length $\ell$. (Word this better? Also check the length of the sequence vs. the output of $NH$) $\square$</p>
+<p>Proof: Define $h(0) = \alpha$, and for $i<\ell-1$ define $h(i+1)$ to be the greatest ordinal $<h(i)$ whose norm is $\leq n+i$. This sequence of ordinals (conflating an ordinal with its corresponding term!) is the sequence of ordinals appearing in the subscripts of $NH$ in the expansion of $NH_{\varepsilon_0[k]}$, and it is a sequence of length $\ell$. (Word this better? Also check the length of the sequence vs. the output of $NH$) $\square$</p>
 
 <p>Corollary 8: For $k > 0$, $R(k) > NH_{\varepsilon_0[k]}(k)-(k-1)$.</p>
 
-<p>Proof: Let $\ell = NH_{\varepsilon_0[k]}(k)-(k-1)$. Apply lemma 7, then theorem 3. $\square$</p>
+<p>Proof: Let $\ell = NH_{\varepsilon_0[k]}(k)-(k-1)$. Apply lemma 7, then theorem 3. Check this! $\square$</p>
 
 <h2>Part III: Extension attempts</h2>
 
