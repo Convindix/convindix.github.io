@@ -192,7 +192,7 @@ Recall the definition of the Hardy hierarchy of functions $H:\varepsilon_0\to(\m
 
 <p>Lemma 7: Let $k>0$, let $n$ be a natural number, and let $\alpha\in W(k)$ be such that $N(\alpha)\leq n$. Let $\ell$ be $NH_\alpha(n)-n$. There is a $<_k$-decreasing function $h:[\ell]\to W(k)$ such that for all $0\leq i\leq\ell$, $N(h(i)) \leq n+i$.</p>
 
-<p>Proof: Let $k,n,\alpha$ be as given. Define $h(0) = \alpha$, and for $i<\ell-1$ define $h(i+1)$ to be the greatest ordinal $<h(i)$ whose norm is $\leq n+i$. It may be proved by induction on $i<\ell$ that $h(i)$ is the ordinal in the subscript of the $i$th step of the expansion of $NH_\alpha(n)$, and also somehow proven that $h(\ell-1)=0$, and it is a sequence of length $\ell$. (Word this better? Also check the length of the sequence vs. the output of $NH$) Tail-recursive function $L(\alpha,n,\ell)$ not needed? $\square$</p>
+<p>Proof: Let $k,n,\alpha$ be as given. First note that three number of steps in the evaluation of $NH_\alpha(n)$ before termination is $\ell$. Define $h(0) = \alpha$, and for a natural number $i$, if $h(i)>0$ then define $h(i+1)$ to be the greatest ordinal $<h(i)$ whose norm is $\leq n+i$. This recursive definition terminated after the same number of steps as the recursive definition of $NH_\alpha(n)$ (i.e. $\ell$), and it may be proved by induction on $i<\ell$ that $h(i)$ is the ordinal in the subscript of the $i$th step of the expansion of $NH_\alpha(n)$. (Tail-recursive function $L(\alpha,n,\ell)$ not needed?) $\square$</p>
 
 <p>Corollary 8: For $k > 0$, $R(k) > NH_{\varepsilon_0[k]}(k)-(k-1)$.</p>
 
