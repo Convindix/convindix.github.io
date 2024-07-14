@@ -180,13 +180,11 @@ Recall the definition of the Hardy hierarchy of functions $H:\varepsilon_0\to(\m
 
 <!--<p>Lemma 6: For any ordinal $\alpha<\varepsilon_0$ and natural number $n\geq N(\alpha)$, $NH_\alpha(n^2)\geq H_\alpha(n)$.</p>-->
 
-<p>Lemma 6: For any ordinal $\alpha<\varepsilon_0$ and natural number $n\geq N(\alpha)$, $NH_\alpha(n^2)+n\geq H_\alpha(n)$.</p>
+<p>Lemma 6: For any ordinal $\alpha<\varepsilon_0$ and natural number $n\geq N(\alpha)$, $NH_\alpha(n^2)\geq H_\alpha(n)$.</p>
 
 <p>Proof: By transfinite induction on $\alpha<\varepsilon_0$.</p>
 
-<!--<p>Assume $\alpha=0$. Then $NH_0(n^2) = n^2 \geq H_0(n) = n$.</p>-->
-
-<p>Assume $\alpha=0$. Then $NH_0(n^2)+n = n = H_0(n)$.</p>
+<p>Assume $\alpha=0$. Then $NH_0(n^2) = n^2 \geq H_0(n) = n$.</p>
 
 <p>Assume that $\alpha>0$, and that this has been proven for every $\beta<\alpha$, and we intend to show it for $\alpha$. $NH_\alpha(n^2)$ equals $NH_\gamma(n^2+1)$ for the greatest $\gamma<\alpha$ with $N(\gamma)\leq n^2+1$. We have $\alpha[n] < \alpha$, and by lemma 5 we have $N(\alpha[n]) \leq n^2+1$, so $\gamma \geq \alpha[n]$. Then by lemma 4, $NH_\gamma(n^2+1)\geq NH_{\alpha[n]}(n^2+1)$. By lemma 4 we have $n^2+1\geq N(\alpha[n])$, so we can apply the inductive hypothesis to obtain that $NH_{\alpha[n]}(n^2+1) \geq H_{\alpha[n]}(n)$. So $NH_\alpha(n^2) \geq H_\alpha(n)$. $\square$</p>
 
