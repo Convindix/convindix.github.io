@@ -163,38 +163,46 @@ Recall the definition of the Hardy hierarchy of functions $H:\varepsilon_0\to(\m
   <li>For limit $\alpha$, $H_\alpha(n) = H_{\alpha[n]}(n)$.</li>
 </ul>
 
+<p>For $\alpha\in W$ and $n\in\mathbb N$, define $G_n(\alpha)$ to be the $>$-greatest member $\beta$ of $W$ such that $\beta<\alpha$ and $N(\beta)\leq n$.
+
 <p>Define the hierarchy $NH:\varepsilon_0\to(\mathbb N\to\mathbb N)$:</p>
 
 <ul>
   <li>$NH_0(n) = n$,</li>
-  <li>For $\alpha>0$, $NH_\alpha(n) = NH_\gamma(n+1)$ where $\gamma$ is the greatest ordinal $<\alpha$ such that $N(\gamma)\leq n+1$.</li>
+  <li>For $\alpha>0$, $NH_\alpha(n) = NH_{G_{n+1}(\alpha)}(n+1)$.</li>
 </ul>
 
-<p>Lemma 4: For $\alpha\leq\beta<\varepsilon_0$, for $m\leq n\in\mathbb N$, $NH_\alpha(m)\leq NH_\beta(n)$.</p>
+<p>Lemma 5: For $\alpha\leq\beta<\varepsilon_0$, for $m\leq n\in\mathbb N$, $NH_\alpha(m)\leq NH_\beta(n)$.</p>
 
-<p>Proof: By transfinite induction on $\beta$. If $\beta=0$, then $\alpha=0$, and $NH_0(m)=m\leq n=NH_0(n)$. If $\beta>0$, then $NH_\alpha(m)=NH_\gamma(m+1)$ for some $\gamma<\alpha$ with $N(\gamma)=m+1$, and $NH_\beta(n)=NH_\delta(n+1)$ for some $\delta<\alpha$ with $N(\delta)=n+1$. As $N(\gamma)\leq N(\delta)$ and $\gamma$ and $\delta$ are the maximum ordinals less than $\alpha$ with these norms, $\gamma\leq\delta$. As $m+1\leq n+1$, by inductive hypothesis we have $NH_\gamma(m+1)\leq NH_\delta(n+1)$. $\square$</p>
+<p>Proof: By transfinite induction on $\beta$. If $\beta=0$, then $\alpha=0$, and $NH_0(m)=m\leq n=NH_0(n)$. If $\beta>0$, then $NH_\alpha(m)=NH_\gamma(m+1)$ where $\gamma=G_{m+1}(\alpha)$, and $NH_\beta(n)=NH_\delta(n+1)$ where $\delta=G_{n+1}(\alpha)$. By lemma 4, $\gamma\leq\delta$. As $m+1\leq n+1$, by inductive hypothesis we have $NH_\gamma(m+1)\leq NH_\delta(n+1)$. $\square$</p>
 
-<p>Lemma 5: For all $\alpha<\varepsilon_0$ and $n\geq N(\alpha)$, $N(\alpha[n]) \leq n^2+1$.</p>
+Lemma 4: If $\beta<\alpha$ is such that $N(\beta)\leq n$, and $m>n$, then $\beta\leq G_m(\alpha)$.
+
+Proof: WIP
+
+<p>Lemma 6: For all $\alpha<\varepsilon_0$ and $n\geq N(\alpha)$, $N(\alpha[n]) \leq n^2+1$.</p>
 
 <p>Proof: WIP</p>
 
-<!--<p>Lemma 6: For any ordinal $\alpha<\varepsilon_0$ and natural number $n\geq N(\alpha)$, $NH_\alpha(n^2)\geq H_\alpha(n)$.</p>-->
+<!--<p>Lemma 7: For any ordinal $\alpha<\varepsilon_0$ and natural number $n\geq N(\alpha)$, $NH_\alpha(n^2)\geq H_\alpha(n)$.</p>-->
 
-<p>Lemma 6: For any ordinal $\alpha<\varepsilon_0$ and natural number $n\geq N(\alpha)$, $NH_\alpha(n^2)\geq H_\alpha(n)$.</p>
+<p>Lemma 7: For any ordinal $\alpha<\varepsilon_0$ and natural number $n\geq N(\alpha)$, $NH_\alpha(n^2)\geq H_\alpha(n)$.</p>
 
 <p>Proof: By transfinite induction on $\alpha<\varepsilon_0$.</p>
 
 <p>Assume $\alpha=0$. Then $NH_0(n^2) = n^2 \geq H_0(n) = n$.</p>
 
-<p>Assume that $\alpha>0$, and that this has been proven for every $\beta<\alpha$, and we intend to show it for $\alpha$. $NH_\alpha(n^2)$ equals $NH_\gamma(n^2+1)$ for the greatest $\gamma<\alpha$ with $N(\gamma)\leq n^2+1$. We have $\alpha[n] < \alpha$, and by lemma 5 we have $N(\alpha[n]) \leq n^2+1$, so $\gamma \geq \alpha[n]$. Then by lemma 4, $NH_\gamma(n^2+1)\geq NH_{\alpha[n]}(n^2+1)$. By lemma 4 we have $n^2+1\geq N(\alpha[n])$, so we can apply the inductive hypothesis to obtain that $NH_{\alpha[n]}(n^2+1) \geq H_{\alpha[n]}(n)$. So $NH_\alpha(n^2) \geq H_\alpha(n)$. $\square$</p>
+<p>Assume that $\alpha>0$, and that this has been proven for every $\beta<\alpha$, and we intend to show it for $\alpha$. $NH_\alpha(n^2)$ equals $NH_\gamma(n^2+1)$ where $\gamma=G_{n^2+1}(\alpha)$. We have $\alpha[n] < \alpha$, and by lemma 6 we have $N(\alpha[n]) \leq n^2+1$, so $\gamma \geq \alpha[n]$. Then by lemma 5, $NH_\gamma(n^2+1)\geq NH_{\alpha[n]}(n^2+1)$. By lemma 4 we have $n^2+1\geq N(\alpha[n])$, so we can apply the inductive hypothesis to obtain that $NH_{\alpha[n]}(n^2+1) \geq H_{\alpha[n]}(n)$. So $NH_\alpha(n^2) \geq H_\alpha(n)$. $\square$</p>
 
-<p>Lemma 7: Let $k>0$, let $n$ be a natural number, and let $\alpha\in W(k)$ be such that $N(\alpha)\leq n$. Let $\ell$ be $NH_\alpha(n)-(n-1)$. There is a $<_k$-decreasing function $h:[\ell]\to W(k)$ such that for all $0\leq i\leq\ell$, $N(h(i)) \leq n+i$.</p>
+<p>Lemma 8: Let $k>0$, let $n$ be a natural number, and let $\alpha\in W(k)$ be such that $N(\alpha)\leq n$. Let $\ell$ be $NH_\alpha(n)-(n-1)$. There is a $<_k$-decreasing function $h:[\ell]\to W(k)$ such that for all $0\leq i\leq\ell$, $N(h(i)) \leq n+i$.</p>
 
 <p>Proof: Let $k,n,\alpha$ be as given. Define the trace of $NH_0(n)$ to be the sequence of ordinals $(0)$, and for $\alpha>0$ define the trace of $NH_\alpha(n)$ to be $(\alpha)$ concatenated with the trace of $NH_{G_{n+1}(\alpha)}(n+1)$. The trace of $NH_\alpha(n)$ is the sequence of ordinal indices of $NH$ appearing in the evaluation of $NH_\alpha(n)$. For $k,n,\alpha$ such that $N(\alpha) \leq n$, it may be proved by induction on $\alpha$ that the length of the trace of $NH_\alpha(n)$ is $NH_\alpha(n)-(n-1)$. Thus for any such $k,n,\alpha$, the trace of $NH_\alpha(n)$ is a desired sequence of length $\ell$. $\square$</p>
 
-<p>Corollary 8: For $k > 0$, $R(k) > NH_{\varepsilon_0[k]}(k)-(k-1)$.</p>
+<p>Corollary 9: For $k > 0$, $R(k) > NH_{\varepsilon_0[k]}(k)-(k-1)$.</p>
 
-<p>Proof: Let $\ell = NH_{\varepsilon_0[k]}(k)-(k-1)$. Apply lemma 7 with $n=k-1$, then theorem 3. Check this! $\square$</p>
+<p>Proof: Let $\ell = NH_{\varepsilon_0[k]}(k)-(k-1)$. Apply lemma 8 with $n=k-1$, then theorem 3 to obtain a limited function $g:[\ell]^k\to\mathbb N^k$ with no adjacent Ramsey sequence. Check this! $\square$</p>
+
+<p>Corollary 10: For $k > 0$, $R(k) > NH_{\varepsilon_0[k]}(\lfloor\sqrt{k}\rfloor) - (k-1)$.</p>
 
 <h2>Part III: Extension attempts</h2>
 
