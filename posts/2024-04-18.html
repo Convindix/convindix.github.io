@@ -152,7 +152,7 @@ $$\begin{align*} h(x_1,\ldots,x_k) & \leq h(x_2,\ldots,x_{k+1}). \\ f(g(x_1),\ld
 
 <ul>
   <li>If $\alpha,\beta<\varepsilon_0$, then for $n\in\mathbb N$, define $(\alpha+\omega^{\beta+1})[n] = \alpha+\omega^\beta n$, and define $(\alpha+\omega^\beta)[n] = \alpha+\omega^{\beta[n]}$ if $\beta$ is a limit ordinal.</li>
-  <li>For $n\in\mathbb N$, define $\varepsilon_0[n]$ by $\varepsilon_0[0] = 1$ and $\varepsilon_0[n+1] = \omega^{\varepsilon_0[n]}$.</li>
+  <li>For $n\in\mathbb N$, define $\varepsilon_0[n]$ by $\varepsilon_0[0] = 0$ and $\varepsilon_0[n+1] = \omega^{\varepsilon_0[n]}$.</li>
 </ul>
 
 Recall the definition of the Hardy hierarchy of functions $H:\varepsilon_0\to(\mathbb N\to\mathbb N)$:
@@ -200,9 +200,9 @@ Recall the definition of the Hardy hierarchy of functions $H:\varepsilon_0\to(\m
 
 <p>Corollary 9: For $k > 0$, $R(k) > NH_{\varepsilon_0[k]}(k)-(k-1)$.</p>
 
-<p>Proof: Let $\ell = NH_{\varepsilon_0[k]}(k)-(k-1)$. Apply lemma 8 with $n=k-1$, then theorem 3 to obtain a limited function $g:[\ell]^k\to\mathbb N^k$ with no adjacent Ramsey sequence. Check this! $\square$</p>
+<p>Proof: First, prove by induction on $i$ that for arbitrary natural $i$, $N(\varepsilon_0[i]) = i$. Let $k > 0$ be arbitrary, and let $\ell = NH_{\varepsilon_0[k]}(k)-(k-1)$. Apply lemma 8 with $n=k$ and $\alpha=\varepsilon_0[k]$, then theorem 3 to obtain a limited function $g:[\ell]^k\to\mathbb N^k$ with no adjacent Ramsey sequence. Check this! $\square$</p>
 
-<p>Corollary 10: For $k > 0$, $R(k) > H_{\varepsilon_0[k]}(\lfloor\sqrt{k}\rfloor) - (k-1)$.</p>
+<p>Corollary 10: For $k > 3$, $R(k) > H_{\varepsilon_0[k]}(\lfloor\sqrt{k}\rfloor) - (k-1)$.</p>
 
 <h2>Part III: Extension attempts</h2>
 
