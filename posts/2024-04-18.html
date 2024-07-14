@@ -172,13 +172,13 @@ Recall the definition of the Hardy hierarchy of functions $H:\varepsilon_0\to(\m
   <li>For $\alpha>0$, $NH_\alpha(n) = NH_{G_{n+1}(\alpha)}(n+1)$.</li>
 </ul>
 
+<p>Lemma 4: If $\beta<\alpha$ is such that $N(\beta)\leq m$, and $m\leq n$, then $\beta\leq G_n(\alpha)$.</p>
+
+<p>Proof: WIP</p>
+
 <p>Lemma 5: For $\alpha\leq\beta<\varepsilon_0$, for $m\leq n\in\mathbb N$, $NH_\alpha(m)\leq NH_\beta(n)$.</p>
 
 <p>Proof: By transfinite induction on $\beta$. If $\beta=0$, then $\alpha=0$, and $NH_0(m)=m\leq n=NH_0(n)$. If $\beta>0$, then $NH_\alpha(m)=NH_\gamma(m+1)$ where $\gamma=G_{m+1}(\alpha)$, and $NH_\beta(n)=NH_\delta(n+1)$ where $\delta=G_{n+1}(\alpha)$. By lemma 4, $\gamma\leq\delta$. As $m+1\leq n+1$, by inductive hypothesis we have $NH_\gamma(m+1)\leq NH_\delta(n+1)$. $\square$</p>
-
-Lemma 4: If $\beta<\alpha$ is such that $N(\beta)\leq n$, and $m>n$, then $\beta\leq G_m(\alpha)$.
-
-Proof: WIP
 
 <p>Lemma 6: For all $\alpha<\varepsilon_0$ and $n\geq N(\alpha)$, $N(\alpha[n]) \leq n^2+1$.</p>
 
