@@ -142,7 +142,9 @@ $$\begin{align*} h(x_1,\ldots,x_k) & \leq h(x_2,\ldots,x_{k+1}). \\ f(g(x_1),\ld
 
 <p>Suppose this has been proven for $k$ and we aim to prove it for $k+1$. Consider $f_{k+1}(\alpha_0,\ldots,\alpha_k) = (CP(\alpha_0,\alpha_1)) \frown f_k(CE(\alpha_0,\alpha_1), \ldots, CE(\alpha_{k-1},\alpha_k))$. For the first component, by lemma 1 $CP(\alpha_0,\alpha_1)\leq N(\alpha_0)$. For the remaining components, by inductive hypothesis we have $f_k(CE(\alpha_0,\alpha_1), \ldots, CE(\alpha_{k-1},\alpha_k)) \leq N(CE(\alpha_0,\alpha_1))$, which by lemma 1 is at most $N(\alpha_0)$. $\square$</p>
 
-<p>Theorem 3: Let $k \geq 1$. If $\ell\geq 2$ is a natural number such that there is a $<_k$-decreasing function $h:[\ell]\to W(k)$ such that for all $0\leq i \leq \ell-1$, $N(h(i)) \leq (k-1)+i$. There exists a limited function $g:[\ell]^k\to \mathbb N^k$ with no adjacent Ramsey sequence, i.e. no $x_0 < \ldots < x_k$ such that $g(x_0, \ldots,x_{k-1})\leq g(x_1, \ldots, x_k)$.</p>
+<p>Theorem 3: Let $k \geq 1$. If $\ell$ is a natural number<!--Appears to be no necessary lower bound on $\ell$ for this theorem to work--> such that there is a $<_k$-decreasing function $h:[\ell]\to W(k)$ such that for all $0\leq i \leq \ell-1$, $N(h(i)) \leq (k-1)+i$. There exists a limited function $g:[\ell]^k\to \mathbb N^k$ with no adjacent Ramsey sequence, i.e. no $x_0 < \ldots < x_k$ such that $g(x_0, \ldots,x_{k-1})\leq g(x_1, \ldots, x_k)$.</p>
+
+Check this: Is a lower bound like $\ell\geq 1$ necessary?
 
 <p>Proof: Let $\ell$, $h$ be as given, and let $f_k:W(k)^k\to\mathbb N^k$ and $f_{k-1}:W(k-1)^{k-1}\to\mathbb N^{k-1}$ be as in lemma 2.7. Consider the function $g(x_0,\ldots,x_{k-1}) = f_k(h(x_0),\ldots,h(x_{k-1}))$, whose domain is also $[\ell]^k$. First, we show that $g$ has no adjacent Ramsey sequence. For any $x_0 < \ldots < x_k \in [\ell]$, $g(x_0, \ldots, x_{k-1})\leq g(x_1, \ldots, x_k)$ is equivalent to $f_k(h(x_0), \ldots, h(x_{k-1})) \leq f(h(x_1), \ldots, h(x_k))$. By lemma 2.7 this is equivalent to $h(x_0) \leq_k h(x_1)$, and since $x_0 < x_1$, by $<_k$-decreasingness of $h$, this is false. Therefore for no $x_0 < \ldots < x_k \in [\ell]$ can we have $g(x_0, \ldots, x_{k-1}) \leq g(x_1, \ldots, x_k)$.</p>
 
@@ -200,7 +202,7 @@ Recall the definition of the Hardy hierarchy of functions $H:\varepsilon_0\to(\m
 
 <p>Corollary 9: For $k > 0$, $R(k) > NH_{\varepsilon_0[k]}(k)-(k-1)$.</p>
 
-<p>Proof: First, prove by induction on $i$ that for arbitrary natural $i$, $N(\varepsilon_0[i]) = i$. Then, let $k > 0$ be arbitrary, and let $\ell = NH_{\varepsilon_0[k]}(k)-(k-1)$. Apply lemma 8 with $n=k$ and $\alpha=\varepsilon_0[k]$, then theorem 3 to obtain a limited function $g:[\ell]^k\to\mathbb N^k$ with no adjacent Ramsey sequence. Needs $\ell\geq 2$ to apply theorem 3! $\square$</p>
+<p>Proof: First, prove by induction on $i$ that for arbitrary natural $i$, $N(\varepsilon_0[i]) = i$. Then, let $k > 0$ be arbitrary, and let $\ell = NH_{\varepsilon_0[k]}(k)-(k-1)$. Apply lemma 8 with $n=k$ and $\alpha=\varepsilon_0[k]$, then theorem 3 to obtain a limited function $g:[\ell]^k\to\mathbb N^k$ with no adjacent Ramsey sequence. If a lower bound on $\ell$ turns out to be necessary for theorem 3, make sure that is satisfied with this $\ell$ here! $\square$</p>
 
 <p>Corollary 10: For $k > 3$, $R(k) > H_{\varepsilon_0[k]}(\lfloor\sqrt{k}\rfloor) - (k-1)$.</p>
 
