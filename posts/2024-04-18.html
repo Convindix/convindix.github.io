@@ -192,7 +192,9 @@ Recall the definition of the Hardy hierarchy of functions $H:\varepsilon_0\to(\m
 
 <p>Assume $\alpha=0$. Then $NH_0(n^2) = n^2 \geq H_0(n) = n$.</p>
 
-<p>Assume that $\alpha>0$, and that this has been proven for every $\beta<\alpha$, and we intend to show it for $\alpha$. $NH_\alpha(n^2)$ equals $NH_\gamma(n^2+1)$ where $\gamma=G_{n^2+1}(\alpha)$. We have $\alpha[n] < \alpha$, and by lemma 6 we have $N(\alpha[n]) \leq n^2+1$, so $\gamma \geq \alpha[n]$. Then by lemma 5, $NH_\gamma(n^2+1)\geq NH_{\alpha[n]}(n^2+1)$. By lemma 6 we have $n^2+1\geq N(\alpha[n])$, so we can apply the inductive hypothesis to obtain that $NH_{\alpha[n]}(n^2+1) \geq H_{\alpha[n]}(n)$. So $NH_\alpha(n^2) \geq H_\alpha(n)$. $\square$</p>
+<p>Assume that $\alpha$ is a successor ordinal, that we have shown this for $\beta$, and we intend to show it for $\alpha$. WIP</p>
+
+<p>Assume that $\alpha>0$ is a limit ordinal, and that this has been shown for every $\beta<\alpha$, and we intend to show it for $\alpha$. $NH_\alpha(n^2)$ equals $NH_\gamma(n^2+1)$ where $\gamma=G_{n^2+1}(\alpha)$. We have $\alpha[n] < \alpha$, and by lemma 6 we have $N(\alpha[n]) \leq n^2+1$, so $\gamma \geq \alpha[n]$. Then by lemma 5, $NH_\gamma(n^2+1)\geq NH_{\alpha[n]}(n^2+1)$. By lemma 6 we have $n^2+1\geq N(\alpha[n])$, so we can apply the inductive hypothesis to obtain that $NH_{\alpha[n]}(n^2+1) \geq H_{\alpha[n]}(n)$. So $NH_\alpha(n^2) \geq H_\alpha(n)$. $\square$</p>
 
 <p>Lemma 8: Let $k>0$, let $n$ be a natural number, and let $\alpha\in W(k)$ be such that $N(\alpha)\leq n$. Let $\ell$ be $NH_\alpha(n)-(n-1)$. There is a $<_k$-decreasing function $h:[\ell]\to W(k)$ such that for all $0\leq i\leq\ell$, $N(h(i)) \leq n+i$.</p>
 
