@@ -190,9 +190,9 @@ Recall the definition of the Hardy hierarchy of functions $H:\varepsilon_0\to(\m
 
 <p>From here on, assume that $\alpha$, that this has been shown for all limit ordinals $\beta<\alpha$, and that our goal is to show it for $\alpha$.</p>
 
-<p>Assume $\alpha$ is of the form $\omega^{\beta+1}$. Then $N(\alpha[n]) = N(\omega^\beta\cdot n) = N(\omega^\beta)\cdot n \leq N(\omega^{\beta+1})\cdot n \leq n^2$.
+<p>Assume $\alpha$ is of the form $\omega^{\beta+1}$. Then $N(\alpha[n+k]) = N(\omega^\beta\cdot (n+k)) = N(\omega^\beta)\cdot (n+k) \leq N(\omega^{\beta+1})\cdot (n+k) \leq n^2+kn$.
 
-Assume $\alpha>\omega$ is of the form $\omega^\beta$ for $\beta$ a limit ordinal. Since $\alpha>\omega$, we must have $N(\alpha)\geq 2$ and thus $n\geq 2$. Add $k$ from here on too! Then $N(\alpha[n]) = N(\omega^{\beta[n]}) = 1+N(\beta[n]) = 1+N(\beta[(n-1)+1])$. By applying this theorem on $\beta[n]$ with $n-1$ for $n$ and $1$ for $k$, we have that this number is less than or equal to $1+(n-1)^2+n \leq n^2-2n+1+n+1 = n^2-n+2$. As $n\geq 2$, this is less than or equal to $n^2$.
+Assume $\alpha>\omega$ is of the form $\omega^\beta$ for $\beta$ a limit ordinal. Since $\alpha>\omega$, we must have $N(\alpha)\geq 2$ and thus $n\geq 2$. Then $N(\alpha[n+k]) = N(\omega^{\beta[n+k]}) = 1+N(\beta[n+k]) = 1+N(\beta[(n-1)+(k+1)])$. By applying this theorem on $\beta[n+k]$ with $n-1$ for $n$ and $1$ for $k+1$, we have that this number is less than or equal to $1+(n-1)^2+(k+1)n \leq n^2+(k-1)n+2$. As $n\geq 2$, this is less than or equal to $n^2+kn$.
 
 Need to handle sums! $\square$</p>
 
