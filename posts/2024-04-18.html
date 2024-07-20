@@ -190,11 +190,11 @@ Recall the definition of the Hardy hierarchy of functions $H:\varepsilon_0\to(\m
 
 <p>From here on, assume that $\alpha$, that this has been shown for all limit ordinals $\beta<\alpha$, and that our goal is to show it for $\alpha$.</p>
 
-<p>Assume $\alpha$ is of the form $\omega^{\beta+1}$. Then $N(\alpha[n+k]) = N(\omega^\beta \cdot (n+k)) = N(\omega^\beta) \cdot (n+k) \leq N(\omega^{\beta+1}) \cdot (n+k) \leq n^2+kn$.
+<p>Assume $\alpha$ is of the form $\omega^{\beta+1}$. Then $N(\alpha[n+k]) = N(\omega^\beta \cdot (n+k)) = N(\omega^\beta) \cdot (n+k) \leq N(\omega^{\beta+1}) \cdot (n+k) \leq n^2+kn$.</p>
 
-Assume $\alpha>\omega$ is of the form $\omega^\beta$ for $\beta$ a limit ordinal. Since $\alpha>\omega$, we must have $N(\alpha)\geq 2$ and thus $n\geq 2$. Then $N(\alpha[n+k]) = N(\omega^{\beta[n+k]}) = 1+N(\beta[n+k]) = 1+N(\beta[(n-1)+(k+1)])$. By applying this theorem on $\beta[n+k]$ with $n-1$ for $n$ and $1$ for $k+1$, we have that this number is less than or equal to $1+(n-1)^2+(k+1)n \leq n^2+(k-1)n+2$. As $n\geq 2$, this is less than or equal to $n^2+kn$.
+<p>Assume $\alpha > \omega$ is of the form $\omega^\beta$ for $\beta$ a limit ordinal. Since $\alpha>\omega$, we must have $N(\alpha)\geq 2$ and thus $n\geq 2$. Then $N(\alpha[n+k]) = N(\omega^{\beta[n+k]}) = 1+N(\beta[n+k]) = 1+N(\beta[(n-1)+(k+1)])$. By applying this theorem on $\beta[n+k]$ with $n-1$ for $n$ and $1$ for $k+1$, we have that this number is less than or equal to $1+(n-1)^2+(k+1)n \leq n^2+(k-1)n+2$. As $n\geq 2$, this is less than or equal to $n^2+kn$.</p>
 
-Assume $\alpha>\omega$ is of the form $\gamma+\omega^\beta$. By definition of $W$, we have $\gamma\geq\omega^\beta$. Then $N(\alpha[n+k]) = N(\gamma+(\omega^\beta)[n+k]) = N(\gamma) + N(\omega^\beta)[n+k]$, which by induction hypothesis is less than or equal to $N(\gamma) + n^2+kn$. Since $N(\gamma) < N(\alpha)$, this number is less than $n + n^2+kn$. Try using $k$ here? WIP $\square$</p>
+<p>Assume $\alpha > \omega$ is of the form $\gamma+\omega^\beta$. By definition of $W$, we have $\gamma\geq\omega^\beta$. Then $N(\alpha[n+k]) = N(\gamma+(\omega^\beta)[n+k]) = N(\gamma) + N(\omega^\beta)[n+k]$, which by induction hypothesis is less than or equal to $N(\gamma) + n^2+kn$. Since $N(\gamma) < N(\alpha)$, this number is less than $n + n^2+kn$. Try using $k$ here? WIP $\square$</p>
 
 <p>Lemma 7: For any ordinal $\alpha<\varepsilon_0$ and natural number $n\geq N(\alpha)$, $NH_\alpha(n^2)\geq H_\alpha(n)$.</p>
 
