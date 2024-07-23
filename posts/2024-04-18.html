@@ -182,7 +182,7 @@ Recall the definition of the Hardy hierarchy of functions $H:\varepsilon_0\to(\m
 
 <p>Proof: By transfinite induction on $\beta$. If $\beta=0$, then $\alpha=0$, and $NH_0(m)=m\leq n=NH_0(n)$. If $\beta>0$, then $NH_\alpha(m)=NH_\gamma(m+1)$ where $\gamma=G_{m+1}(\alpha)$, and $NH_\beta(n)=NH_\delta(n+1)$ where $\delta=G_{n+1}(\alpha)$. By lemma 4, $\gamma\leq\delta$. As $m+1\leq n+1$, by inductive hypothesis we have $NH_\gamma(m+1)\leq NH_\delta(n+1)$. $\square$</p>
 
-<p>Lemma 6: Let $\alpha\in W$, and let $n=N(\alpha)$. For all natural numbers $k$ such that $k\geq N(\alpha)$, it holds that $N(\alpha[k]) \leq k^2+(k-n)n$.</p>
+<p>Lemma 6: Let $\alpha\in W$, and let $n=N(\alpha)$. For all natural numbers $k$ such that $k\geq N(\alpha)$, it holds that $N(\alpha[k]) \leq n^2+(k-n)n$.</p>
 
 <p>Proof: By transfinite induction on $\alpha\in W$.</p>
 
@@ -190,9 +190,9 @@ Recall the definition of the Hardy hierarchy of functions $H:\varepsilon_0\to(\m
 
 <p>If $\alpha=\omega$, then $n\geq 2$ and $\alpha[k]=k$, so $N(\alpha[k]) = k \leq k^2+(k-n)n$.</p>
 
-<p>From here on, assume that $\alpha$, that this has been shown for all limit ordinals $\beta<\alpha$, and that our goal is to show it for $\alpha$.</p>
+<p>For the rest of this proof, assume that $\alpha > \omega$, that this has been shown for all limit ordinals $\beta < \alpha$, and that our goal is to show it for $\alpha$.</p>
 
-<p>Assume $\alpha$ is of the form $\omega^{\beta+1}$. Then $N(\alpha[k]) = N(\omega^\beta \cdot k) = N(\omega^\beta) \cdot k \leq N(\omega^{\beta+1}) \cdot k \leq k^2 \leq k^2+(k-n)n$.</p>
+<p>Assume $\alpha$ is of the form $\omega^{\beta+1}$. Then $N(\alpha[k]) = N(\omega^\beta \cdot k) = N(\omega^\beta) \cdot k = (n-1) \cdot k \leq (k-n)n \leq k^2+(k-n)n$.</p>
 
 <p>Assume $\alpha > \omega$ is of the form $\omega^\beta$ for $\beta$ a limit ordinal. Since $\alpha>\omega$, we must have $N(\alpha)\geq 2$ and thus $n\geq 2$. Then $N(\alpha[k]) = N(\omega^{\beta[k]}) = 1+N(\beta[k])$ Fix from here on!. By applying this theorem on $\beta[n+k]$ with $n-1$ for $n$ and $1$ for $k+1$, we have that this number is less than or equal to $1+(n-1)^2+(k+1)n \leq n^2+(k-1)n+2$. As $n\geq 2$, this is less than or equal to $n^2+kn$.</p>
 
