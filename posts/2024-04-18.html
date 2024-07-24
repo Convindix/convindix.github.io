@@ -184,21 +184,17 @@ Recall the definition of the Hardy hierarchy of functions $H:\varepsilon_0\to(\m
 
 <p>Proof: By transfinite induction on $\beta$. If $\beta=0$, then $\alpha=0$, and $NH_0(m)=m\leq n=NH_0(n)$. If $\beta>0$, then $NH_\alpha(m)=NH_\gamma(m+1)$ where $\gamma=G_{m+1}(\alpha)$, and $NH_\beta(n)=NH_\delta(n+1)$ where $\delta=G_{n+1}(\alpha)$. By lemma 4, $\gamma\leq\delta$. As $m+1\leq n+1$, by inductive hypothesis we have $NH_\gamma(m+1)\leq NH_\delta(n+1)$. $\square$</p>
 
-<p>Lemma 6: Let $\alpha\in W$, $k$ be a natural number, and let $n = N(\alpha)$. It holds that $N(\alpha[k]) \leq n(k+1)$.</p>
+<p>Lemma 6: Let $k$ be a natural number. Let $\alpha\in W(k)$ be a limit ordinal, $m$ be a natural number, and let $n = N(\alpha)$. It holds that $N(\alpha[m]) \leq (m+1)n$.</p>
 
-<p>Proof: By induction on $n$.</p>
+<p>Proof: By induction on $k$, with a subsidiary induction on $n$.</p>
 
-<p>Update everything below for the new new lemma statement!</p>
+<p>Assume $k=0$. WIP</p>
 
-<p>If $\alpha=\omega$, then $n\geq 2$ and $\alpha[k]=k$, so $N(\alpha[k]) = k \leq k^2+(k-n)n$.</p>
+<p>From here on assume $k > 0$, that this has been shown for all $k' < k$, and that we intend to show it for $k$.
 
-<p>For the rest of this proof, assume that $\alpha > \omega$, that this has been shown for all limit ordinals $\beta < \alpha$, and that our goal is to show it for $\alpha$.</p>
+<p>Assume $m = 0$. Subdivide by cases on $\alpha$. <!--If $\alpha=\omega$, then $n=2$, and $N(\alpha[m]) = N(m) \leq (m+1)2$.--> If $\alpha$ is of the form $\omega^{\beta+1}$, then $N(\alpha[m]) = N(\omega^\beta\cdot m) = N(\omega^\beta)\cdot m = (1+N(\beta))\cdot m$. Since $\beta$ is in $W(k-1)$,</p>
 
-<p>Assume $\alpha$ is of the form $\omega^{\beta+1}$. Then $N(\alpha[k]) = N(\omega^\beta \cdot k) = N(\omega^\beta) \cdot k = (n-1) \cdot k \leq (k-n)n \leq k^2+(k-n)n$.</p>
-
-<p>Assume $\alpha > \omega$ is of the form $\omega^\beta$ for $\beta$ a limit ordinal. Since $\alpha>\omega$, we must have $N(\alpha)\geq 2$ and thus $n\geq 2$. Then $N(\alpha[k]) = N(\omega^{\beta[k]}) = 1+N(\beta[k])$. Let $n'$ be $N(\beta) = n-2$. By applying this theorem on $\beta[k]$, we have that this number is less than or equal to $1+(n-1)^2+(k+1)n \leq n^2+(k-1)n+2$. As $n\geq 2$, this is less than or equal to $n^2+kn$.</p>
-
-<p>Assume $\alpha > \omega$ is of the form $\gamma+\omega^\beta$. By definition of $W$, we have $\gamma\geq\omega^\beta$. Then $N(\alpha[n+k]) = N(\gamma+(\omega^\beta)[n+k]) = N(\gamma) + N(\omega^\beta[n+k])$, which by induction hypothesis is less than or equal to $N(\gamma) + n^2+kn$. Since $N(\gamma) < N(\alpha)$, this number is less than $n + n^2+kn$. Try using $k$ here? WIP $\square$</p>
+<p>Assume $k > 0$, and that this has been shown for all $m' < m$, and that we intend to show it for $m$. WIP $\square$</p>
 
 <p>Lemma 7: For any ordinal $\alpha<\varepsilon_0$ and natural number $n\geq N(\alpha)$, $NH_\alpha(n^2)\geq H_\alpha(n)$.</p>
 
