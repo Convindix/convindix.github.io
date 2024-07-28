@@ -22,6 +22,7 @@ Here are some notes on Friedman's manuscript "<a href="https://bpb-us-w2.wpmucdn
 
 <h2>Part I: A slight simplification</h2>
 
+$\newcommand{\CP}{\mathrm{CP}} \newcommand{\CT}{\mathrm{CT}} \newcommand{\CE}{\mathrm{CE}} \newcommand{\lth}{\mathrm{lth}}$
 <p>There is a slight simplification that can be applied to the work leading up to lemma 2.8, by using a slightly simpler ordinal notation for $\varepsilon_0$. This also yields a stronger version of lemma 2.7. The following content of this section presents this simplification (adapted from Friedman 2010).</p>
 
 <p>[$\leq$ denotes componentwise comparison between tuples from $\mathbb N$ of the same length. For a natural number $t$, $[t]$ is $\{m\in\mathbb N\mid m<t\}$. Say that "Theorem D for $r$" is the statement that for all positive integers $k$ and functions $f:\mathbb N^k \to \mathbb N^r$, there exist $x_1 < \ldots < x_{k+1}$ such that $f(x_1,\ldots,x_k)\leq f(x_2,\ldots,x_{k+1})$.]</p>
@@ -38,67 +39,67 @@ where $r\geq 1$ and $x_1 \geq_k \ldots \geq_k x_r$. [The change is the lack of c
 
 $$\begin{align*} x = & \omega^{x_1}+\ldots+\omega^{x_r} \\ y = & \omega^{y_1}+\ldots+\omega^{y_s}\end{align*}$$</p>
 
-<p>case 1. There exists $1\leq i\leq\mathrm{min}(r,s)$ such that for all $1 \leq j < i$, $\omega^{x_i}=\omega^{y_i}$ and $\omega^{x_i}\neq\omega_{y_i}$. If $x_i <_k y_i$ then $x <_{k+1} y$. If $y_i <_k x_i$ then $y <_{k+1} x$.</p>
+<p>case 1. There exists $1\leq i\leq\min(r,s)$ such that for all $1 \leq j < i$, $\omega^{x_i}=\omega^{y_i}$ and $\omega^{x_i}\neq\omega_{y_i}$. If $x_i <_k y_i$ then $x <_{k+1} y$. If $y_i <_k x_i$ then $y <_{k+1} x$.</p>
 
 <p>case 2. Otherwise. Then $x$ is a proper initial segment of $y$ or $y$ is a proper initial segment of $x$. In the former case, $x<_{k+1}y$. If the latter case, $y<_{k+1}x$.</p>
 
 <p>We can easily prove by induction that $W(k)\subseteq W(k+1)$ and $<_k\subseteq<_{k+1}$ and each $<_k$ is a well-ordering that agrees with the standard ordinal interpretation of $W(k)$. This is all well known and very standard.</p>
 
-<p>Fix $k\geq 0$. For $x\in W(k)$ and $i\geq 0$, we define $x[i]$ as follows. For $x = 0$, take $0[i] = 0$. For $x > 0$, take $x[i]$ to be the $i$-th term of $x$ if $1\leq i\leq \mathrm{lth}(x)$; $0$ otherwise. Note that each nonzero $x[i]$ has an exponent.</p>
+<p>Fix $k\geq 0$. For $x\in W(k)$ and $i\geq 0$, we define $x[i]$ as follows. For $x = 0$, take $0[i] = 0$. For $x > 0$, take $x[i]$ to be the $i$-th term of $x$ if $1\leq i\leq \lth(x)$; $0$ otherwise. Note that each nonzero $x[i]$ has an exponent.</p>
 
-<p>Let $x,y\in W(k)$. Write $\mathrm{CP}(x,y)$ for the comparison position of $x,y$, which is the least $i$ such that $x[i]\neq y[i]$ if $x\neq y$; $0$ otherwise.</p>
+<p>Let $x,y\in W(k)$. Write $\CP(x,y)$ for the comparison position of $x,y$, which is the least $i$ such that $x[i]\neq y[i]$ if $x\neq y$; $0$ otherwise.</p>
 
-<p>Write $\mathrm{CT}(x,y)$ for the comparison term of $x,y$, which is $x[\mathrm{CP}(x,y)]$.</p>
+<p>Write $\CT(x,y)$ for the comparison term of $x,y$, which is $x[\CP(x,y)]$.</p>
 
-<p>LEMMA 2.4. The following is provable in $\mathrm{EFA}$. $x\neq y\implies\mathrm{CP}(x,y)$ exists and is nonzero. $0 < i\leq j\leq\mathrm{lth}(x)\implies x[j]\leq_k x[i]$. $x \leq_k y\iff x[\mathrm{CP}(x,y)] \leq_k y[\mathrm{CP}(x,y)]$.
+<p>LEMMA 2.4. The following is provable in $\mathrm{EFA}$. $x\neq y\implies\CP(x,y)$ exists and is nonzero. $0 < i\leq j\leq\lth(x)\implies x[j]\leq_k x[i]$. $x \leq_k y\iff x[\CP(x,y)] \leq_k y[\CP(x,y)]$.
 
-<p>Proof: Suppose $x\neq y$. If $x$ and $y$ are not both $0$ [originally written as $x,y\neq 0$] then obviously $\mathrm{CP}(x,y)$ exists. Since $x[0]=y[0]$, $\mathrm{CP}(x,y)>0$.</p>
+<p>Proof: Suppose $x\neq y$. If $x$ and $y$ are not both $0$ [originally written as $x,y\neq 0$] then obviously $\CP(x,y)$ exists. Since $x[0]=y[0]$, $\CP(x,y)>0$.</p>
 
-<p>Suppose $0 < i \leq j \leq \mathrm{lth}(x)$. Then since $x$ is made of decreasing terms, $x[j]\leq_k x[i]$.</p>
+<p>Suppose $0 < i \leq j \leq \lth(x)$. Then since $x$ is made of decreasing terms, $x[j]\leq_k x[i]$.</p>
 
-<p>Suppose $x \leq_k y$. [Friedman may have made a typo by writing $x\leq y$.] If $x = y$ then obviously $x[\mathrm{CP}(x,y)] \leq_k y[\mathrm{CP}(x,y)]$. If $0 = x <_k y$ then $x[\mathrm{CP}(x,y)] = 0 \leq_k y[\mathrm{CP}(x,y)]$. If $0 <_k x <_k y$ then $\mathrm{CP}(x,y) > 0$, and $x[\mathrm{CP}(x,y)] <_k y[\mathrm{CP}(x,y)]$.</p>
+<p>Suppose $x \leq_k y$. [Friedman may have made a typo by writing $x\leq y$.] If $x = y$ then obviously $x[\CP(x,y)] \leq_k y[\CP(x,y)]$. If $0 = x <_k y$ then $x[\CP(x,y)] = 0 \leq_k y[\CP(x,y)]$. If $0 <_k x <_k y$ then $\CP(x,y) > 0$, and $x[\CP(x,y)] <_k y[\CP(x,y)]$.</p>
 
-<p>Suppose $y <_k x$. Then $\mathrm{CP}(x,y)\neq 0$. If $y=0$ then $y[\mathrm{CP}(x,y)] = 0 <_k x[\mathrm{CP}(x,y)]$. If $y\neq 0$ then $y[\mathrm{CP}(x,y)] <_k x[\mathrm{CP}(x,y)]$. QED</p>
+<p>Suppose $y <_k x$. Then $\CP(x,y)\neq 0$. If $y=0$ then $y[\CP(x,y)] = 0 <_k x[\CP(x,y)]$. If $y\neq 0$ then $y[\CP(x,y)] <_k x[\CP(x,y)]$. QED</p>
 
-<p>LEMMA 2.5. The following is provable in $\mathrm{EFA}$. Suppose $x,y,z\in W(k)$, $\mathrm{CP}(x,y)\leq\mathrm{CP}(y,z)$, $\mathrm{CT}(x,y) \leq_k \mathrm{CT}(y,z)$. Then $x \leq_k y$.</p>
+<p>LEMMA 2.5. The following is provable in $\mathrm{EFA}$. Suppose $x,y,z\in W(k)$, $\CP(x,y)\leq\mathrm{CP}(y,z)$, $\CT(x,y) \leq_k \CT(y,z)$. Then $x \leq_k y$.</p>
 
-<p>Proof: Let $x,y,z$ be as given. By [Lemma 2.4], if $\mathrm{CP}(x,y)=0$ then $x=y$. So we assume that $0<\mathrm{CP}(x,y)\leq\mathrm{CP}(y,z)$. Using Lemma 2.s1 [perhaps the second part of lemma 2.4?],
+<p>Proof: Let $x,y,z$ be as given. By [Lemma 2.4], if $\CP(x,y)=0$ then $x=y$. So we assume that $0<\CP(x,y)\leq\CP(y,z)$. Using Lemma 2.s1 [perhaps the second part of lemma 2.4?],
 
-$$x[\mathrm{CP}(x,y)] = \mathrm{CT}(x,y) \leq_k \mathrm{CT}(y,z) = y[\mathrm{CP}(y,z)] \leq_k y[\mathrm{CP}(x,y)]$$.
+$$x[\CP(x,y)] = \CT(x,y) \leq_k \CT(y,z) = y[\CP(y,z)] \leq_k y[\CP(x,y)]$$.
 
 By Lemma 2.4, $x \leq_k y$. QED</p>
 
-<p>Write $\mathrm{CE}(x,y)$ for the comparison exponent of $x,y$, which is the exponent of $\mathrm{CT}(x,y)$ if $\mathrm{CT}(x,y) > 0$; $0$ otherwise.</p>
+<p>Write $\CE(x,y)$ for the comparison exponent of $x,y$, which is the exponent of $\CT(x,y)$ if $\CT(x,y) > 0$; $0$ otherwise.</p>
 
-<p>LEMMA 2.6. The following is provable in $\mathrm{EFA}$. Suppose $x,y,z\in W(k)$, $\mathrm{CP}(x,y) \leq \mathrm{CP}(y,z)$, $\mathrm{CE}(x,y) \leq_k \mathrm{CE}(y,z)$. Then $x \leq_k y$.</p>
+<p>LEMMA 2.6. The following is provable in $\mathrm{EFA}$. Suppose $x,y,z\in W(k)$, $\CP(x,y) \leq \CP(y,z)$, $\CE(x,y) \leq_k \CE(y,z)$. Then $x \leq_k y$.</p>
 
-<p>Proof: Let $x,y,z$ be as given. By Lemma 2.5, it suffices to show that $\mathrm{CT}(x,y) \leq_k \mathrm{CT}(y,z)$.</p>
+<p>Proof: Let $x,y,z$ be as given. By Lemma 2.5, it suffices to show that $\CT(x,y) \leq_k \CT(y,z)$.</p>
 
-<p>Clearly, if $\mathrm{CT}(x,y)$ and $\mathrm{CT}(y,z)$ are not both $0$, then $\mathrm{CT}(x,y) \leq_k \mathrm{CT}(y,z)$.</p>
+<p>Clearly, if $\CT(x,y)$ and $\CT(y,z)$ are not both $0$, then $\CT(x,y) \leq_k \CT(y,z)$.</p>
 
-<p>Suppose $\mathrm{CT}(y,z)=0$. As $y[i]\neq 0$ for all $1\leq i\leq\mathrm{lth}(y)$, $y$ must be $0$, therefore $\mathrm{CE}(y,z) = 0$. Thus $\mathrm{CE}(x,y)=0$ as well, and both $\mathrm{CT}(x,y)$ and $\mathrm{CT}(y,z)$ are $0$. Therefore it holds that $\mathrm{CT}(x,y) \leq_k \mathrm{CT}(y,z)$. QED</p>
+<p>Suppose $\CT(y,z)=0$. As $y[i]\neq 0$ for all $1\leq i\leq\lth(y)$, $y$ must be $0$, therefore $\CE(y,z) = 0$. Thus $\CE(x,y)=0$ as well, and both $\CT(x,y)$ and $\CT(y,z)$ are $0$. Therefore it holds that $\CT(x,y) \leq_k \CT(y,z)$. QED</p>
 
 <p>LEMMA 2.7. The following is provable in $\mathrm{EFA}$. For all $k\geq 1$ there exists $f:W(k)^k \to \mathbb N^k$ such that the following holds. $f(x_1,\ldots,x_k)\leq f(x_2,\ldots,x_{k+1})\implies x_1 \leq_k x_2$.</p>
 
-<p>Proof: By induction on $k\geq 1$. We first let $k=1$. Note that $W(1) = \{\underbrace{\omega^0+\ldots+\omega^0}_{n} : n\in\mathbb Z^+\}\cup\{0\}$. Set $f(x)$ to be $0$ if $x=0$, and $\mathrm{lth}(x)$ otherwise.</p>
+<p>Proof: By induction on $k\geq 1$. We first let $k=1$. Note that $W(1) = \{\underbrace{\omega^0+\ldots+\omega^0}_{n} : n\in\mathbb Z^+\}\cup\{0\}$. Set $f(x)$ to be $0$ if $x=0$, and $\lth(x)$ otherwise.</p>
 
 <p>Now let $f:W(k)^k \to \mathbb N^k$ be as required. We define $g:W(k+1)^{k+1} \to \mathbb N^{k+1}$ as follows.</p>
 
 <p>Let $x_1,\ldots,x_{k+1}\in W(k+1)$. Define $g(x_1,\ldots,x_{k+1}) =$
 
-$$(\mathrm{CP}(x_1,x_2))\frown f(\mathrm{CE}(x_1,x_2),\mathrm{CE}(x_2,x_3),\ldots,\mathrm{CE}(x_k,x_{k+1}))$$,
+$$(\CP(x_1,x_2))\frown f(\CE(x_1,x_2),\CE(x_2,x_3),\ldots,\CE(x_k,x_{k+1}))$$,
 
 [where $\frown$ denotes tuple concatenation.]</p>
 
 <p>Now let $x_1,\ldots,x_{k+1}\in W(k+1)$, $g(x_1,\ldots,x_{k+1})\leq g(x_2,\ldots,x_{k+2})$. Clearly $g(x_2,\ldots,x_{k+2}) =$
 
-$$(\mathrm{CP}(x_2,x_3))\frown f(\mathrm{CE}(x_2,x_3),\mathrm{CE}(x_3,x_4),\ldots,\mathrm{CE}(x_{k+1},x_{k+2})).$$</p>
+$$(\CP(x_2,x_3))\frown f(\CE(x_2,x_3),\CE(x_3,x_4),\ldots,\CE(x_{k+1},x_{k+2})).$$</p>
 
 <p>Hence
 
-$$\begin{align*} \mathrm{CP}(x_1,x_2) & \leq \mathrm{CP}(x_2,x_3). \\ f(\mathrm{CE}(x_1,x_2),\mathrm{CE}(x_2,x_3),\ldots,\mathrm{CE}(x_k,x_{k+1})) & \leq f(\mathrm{CE}(x_2,x_3),\mathrm{CE}(x_3,x_4),\ldots,\mathrm{CE}(x_{k+1},x_{k+2})). \end{align*}$$</p>
+$$\begin{align*} \CP(x_1,x_2) & \leq \CP(x_2,x_3). \\ f(\CE(x_1,x_2),\CE(x_2,x_3),\ldots,\CE(x_k,x_{k+1})) & \leq f(\CE(x_2,x_3),\CE(x_3,x_4),\ldots,\CE(x_{k+1},x_{k+2})). \end{align*}$$</p>
 
-<p>By the induction hypothesis, $\mathrm{CE}(x_1,x_2) \leq_k \mathrm{CE}(x_2,x_3)$.</p>
+<p>By the induction hypothesis, $\CE(x_1,x_2) \leq_k \CE(x_2,x_3)$.</p>
 
 <p>Hence by Lemma 2.6, $x_1 \leq_k x_2$. QED</p>
 
@@ -122,15 +123,15 @@ $$\begin{align*} h(x_1,\ldots,x_k) & \leq h(x_2,\ldots,x_{k+1}). \\ f(g(x_1),\ld
 
 <p>The goal is to prove that $R$ grows at roughly the speed of $H_{\varepsilon_0}$. Lower bounds on some large numbers related to adjacent Ramsey theory have been obtained by Friedman and Pelupessy in "<a href="https://www.ams.org/journals/proc/2016-144-02/S0002-9939-2015-12759-1/S0002-9939-2015-12759-1.pdf">Independence of Ramsey theorem variants using $\varepsilon_0$</a>" (Proceedings of the American Mathematical Society vol. 144, 2016), however instead of bounding the $p$ where any $f:[p]^k\to\mathbb N^k$ has an adjacent Ramsey sequence as in here, they instead bound the $p$ where any $f:[p]^k\to\mathbb N^{2k+1}$ has an adjacent Ramsey sequence. The work here can be mainly summarized as first showing that the notion of limited function is permissive enough for descending sequences of ordinals to be implemented, then showing that descending sequences of ordinals can be very long.</p>
 
-<p>Call a function $f:\operatorname{\subseteq}\mathbb N^k\to\mathbb N^k$ limited if for all $x\in\mathrm{dom}(f)$, $\max(f(x))\leq \max(x)$. Note that $f$ is limited iff for all $x\in\mathrm{dom}(f)$, $f(x)\leq (\underbrace{\max(x),\ldots,\max(x)}_k)$, this characterization will be used for convenience.</p>
+<p>Call a function $f:\operatorname{\subseteq}\mathbb N^k\to\mathbb N^k$ limited if for all $x\in\mathrm{dom}(f)$, $\max(f(x))\leq \max(x)$. Note that $f$ is limited iff for all $x\in\mathrm{dom}(f)$, $f(x)\leq (\underbrace{\max(x),\ldots,\max(x)}_k)$, this characterization will be used for convenience. To avoid confusion with fundamental sequences, denote the term $\alpha[i]$ of the last section by $\alpha_i$.</p>
 
 <p>Define the norm function $N:\bigcup_{k\in\mathbb N}W(k) \to \mathbb N$ by $N(0) = 0$, $N(\omega^\alpha) = N(\alpha)+1$, and $N(\alpha+\beta) = N(\alpha) + N(\beta)$.</p>
 
 <p>The next lemma is a straightforward inequality of comparison point, length, and norm.</p>
 
-<p>Lemma 1: For any $k$ and any $\alpha,\beta\in W(k)$, $\mathrm{CP}(\alpha,\beta)\leq\mathrm{length}(\alpha) \leq N(\alpha)$, and $N(CE(\alpha,\beta)) \leq N(\alpha)$.</p>
+<p>Lemma 1: For any $k$ and any $\alpha,\beta\in W(k)$, $\CP(\alpha,\beta)\leq\lth(\alpha) \leq N(\alpha)$, and $N(CE(\alpha,\beta)) \leq N(\alpha)$.</p>
 
-<p>Proof: WIP $\square$</p>
+<p>Proof: Case 1: $\CP(\alpha,\beta) > 0$. Then $\CP(\alpha,\beta)$ is defined the least $i$ such that $\alpha_i \neq \beta_i$. In order for α_i \neq β_i to be true, α_i must not equal 0 (why?), so i<lth(α). $\square$</p>
 
 <p>From here the $x$-variables should be $0$-indexed, this does not affect anything but is just convention. The following lemma may be surprising, since the bound is only $N(\alpha_0)$, which only relies on the ordinal $\alpha_0$ and not on any $\alpha_i$ for $0 < i < k$.<!--But it seems to be a correct lemma--></p>
 
@@ -138,13 +139,11 @@ $$\begin{align*} h(x_1,\ldots,x_k) & \leq h(x_2,\ldots,x_{k+1}). \\ f(g(x_1),\ld
 
 <p>Proof: Shown by induction on $k$.</p>
 
-<p>If $k=1$, then $f_1(\alpha_0) = \mathrm{length}(\alpha_0)$, which by lemma 1 is less than or equal to $N(\alpha_0)$.</p>
+<p>If $k=1$, then $f_1(\alpha_0) = \lth(\alpha_0)$, which by lemma 1 is less than or equal to $N(\alpha_0)$.</p>
 
-<p>Suppose this has been proven for $k$ and we aim to prove it for $k+1$. Consider $f_{k+1}(\alpha_0,\ldots,\alpha_k) = (CP(\alpha_0,\alpha_1)) \frown f_k(CE(\alpha_0,\alpha_1), \ldots, CE(\alpha_{k-1},\alpha_k))$. For the first component, by lemma 1 $CP(\alpha_0,\alpha_1)\leq N(\alpha_0)$. For the remaining components, by inductive hypothesis we have $f_k(CE(\alpha_0,\alpha_1), \ldots, CE(\alpha_{k-1},\alpha_k)) \leq N(CE(\alpha_0,\alpha_1))$, which by lemma 1 is at most $N(\alpha_0)$. $\square$</p>
+<p>Suppose this has been proven for $k$ and we aim to prove it for $k+1$. Consider $f_{k+1}(\alpha_0,\ldots,\alpha_k) = (\CP(\alpha_0,\alpha_1)) \frown f_k(\CE(\alpha_0,\alpha_1), \ldots, \CE(\alpha_{k-1},\alpha_k))$. For the first component, by lemma 1 $\CP(\alpha_0,\alpha_1)\leq N(\alpha_0)$. For the remaining components, by inductive hypothesis we have $f_k(\CE(\alpha_0,\alpha_1), \ldots, \CE(\alpha_{k-1},\alpha_k)) \leq N(\CE(\alpha_0,\alpha_1))$, which by lemma 1 is at most $N(\alpha_0)$. $\square$</p>
 
 <p>Theorem 3: Let $k \geq 1$. If $\ell$ is a natural number<!--Appears to be no necessary lower bound on $\ell$ for this theorem to work--> such that there is a $<_k$-decreasing function $h:[\ell]\to W(k)$ such that for all $0\leq i \leq \ell-1$, $N(h(i)) \leq (k-1)+i$. There exists a limited function $g:[\ell]^k\to \mathbb N^k$ with no adjacent Ramsey sequence, i.e. no $x_0 < \ldots < x_k$ such that $g(x_0, \ldots,x_{k-1})\leq g(x_1, \ldots, x_k)$.</p>
-
-Check this: Is a lower bound like $\ell\geq 1$ necessary?
 
 <p>Proof: Let $\ell$, $h$ be as given, and let $f_k:W(k)^k\to\mathbb N^k$ and $f_{k-1}:W(k-1)^{k-1}\to\mathbb N^{k-1}$ be as in lemma 2.7. Consider the function $g(x_0,\ldots,x_{k-1}) = f_k(h(x_0),\ldots,h(x_{k-1}))$, whose domain is also $[\ell]^k$. First, we show that $g$ has no adjacent Ramsey sequence. For any $x_0 < \ldots < x_k \in [\ell]$, $g(x_0, \ldots, x_{k-1})\leq g(x_1, \ldots, x_k)$ is equivalent to $f_k(h(x_0), \ldots, h(x_{k-1})) \leq f(h(x_1), \ldots, h(x_k))$. By lemma 2.7 this is equivalent to $h(x_0) \leq_k h(x_1)$, and since $x_0 < x_1$, by $<_k$-decreasingness of $h$, this is false. Therefore for no $x_0 < \ldots < x_k \in [\ell]$ can we have $g(x_0, \ldots, x_{k-1}) \leq g(x_1, \ldots, x_k)$.</p>
 
@@ -228,13 +227,13 @@ Check this: Is a lower bound like $\ell\geq 1$ necessary?
 
 <p>This is what happens when considering functions $f:B^k\to B^k$ for other wqos $(B,\prec)$.</p>
 
-<p>Define length, CP, CT, CE for members of $\boldsymbol\omega^{B,k}$ with $k > 0$.</p>
+<p>Define lth, CP, CT, CE for members of $\boldsymbol\omega^{B,k}$ with $k > 0$.</p>
 
 <p>Version of lemma 2.7: Assume $(B,\prec)$ is a wqo, and let $k>0$ be a natural number. There is a function $f_k:\boldsymbol\omega^{B^k,k}\to B^k$ such that $f_k(x_0,\ldots,x_{k-1})\leq f_k(x_1,\ldots,x_k)$ implies $x_0\leq x_1$.
 
 <p>Proof: By cases on cardinality of $B$. Assume $B$ is finite. Try showing it's trivial for finite $B$.
 
-<p>Assume $B$ is infinite. There is a $\prec$-increasing injection $m:\mathbb N\to B$ which we will use as a coding function. Define $f_1(x_1) = \mathrm{length}(x_1)$, and define $f_{k+1}(x_0,\ldots,x_k) = (m(CP(x_0,x_1))) \frown f_k(CE(x_0,x_1),\ldots,CE(x_{k-1},x_k))$. WIP</p>
+<p>Assume $B$ is infinite. There is a $\prec$-increasing injection $m:\mathbb N\to B$ which we will use as a coding function. Define $f_1(x_1) = \lth(x_1)$, and define $f_{k+1}(x_0,\ldots,x_k) = (m(\CP(x_0,x_1))) \frown f_k(\CE(x_0,x_1),\ldots,\CE(x_{k-1},x_k))$. WIP</p>
 
 <p>Coming soon</p>
 
