@@ -186,15 +186,17 @@ Recall the definition of the Hardy hierarchy of functions $H:\varepsilon_0\to(\m
 
 <p>Lemma 6: Let $k$ be a natural number. Let $\alpha\in W(k)$ be a limit ordinal, $m$ be a natural number, and let $n = N(\alpha)$. It holds that $N(\alpha[m]) \leq (m+1)n$.</p>
 
-<p>Proof: Since α is a limit ordinal, k geq 2. By induction on $k$.</p>
+<p>Proof: Since $\alpha$ is a limit ordinal, $k \geq 2$. Proceed by induction on $k$.</p>
 
-<p>Assume $k=1$. WIP</p>
-
-<p>From here on assume $k > 1$, that this has been shown for all $k' < k$, and that we intend to show it for $k$.</p>
+<p>Assume $k = 2$.</p>
 
 <p>Subdivide by cases on $\alpha$. If $\alpha=\omega$, then $n=2$, and $N(\alpha[m]) = N(m) \leq (m+1)2$. If $\alpha$ is of the form $\omega^{\beta+1}$, then $N(\alpha[m]) = N(\omega^\beta\cdot m) = N(\omega^\beta)\cdot m = (n-1)\cdot m \leq (m+1)n$.</p>
 
-<p>Assume α is of the form ω^β for β limit. Then $N(\alpha[m]) = N(\omega^{\beta[m]} = 1+N(\beta[m])$, and as $\beta\in W(k)$, by IH this number is at most $1 + (m+1)\cdot N(\beta)$. This equals $1 + (m+1)\cdot(n-1) \leq (m+1)n$. WIP, add sums to each of these cases! $\square$</p>
+<p>From here on assume $k > 2$, that this has been shown for all $k' < k$, and that we intend to show it for $k$.</p>
+
+<p>Subdivide by cases on $\alpha$. If $\alpha$ is of the form $\omega^{\beta+1}$, take the same logic as before.</p>
+
+<p>If $\alpha$ is of the form $\omega^\beta$ for $\beta$ limit, then $N(\alpha[m]) = N(\omega^{\beta[m]} = 1+N(\beta[m])$. As $\beta\in W(k)$, by IH this number is at most $1 + (m+1)\cdot N(\beta)$. This equals $1 + (m+1)\cdot(n-1) \leq (m+1)n$. WIP, add sums to each of these cases! $\square$</p>
 
 <p>Lemma 7: For any ordinal $\alpha<\varepsilon_0$ and natural number $n\geq N(\alpha)$, $NH_\alpha(n^2)\geq H_\alpha(n)$.</p>
 
