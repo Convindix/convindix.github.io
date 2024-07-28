@@ -196,7 +196,7 @@ Check this: Is a lower bound like $\ell\geq 1$ necessary?
 
 <p>Subdivide by cases on $\alpha$. If $\alpha$ is of the form $\omega^{\beta+1}$, take the same logic as before.</p>
 
-<p>If $\alpha$ is of the form $\omega^\beta$ for $\beta$ limit, then $N(\alpha[m]) = N(\omega^{\beta[m]} = 1+N(\beta[m])$. As $\beta\in W(k)$, by IH this number is at most $1 + (m+1)\cdot N(\beta)$. This equals $1 + (m+1)\cdot(n-1) \leq (m+1)n$. WIP, add sums to each of these cases! $\square$</p>
+<p>If $\alpha$ is of the form $\omega^\beta$ for $\beta$ limit, then $N(\alpha[m]) = N(\omega^{\beta[m]} = 1+N(\beta[m])$. As $\beta\in W(k)$, by inductive hypothesis this number is at most $1 + (m+1)\cdot N(\beta)$. This equals $1 + (m+1)\cdot(n-1) \leq (m+1)n$. WIP, add sums to each of these cases! $\square$</p>
 
 <p>Lemma 7: For any ordinal $\alpha<\varepsilon_0$ and natural number $n\geq N(\alpha)$, $NH_\alpha(n^2)\geq H_\alpha(n)$.</p>
 
@@ -228,13 +228,13 @@ Check this: Is a lower bound like $\ell\geq 1$ necessary?
 
 <p>This is what happens when considering functions $f:B^k\to B^k$ for other wqos $(B,\prec)$.</p>
 
-<p>Define CP, CT, CE for members of $\boldsymbol\omega^{B,k}$ with $k > 0$.</p>
+<p>Define length, CP, CT, CE for members of $\boldsymbol\omega^{B,k}$ with $k > 0$.</p>
 
 <p>Version of lemma 2.7: Assume $(B,\prec)$ is a wqo, and let $k>0$ be a natural number. There is a function $f_k:\boldsymbol\omega^{B^k,k}\to B^k$ such that $f_k(x_0,\ldots,x_{k-1})\leq f_k(x_1,\ldots,x_k)$ implies $x_0\leq x_1$.
 
 <p>Proof: By cases on cardinality of $B$. Assume $B$ is finite. Try showing it's trivial for finite $B$.
 
-<p>Assume $B$ is infinite. There is a $\prec$-increasing injection $m:\mathbb N\to B$ which we will use as a coding function. Define f_1 somehow, and define $f_{k+1}(x_0,\ldots,x_k) = (m(CP(x_0,x_1))) \frown f_k(CE(x_0,x_1),\ldots,CE(x_{k-1},x_k))$. WIP</p>
+<p>Assume $B$ is infinite. There is a $\prec$-increasing injection $m:\mathbb N\to B$ which we will use as a coding function. Define $f_1(x_1) = \mathrm{length}(x_1)$, and define $f_{k+1}(x_0,\ldots,x_k) = (m(CP(x_0,x_1))) \frown f_k(CE(x_0,x_1),\ldots,CE(x_{k-1},x_k))$. WIP</p>
 
 <p>Coming soon</p>
 
