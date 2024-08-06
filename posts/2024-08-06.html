@@ -1,0 +1,15 @@
+Some old results on the least stable ordinal
+
+The least stable ordinal $\sigma$ is larger than I had imagined.
+
+It is known from Marek and Rasmussen's "Spectrum of L" that if $T$ is a first-order set theory that is a member of $L_\sigma$ and there is some $\beta$ such that $L_\beta\vDash T$, then there is a $\beta<\sigma$ such that $L_\beta\vDash T$. The restriction that $T$ is in $L_\sigma$ can be seen as an extremely loose complexity restriction, in contrast to a much more restrictive one such as $T\in L_{\omega+1}$ (i.e. $T$ is $\varnothing^{(n)}$ for some natural $n$). When considering the supremum of levels of $L$ for recursive theories, the supremum of levels for $\varnothing''$ theories, $\varnothing^{(\mathrm{BHO})}$ theories, etc., it turns out that this forms a strict hierarchy all below $\sigma$.
+
+Let $\rho$ be the supremum of $\mu\beta.(L_\beta\vDash T)$ for recursive set theories $T$. For example $\rho$ is greater than the least $\beta$ s.t. $L_\beta\vDash\textrm{ZFC+There exists a subtle cardinal}$. It's already known to GS (e.g. from ``Spectrum of L") that $\sigma$ is larger than the least $L$-ranks of models of $\Sigma_1$-definable set theories, but AFAIK there was no result about $\sigma$ being greater than $\rho$ (i.e. if allowing $\Sigma_1$-definable, nonrecursive theories gives you higher $L$-ranks below $\sigma$).
+
+Theorem: $\rho<\sigma$.
+
+Proof: Let $T'$ be the theory consisting of the axiom $\exists\beta(L_\beta\vDash T)$ for every recursive set theory $T$ such that $\exists\beta(L_\beta\vDash T)$. For each such theory $T$ choose an ordinal $\beta_T$ such that $L_{\beta_T}\vDash T$. Let $\lambda$ be the least ordinal greater than $\beta_T$ for all such $T$. $L_\lambda\vDash T'$, since for any axiom $\exists\beta(L_\beta\vDash T)$ of $T'$, $\beta_T<\lambda$ is a witness. Then $L$ satisfies the $\Sigma_1$ sentence $\exists\alpha(L_\alpha\vDash T')$ (I think this is a $\Sigma_1$ sentence, I can break it down more), with $\lambda$ as a witness. By $L_\sigma\prec_{\Sigma_1}L$, $L_\sigma$ satisfies this as well, so there is an $\alpha<\sigma$ s.t. $L_\alpha\vDash T'$. Then $\rho\leq\alpha$, so $\rho<\sigma$. $\square$
+
+This is very strengthenable, e.g. the above proof should go through when ``recursive" is changed to ``$\emptyset^{\mathrm{BHO}}$".
+
+The last message I remember that states ``stable ordinals are larger than I thought" is <a href="https://discord.com/channels/206932820206157824/206933441751547904/956506703870971944">this</a> one, but I would expect that this one is stronger but I don't know if $x\in L_{\beta+1}$ makes that one strong.
