@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+</head>
+
+<body>
+
+<canvas id="canvas" width="512" height="320"></canvas>
+
+<p>Antihydra's function applied many times to 8, displayed in binary with MSB on the bottom edge.</p>
+
+<p>This shows some chaos with patches of order, labeled as follows:</p>
+
+<p>Pinstripe patterns are marked in <span style="background-color: rgb(255, 160, 160)">red</span>.</p>
+
+<script>
+var c = $("canvas");
+var ctx = c.getContext("2d");
+
+function $(id){
+	return document.getElementById(id);
+}
+
+function pixel(x, y, r, g, b){
+	ctx.fillStyle = `rgb(${r}, ${g}, ${b})`;
+	ctx.fillRect(x, y, 1, 1);
+}
+
+function setOfIndices(str, regexp){
+  /* Returns the set of indices of characters in matching groups of a regex
+  For example, setOfMatches("afooafooa", /foo/) is {1, 2, 3, 5, 6, 7} */
+  let indices = new Set();
+  let rolled = [...str.matchAll(regexp)]; //Compact representation
+  for(let i = 0; i < rolled.length; i++){ //Each match
+    for(let j = rolled[i].index; j < rolled[i].index + rolled[i][0].length; j++){ //Each character index in each match
+      indices.add(j);
+    } 
+  }
+  return indices;
+}
+
+function annotateBinary(a){
+	//Output is an array with data on which characters are in a pinstripe pattern.
+	let str = "";
+	let output = [];
+	while(a > 0n){
+		if(a % 2n == 1){
+			str += "1";
+		}else{
+			str += "0";
+		}
+		a /= 2n;
+	}
+	const pinstripe = /((?:00|11))(?!\1)((?:00|11))(?:\1\2){1,}\1?/g; //This regex detects pinstripe patterns: 00110011... or 11001100...
+	let indices = setOfIndices(str, pinstripe);
+	for(let i = 0; i < str.length; i++){
+	  //console.log(indices);
+	  if(indices.has(i)){
+	    output.push({"char": str[i], "pattern": "pinstripe"});
+	  }else{
+	    output.push({"char": str[i], "pattern": "none"});
+	  }
+	}
+  
+	return output;
+}
+
+function write(a, x){
+	let annotatedBinary = annotateBinary(a);
+	for(let i = 0; i < annotatedBinary.length; i++){
+	  switch(annotatedBinary[i].pattern){
+	    case "none":
+		    if(annotatedBinary[i].char == "1"){
+			    pixel(x, c.height - i - 1, 255, 255, 255);
+		    }
+		    break;
+	    case "pinstripe":
+	      if(annotatedBinary[i].char == "1"){
+			    pixel(x, c.height - i - 1, 255, 160, 160);
+		    }else{
+		      pixel(x, c.height - i - 1, 92, 0, 0);
+		    }
+		    break;
+		}
+	}
+}
+
+ctx.fillStyle = "rgb(0, 0, 0)";
+ctx.fillRect(0, 0, c.width, c.height); //Black background
+
+let a = 8n;
+
+for(let x = 0; x < c.width; x++){
+	write(a, x);
+	if(a % 2n == 0n){
+		a = a * 3n / 2n;
+	}else{
+		a = (a * 3n - 1n) / 2n;
+	}
+}
+</script>
+
+</body>
+
+</html>
