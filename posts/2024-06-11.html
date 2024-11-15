@@ -1,30 +1,51 @@
-A philosophical distinction between the busy beaver and Rayo functions
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Another connection between PA and ZFC</title>
+  <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$']]
+    },
+    svg: {
+      fontCache: 'global'
+    }
+  };
+  </script>
+  <script type="text/javascript" id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+  </script>
+</head>
+<body>
+<h1>A philosophical distinction between the busy beaver and Rayo functions</h1>
 
 <p>There is a phenomenon relating to the continuum hypothesis which is often-discussed when talking about Rayo's number, which is that when defining Rayo's number for models of $\mathrm{ZFC}$, Rayo's number can be pushed arbitrarily large by forcing the continuum to be $\aleph_n$ for any desired numeral $n$.</p>
 
 <p>There is no $\Sigma^0_1$ formula $\phi(n)$ such that $\phi(\overline n)$ is independent of ZFC for every natural number $n$, so there cannot be a Turing machine $\{e\}$ with a "CH-in-Rayo-like" scenario, where for every $n\in\mathbb N$ there is a model of ZFC in which $\{e\}$ outputs $n$. Only nonstandard natural shenanigans allowed</p>
 
-Conjecture: If $\phi(x)$ is $\Sigma^0_1$ and $\exists(x\in\mathbb N)\phi(x)$ is independent of ZFC, and $M$ is a model of ZFC such that $M\vDash\exists(x\in\mathbb N)\phi(x)$, then all $x\in\mathbb N^M$ such that $M\vDash\phi(x)$ are nonstandard.
+<p>Conjecture: If $\phi(x)$ is $\Sigma^0_1$ and $\exists(x\in\mathbb N)\phi(x)$ is independent of ZFC, and $M$ is a model of ZFC such that $M\vDash\exists(x\in\mathbb N)\phi(x)$, then all $x\in\mathbb N^M$ such that $M\vDash\phi(x)$ are nonstandard.</p>
 
-In fact, when allowing even a small part of the infinite part of the universe into the picture, even at the level of only $\mathcal P(\mathbb N)$, independent statements involving arbitrarily large standard naturals (akin to Rayo and CH) begin to appear. This is implied by the following stronger result, for $\Sigma^0_2$ statements.
+<p>In fact, when allowing even a small part of the infinite part of the universe into the picture, even at the level of only $\mathcal P(\mathbb N)$, independent statements involving arbitrarily large standard naturals (akin to Rayo and CH) begin to appear. This is implied by the following stronger result, for $\Sigma^0_2$ statements.</p>
 
-Theorem 2: There is a $\Sigma^0_2$ formula $\phi$ such that $\exists(x\in\mathbb N)\phi(x)$ is independent of ZFC, and for every (standard) natural number $n$, there is a model $M_n$ of ZFC such that $M_n\vDash\phi(n)$.
+<p>Theorem 2: There is a $\Sigma^0_2$ formula $\phi$ such that $\exists(x\in\mathbb N)\phi(x)$ is independent of ZFC, and for every (standard) natural number $n$, there is a model $M_n$ of ZFC such that $M_n\vDash\phi(n)$.</p>
 
-Proof: Woodin's universal finite algorithm. $\square$
+<p>Proof: Woodin's universal finite algorithm. $\square$</p>
 
-A corollary of the first conjecture is that even though the halting of machines may vary from model to model, all the $\omega$-models of ZFC have one correct busy beaver function. However, theorem 2 says that the same cannot be said even for Rayo just for $\Sigma^0_2$ formulas. (And even $\emptyset'$ busy beaver?)
+<p>A corollary of the first conjecture is that even though the halting of machines may vary from model to model, all the $\omega$-models of ZFC have one correct busy beaver function. However, theorem 2 says that the same cannot be said even for Rayo just for $\Sigma^0_2$ formulas. (And even $\emptyset'$ busy beaver?)</p>
 
 <hr />
-Here is an older (October 2023) result of mine which is related to philosophical problems with Rayo.
+<p>Here is an older (October 2023) result of mine which is related to philosophical problems with Rayo.</p>
 
-Let $\textrm{len}(\phi)$ denote the length of a FOST formula $\phi$. Given a transitive model $M$ of ZFC, say that the Rayo function of $M$ (denoted $\textrm{Rayo}_M$) is the set of $(x,y)\in\mathbb N^M\times\mathbb N^M$ such that $y=\textrm{sup}^+\{w\in\mathbb N\mid\textrm{there is a FOST formula }\phi(z)\textrm{ with len}(\phi)\leq x\textrm{ and one free variable s.t. }M\vDash\ulcorner\forall(z\in\mathbb N)(\phi(z)\iff z=w)\urcorner\}$. This is externally definable since only $M\vDash\ldots$ is used. Since $M$ is $\omega$-standard, all $M$-natural numbers are natural numbers.
+<p>Let $\textrm{len}(\phi)$ denote the length of a FOST formula $\phi$. Given a transitive model $M$ of ZFC, say that the Rayo function of $M$ (denoted $\textrm{Rayo}_M$) is the set of $(x,y)\in\mathbb N^M\times\mathbb N^M$ such that $y=\textrm{sup}^+\{w\in\mathbb N\mid\textrm{there is a FOST formula }\phi(z)\textrm{ with len}(\phi)\leq x\textrm{ and one free variable s.t. }M\vDash\ulcorner\forall(z\in\mathbb N)(\phi(z)\iff z=w)\urcorner\}$. This is externally definable since only $M\vDash\ldots$ is used. Since $M$ is $\omega$-standard, all $M$-natural numbers are natural numbers.</p>
 
-Lemma (ZFC?): If $M,M'$ are $\omega$-standard models of ZFC such that $M$ is a definable set in $M'$, then (the $M'$ interpretation of) the Rayo function of $M$ is a definable function over $M'$.
+<p>Lemma (ZFC?): If $M,M'$ are $\omega$-standard models of ZFC such that $M$ is a definable set in $M'$, then (the $M'$ interpretation of) the Rayo function of $M$ is a definable function over $M'$.</p>
 
-Proof: Carry out the definition of the Rayo function of $M$ within $M'$. $M'$ satisfies that $\{w\in\mathbb N\mid\ldots\}$ exists by $\Sigma_1$-comprehension, since only $M\vDash\ldots$ is used. $\square$
+<p>Proof: Carry out the definition of the Rayo function of $M$ within $M'$. $M'$ satisfies that $\{w\in\mathbb N\mid\ldots\}$ exists by $\Sigma_1$-comprehension, since only $M\vDash\ldots$ is used. $\square$</p>
 
-Theorem: For every countable transitive model $M$ of ZFC, there is an $\omega$-standard model $M'$ of ZFC such that the Rayo function of $M'$ eventually dominates the Rayo function of $M$.
+<p>Theorem: For every countable transitive model $M$ of ZFC, there is an $\omega$-standard model $M'$ of ZFC such that the Rayo function of $M'$ eventually dominates the Rayo function of $M$.</p>
 
-Proof: By corollary 10 of Hamkins, Linetsky, Reitz, ``Pointwise Definable Models of Set Theory" (arXiv 1105.4597), there is a countable transitive pointwise definable model $M'$ of ZFC such that $M'$ satisfies ``$M$ is a countable transitive set". (The source uses the notation $M^+$.) Let $\phi_M(x)$ be a FOST formula defining $M$ in $M'$, i.e. such that $M'\vDash\forall z(\phi(z)\iff z=M)$.
+<p>Proof: By corollary 10 of Hamkins, Linetsky, Reitz, ``Pointwise Definable Models of Set Theory" (arXiv 1105.4597), there is a countable transitive pointwise definable model $M'$ of ZFC such that $M'$ satisfies ``$M$ is a countable transitive set". (The source uses the notation $M^+$.) Let $\phi_M(x)$ be a FOST formula defining $M$ in $M'$, i.e. such that $M'\vDash\forall z(\phi(z)\iff z=M)$.</p>
 
-By the lemma, let $\chi(x,y)$ be a FOST formula defining the Rayo function of $M$ over $M'$. Let $k\in\mathbb N$, and say that $\psi(t)$ is a winning formula for $\textrm{Rayo}_{M'}(k)$. $\exists x(\psi(x)\land\chi(x,y))$ is a formula of length $\textrm{len}(\psi)+\textrm{len}(\chi)+5\leq k+\textrm{len}(\chi)+5$ with $y$ as its only free variable which, in $M'$, defines $\textrm{Rayo}_M(\textrm{Rayo}_{M'}(k))$. Therefore $\textrm{Rayo}_{M'}(k+\textrm{len}(\chi)+5)>\textrm{Rayo}_M(\textrm{Rayo}_{M'}(k))$. For sufficiently large $k$, $\textrm{Rayo}_{M'}(k)$ is greater than $k+\textrm{len}(\chi)+5$ (which is $k$ plus a constant), for these $k$ we have $\textrm{Rayo}_{M'}(k+\textrm{len}(\chi)+5)>\textrm{Rayo}_M(k+\textrm{len}(\chi)+5)$. Replacing $k+\textrm{len}(\chi)+5$ with a natural number $n$, for sufficiently large $n$, $\textrm{Rayo}_{M'}(n)>\textrm{Rayo}_M(n)$. $\square$
+<p>By the lemma, let $\chi(x,y)$ be a FOST formula defining the Rayo function of $M$ over $M'$. Let $k\in\mathbb N$, and say that $\psi(t)$ is a winning formula for $\textrm{Rayo}_{M'}(k)$. $\exists x(\psi(x)\land\chi(x,y))$ is a formula of length $\textrm{len}(\psi)+\textrm{len}(\chi)+5\leq k+\textrm{len}(\chi)+5$ with $y$ as its only free variable which, in $M'$, defines $\textrm{Rayo}_M(\textrm{Rayo}_{M'}(k))$. Therefore $\textrm{Rayo}_{M'}(k+\textrm{len}(\chi)+5)>\textrm{Rayo}_M(\textrm{Rayo}_{M'}(k))$. For sufficiently large $k$, $\textrm{Rayo}_{M'}(k)$ is greater than $k+\textrm{len}(\chi)+5$ (which is $k$ plus a constant), for these $k$ we have $\textrm{Rayo}_{M'}(k+\textrm{len}(\chi)+5)>\textrm{Rayo}_M(k+\textrm{len}(\chi)+5)$. Replacing $k+\textrm{len}(\chi)+5$ with a natural number $n$, for sufficiently large $n$, $\textrm{Rayo}_{M'}(n)>\textrm{Rayo}_M(n)$. $\square$</p>
+</body>
+</html>
