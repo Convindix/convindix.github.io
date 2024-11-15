@@ -1,10 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Another connection between PA and ZFC</title>
+  <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$']]
+    },
+    svg: {
+      fontCache: 'global'
+    }
+  };
+  </script>
+  <script type="text/javascript" id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+  </script>
+</head>
+<body>
 <h1>A shorter proof of the Paris-Harrington theorem</h1>
 
 <p>This is still a work in progress, it may turn out to be incorrect.</p>
 
 <p>Andrey Bovykin has a short proof of (a modified version of) the Paris-Harrington theorem in &section;3 of "<a href="https://citeseerx.ist.psu.edu/document?repid=rep1&type=pdf&doi=70ca52a95492b3e9d5103f4530d0a75233f70951">Brief introduction to unprovability</a>" (2006, in <i><a href="https://books.google.com/books?id=L_VrNkSKTjEC">Logic Colloquium 2006</a></i>, ed. S. Barry Cooper, H. Geuvers, A. Pillay, J. Väänänen). This proof takes up only one page (page 55 of the above linked PDF), but there is a step at the end which is left as an exercise ("notice that $I\vDash\PA$"). The presentation of this proof (although with a slightly different modification of the P-H principle) given later in &section;1.2 of his talk handout "<a href="https://www.researchgate.net/publication/335684125_A_proof_of_unprovability_of_an_arithmetical_statement_in_one_step_Abstract_of_a_talk">A proof of $\mathrm{ZFC}^-$-unprovability of an arithmetical statement, in one step</a>" (August 2016, Rio de Janeiro conference) is one which I prefer, since it keeps the succinctness of the first presentation, while elaborating more on how $I$ satisfies $\PA$. However, using ideas from Silver's work on Erdős cardinals, I think it is possible to get an even shorter proof.</p>
 
-<p>In this post I will write $[k]$ for $\{0,\ldots,k-1\}$ (this is the same as the von Neumann ordinal $k$, but this is in order to make the typing difference more clear for any non-set theorist readers.)</p>
+<p>In this post, for a set $S$ of natural numbers and a natural number $k$, although $[S]^k$ is often used to denote the set of subsets of $S$ of cardinality $k$, I will consider the members of $[S]^k$ to be increasing tuples $(x_1,\ldots,x_k)$, where $x_1 < \ldots < x_k$ are from $S$. Exchanging $(x_1,\ldots,x_k)$ with $\{x_1,\ldots,x_k\}$ gives equivalence with the usual convention.</p>
 
 <p>The key difference between this proof and Bovykin's is a slightly different coloring. While Bovykin colors tuples $(a,x_1,\ldots,x_{2e})$ from $[N]^{2e+1}$ with one of only $2$ colors, we will color tuples $(a,x_1,\dots,x_e)$ from $[N]^{e+1}$ with many more than $2$ colors. This way the proof more closely mimics the way indiscernibles are obtained from Erdős cardinals, e.g. three way it is proven in theorem 2.1, ch. 8, &section;2 of Drake's <i>Set Theory: An Introduction to Large Cardinals</i> (1974). Aside from this, the proof here will also use a different way of looking at the partition calculus. The usual Paris-Harrington principle states that for all $m,e,r$ there is an $N$ such that $N\overset{\ast}{\rightarrow}(m)^e_r$, a condition meaning that a homogeneous subset $H\subseteq[N]$ can be found where $\vert H\vert\geq m$ and $\vert H\vert\geq\min(H)$. Bovykin considers a modified principle, which is the same except for the $\min(H)$ condition, which he replaces with $\vert H\vert > e\cdot 2^{e\cdot\min(H)}+1)$.</p>
 
@@ -16,4 +35,6 @@
 
 <p>Theorem: $\PH$ is not provable in $\PA$, if it is consistent.</p>
 
-<p>Proof: Take a nonstandard $M\vDash\mathsf I\Delta_0+\mathrm{exp}+\PH$. Let $e$ be a nonstandard natural number in $M$, and let $N$ be a natural number in $M$ such that $M$ satisfies $N\overset{\ast}{\rightarrow}(e)^{2e+1? WIP}_{2^e? WIP}$. Let $\phi_1(a,x_1,\ldots,x_e)$, ..., $\phi(a,x_1,\ldots,x_e)$ be an enumeration of the first $e$ formulas with at most the displayed free variables. Define an equivalence relation $\sim$ on $[e]^{2e}$, setting $(x_1,\ldots,x_e)\sim(x_{e+1},\ldots,x_{2e})$ for $x_1,\ldots,x_{2e}< e$ iff for all $1\leq i\leq e$, it holds that $M\vDash\forall(a < x_1)(\phi_i(a,x_1,\ldots,x_e)\iff\phi_i(a,x_{e+1},\ldots,x_{2e}))$. Given any tuple $(x_1,\ldots,x_e)$ and $a < x_1$, for any $1\leq i\leq e$ there are $2$ possible truth values of $\phi_i(a,x_1,\ldots,x_e)$ and there are WIP</p>
+<p>Proof: Take a nonstandard $M\vDash\mathsf I\Delta_0+\mathrm{exp}+\PH$. Let $e$ be a nonstandard natural number in $M$, and let $N$ be a natural number in $M$ such that $M$ satisfies $N\overset{\ast}{\rightarrow}(e)^{2e+1? WIP}_{2^e? WIP}$. Let $\phi_1(a,x_1,\ldots,x_e)$, ..., $\phi(a,x_1,\ldots,x_e)$ be an enumeration of the first $e$ formulas with at most the displayed free variables. Define an equivalence relation $\sim$ on $[e]^{2e}$, setting $(x_1,\ldots,x_e)\sim(x_{e+1},\ldots,x_{2e})$ for $x_1,\ldots,x_{2e} < e$ iff for all $1\leq i\leq e$, it holds that $M\vDash\forall(a < x_1)(\phi_i(a,x_1,\ldots,x_e)\iff\phi_i(a,x_{e+1},\ldots,x_{2e}))$. Given any tuple $(x_1,\ldots,x_e)$ and $a < x_1$, for any $1\leq i\leq e$ there are $2$ possible truth values of $\phi_i(a,x_1,\ldots,x_e)$ and there are WIP</p>
+</body>
+</html>
