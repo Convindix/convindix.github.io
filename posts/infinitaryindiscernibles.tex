@@ -1,0 +1,93 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{csquotes}
+\usepackage{indentfirst}
+
+\title{Indiscernibles in infinitary languages and \Erdos{} cardinals}
+\author{C7X}
+\date{September 2024 (edited December 2024)}
+
+\newcommand{\Erdos}{Erd\H{o}s}
+
+\makeatletter % Credit to https://tex.stackexchange.com/a/504124
+\DeclareRobustCommand{\smileunder}[1]{\mathbin{\text{\smileunderr@{#1}}}}
+\newcommand{\smileunderr@}[1]{%
+  \vtop{%
+    \offinterlineskip\m@th
+    \halign{\hfil##\hfil\cr$#1$\cr$\scriptstyle\smile$\cr}%
+  }%
+}
+\makeatother
+
+\newcommand{\weakpower}[2]{#1^{\smileunder{#2}}}
+
+\begin{document}
+
+\maketitle
+
+\section{Conventions and aims}
+
+Almost all conventions in this note are defined in \cite{Drake74}, except $\subset$ is replaced by $\subseteq$, including in quotation. Lowercase Greek letters other than $\phi$ denote ordinals.
+
+For infinite cardinals $\pi,\rho$, let $\weakpower{\pi}{\rho}$ denote $\sum_{\kappa<\rho}\pi^\kappa$.
+
+Given a first-order language $\mathcal L$, for cardinals $\pi,\rho$, we take $\mathcal L_{\pi,\rho}$ to be the infinitary extension of $\mathcal L$ as used in \cite{Drake74}, i.e. permitting conjunctions and disjunctions of length $<\pi$ and quantifications of length $<\rho$, and (in contrast to $\mathcal L_{\alpha,\beta}$ as defined in Karp's book \cite{Karp64}) allowing function and relation symbols of infinite arity.
+
+For a well-ordered set $X$ and an ordinal $\gamma$, define $[X]^\gamma$ to be the set of subsets of $X$ with order type $\gamma$, likewise for $[X]^{<\gamma}$ and subsets of order type $<\gamma$. We define the \Erdos-Rado partition calculus as usual except we allow infinite exponents, namely for a cardinal $\kappa$ and ordinals $\alpha,\gamma,\lambda$, the property $\kappa\rightarrow(\alpha)^\gamma_\lambda$ holds if for any function $f:[\kappa]^\gamma\to\lambda$, there is a subset $H$ of $\kappa$ of order type $\alpha$ such that the image of $[H]^\gamma$ under $f$ is a singleton (such an $H$ is said to be ``homogeneous for $f$"). The property $\kappa\rightarrow(\alpha)^{<\gamma}_\lambda$ is defined likewise. For an infinite ordinal $\alpha$, define the $\alpha$-\Erdos{} cardinal to be the least $\kappa$ such that $\kappa\rightarrow(\alpha)^{<\omega}_2$. For further reading on the partition calculus, see chapter 7, section 2 of \cite{Drake74}.
+
+For a structure $\mathfrak A=(A,<,\ldots)$ in a language $\mathcal L$, a set $Y\subseteq A$ that is linearly ordered by a relation $<$ is said to be a set of indiscernibles for $\mathfrak A$ if for any finite sequences $x_0<\ldots<x_n$, $y_0<\ldots<y_n$ from $A$ and any formula $\phi$ in $\mathcal L$ with $n+1$ free variables, we have $\mathfrak A\vDash\phi(x_0,\ldots,x_n)$ iff $\mathfrak A\vDash\phi(y_0,\ldots,y_n)$.
+
+Theorem 2.1 of chapter 8, section 2 of \cite{Drake74}, is that for infinite cardinals $\kappa,\lambda$ and ordinals $\alpha<\kappa$, the property $\kappa\rightarrow(\alpha)^{<\omega}_{2^\lambda}$ is equivalent to the following condition [which Drake calls $(\ast)$]:
+
+\begin{displayquote}
+For every structure $\mathfrak A$ of length $\lambda$, which has a subset $X$ of its universe which is ordered in type $\kappa$ by a relation $<$, there is a subset $Y\subseteq X$ with order type $\alpha$ under $<$ such that $\langle Y,<\rangle$ is a set of indiscernibles for $\mathfrak A$.
+\end{displayquote}
+
+We will denote this property by $\ast(\alpha,\lambda)$.
+
+We will present a version of ($\ast$) for infinitary languages, show the property inconsistent for some languages, and give an upper bound on its consistency strength for others. Previous work on infinitary versions of $(\ast)$ has been done in \cite{Feng90} (\textbf{Edit:} and suggested in \cite{Taranovsky16}), however the author of this note is not aware of work on the properties presented here.
+
+\section{Infinitary quantifications}
+
+In this section we consider languages allowing infinitely many quantifications.
+
+For a structure $\mathfrak A=(A,<,\ldots)$ in a language $\mathcal L$, say that a set $Y\subseteq A$ that is linearly ordered by a relation $<$ is a set of $\mathcal L_{\pi,\rho}$-indiscernibles for $\mathfrak A$ if for any $\beta<\rho$, any $<$-increasing sequences $(x_\xi)_{\xi<\beta}$, $(y_\xi)_{\xi<\beta}$ from $A$, and any formula $\phi$ in $\mathcal L_{\pi,\rho}$ with $\vert\beta\vert$ free variables, we have $\mathfrak A\vDash\phi((x_\xi)_{\xi<\beta})$ iff $\mathfrak A\vDash\phi((y_\xi)_{\xi<\beta})$.
+
+For cardinals $\pi,\rho$ and ordinals $\alpha,\lambda$, let $\ast(\alpha,\lambda)_{\pi,\rho}$ denote the property obtained from $\ast(\alpha,\lambda)$ by replacing ``a set of indiscernibles for $\mathfrak A$" with ``a set of $\mathcal L_{\pi,\rho}$-indiscernibles for $\mathfrak A$". If this property holds, we say that $\kappa$ has property $\ast(\alpha,\lambda)_{\pi,\rho}$. We will only consider the case where $\alpha\geq\rho$ holds, otherwise the property becomes trivial as there would be no $<$-increasing sequences $(x_\xi)_{\xi<\beta}$ from $Y$ for any $\beta$ such that $\alpha<\beta<\rho$.
+
+The following theorem is adapted from one way of theorem 2.1 of chapter 8, section 2 of \cite{Drake74}.
+
+\textbf{Theorem 1:} For cardinals $\kappa$ and ordinals $\alpha\geq\omega_1$, if $\kappa$ has property $\ast(\alpha,\omega_1)_{\omega,\omega_1}$, then $\kappa\rightarrow(\alpha)^{<\omega_1}_{\omega_1}$.
+
+\textbf{Proof:} Let $\kappa$ be as given. Let $f:[\kappa]^{<\omega_1}\to\omega_1$ be arbitrary. For each $\beta<\omega_1$ and $\gamma<\omega_1$, define a predicate on $[\kappa]^{<\omega_1}$ by $R_{\beta,\gamma}((x_\xi)_{\xi<\beta}) \iff \bigwedge_{\xi<\nu<\beta}(x_\xi<x_\nu) \land f(\{x_\xi\mid\xi<\beta\}) = \gamma$. Let $\mathfrak A$ be the structure $(\kappa,<,(R_{\beta,\gamma})_{\beta<\omega_1,\gamma<\omega_1})$, with length $\omega_1$ by using a pairing function from $\omega_1\times\omega_1$ to $\omega_1$. By property $\ast(\alpha,\omega_1)_{\omega,\omega_1}$, there is a set $Y\subseteq\kappa$ of $\mathcal L_{\omega,\omega_1}$-indiscernibles for $\mathfrak A$ of order type $\alpha$. Choose any $\beta<\omega_1$ and choose arbitrary $<$-increasing sequences $(x_\xi)_{\xi<\beta}$ and $(y_\xi)_{\xi<\beta}$ from $Y$. By $\mathcal L_{\omega,\omega_1}$-indiscernibility, for any $\gamma<\omega_1$, we have $\mathfrak A\vDash R_{\beta,\gamma}((x_\xi)_{\xi<\beta})$ iff $\mathfrak A\vDash R_{\beta,\gamma}((y_\xi)_{\xi<\beta})$, so $f(\{x_\xi\mid\xi<\beta\}) = f(\{y_\xi\mid\xi<\beta\})$. As $(x_\xi)_{\xi<\beta}$ and $(y_\xi)_{\xi<\beta}$ were arbitrary sequences from $Y^{<\omega_1}$, $\{x_\xi\mid\xi<\beta\}$ and $\{y_\xi\mid\xi<\beta\}$ are arbitrary members of $[Y]^{<\omega_1}$, so $Y$ is homogeneous for $f$. $\square$
+
+\textbf{Corollary 2:} Assuming the axiom of choice, there can be no infinite cardinals $\kappa,\lambda$ and infinite ordinal $\alpha\geq\omega_1$ such that $\kappa$ has property $\ast(\alpha,\lambda)_{\omega,\omega_1}$.
+
+\textbf{Proof:} By theorem 4.1 of chapter 7, section 4 of \cite{Drake74}, assuming choice, there are no cardinals $\kappa$ such that $\kappa\rightarrow(\omega)^\omega_2$. $\square$
+
+\textbf{Corollary 3:} Assuming the axiom of choice, there can be no infinite cardinals $\kappa,\lambda,\pi,\rho$ with $\rho\geq\omega_1$ and ordinal $\alpha\geq\rho$ such that $\kappa$ has property $\ast(\alpha,\lambda)_{\pi,\rho}$.
+
+As we do not consider properties $\ast(\alpha,\lambda)_{\pi,\rho}$ where $\alpha<\rho$, this is all that can be said for $\rho\geq\omega_1$.
+
+\section{Infinitary conjunctions and disjunctions}
+
+Corollary 3 above rules out the consistency of properties $\ast(\alpha,\lambda)_{\pi,\rho}$ with $\rho\geq\omega_1$. However, it does not rule out consistency of the $\rho=\omega$ case. In fact, $\ast(\alpha,\lambda)_{\pi,\omega}$ is consistent relative to an $\alpha$-\Erdos{} cardinal. The following lemma is a generalization of one way of theorem 2.1 of chapter 8, section 2 of \cite{Drake74}.
+
+\textbf{Lemma 4:} Let $\kappa,\lambda$ be infinite cardinals and $\alpha<\kappa$ be an ordinal. If $\kappa\rightarrow(\alpha)^{<\omega}_{2^{\weakpower{\lambda}{\pi}}}$ holds, then $\kappa$ has property $\ast(\alpha,\lambda)_{\pi,\omega}$.
+
+\textbf{Proof:} Assume $\kappa\rightarrow(\alpha)^{<\omega}_{2^{\weakpower{\lambda}{\pi}}}$, and let $\mathfrak A=(A,<,\ldots)$ be a structure of length $\lambda$ such that there is a subset $X$ of $A$ which is ordered in order type $\kappa$ by a relation $<$ of the structure. Define an equivalence relation $\sim$ on $[X]^{<\omega}$ by $\{x_0,\ldots,x_n\}\sim\{y_0,\ldots,y_n\}$ iff $\mathfrak A\vDash\phi(x_0,\ldots,x_n)\iff\mathfrak A\vDash\phi(y_0,\ldots,y_n)$ for all $\mathcal L_{\pi,\omega}$ formulas $\phi$ with the displayed free variables, where $x_0,\ldots,x_n$ and $y_0,\ldots,y_n$ are enumerated in $<$-increasing order. As there are $\lambda$-many nonlogical symbols of the language of $\mathcal A$ and formulas are of length $<\pi$, there are $\weakpower{\lambda}{\pi}$ formulas $\phi$ in $\mathcal L_{\pi,\omega}$. For each of these, $\phi(x_0,\ldots,x_n)$ may either be true or false, so $\sim$ partitions $X$ into at most $2^{\weakpower{\lambda}{\pi}}$ pieces. By $\kappa\rightarrow(\alpha)^{<\omega}_{2^{\weakpower{\lambda}{\pi}}}$, there is an $H\subseteq X$ of order type $\alpha$ under $<$ which is homogeneous for the partition $\sim$. Then $\langle H,<\rangle$ is a set of $\mathcal L_{\pi,\omega}$-indiscernibles for $\mathfrak A$ of order type $\alpha$. $\square$
+
+\textbf{Lemma 5:} Let $\alpha$ be an ordinal and $\kappa$ be the $\alpha$-\Erdos{} cardinal. For any ordinals $\lambda,\pi<\kappa$, we have $2^{\weakpower{\lambda}{\pi}}<\kappa$.
+
+\textbf{Proof:} By corollary 4.7 of chapter 7, section 4 of \cite{Drake74}, $\kappa$ is strongly inaccessible. Thus for any $\nu<\kappa$, we have $\lambda^\nu<\kappa$. As $\weakpower{\lambda}{\pi} = \sum_{\nu<\pi}\lambda^\nu$ is a sum of $\nu$-many cardinals that are less than $\kappa$, we have $\weakpower{\lambda}{\pi}<\kappa$. Finally, again by strong inaccessibility $2^{\weakpower{\lambda}{\pi}}$ must be less than $\kappa$. $\square$
+
+\textbf{Corollary 6:} Let $\alpha$ be an ordinal. Assuming the $\alpha$-\Erdos{} cardinal exists, for all ordinals $\lambda,\pi,\omega<\kappa$, it is consistent that there is a cardinal with property $\ast(\alpha,\lambda)_{\pi,\omega}$.
+
+\textbf{Proof:} Let $\kappa$ be the $\alpha$-\Erdos{} cardinal. By lemma 5, for any $\lambda,\pi<\kappa$ we have $2^{\weakpower{\lambda}{\pi}}<\kappa$. By corollary 2.2 of chapter 8, section 2 of \cite{Drake74}, we have $\kappa\rightarrow(\alpha)^{<\omega}_\nu$ for all $\nu<\kappa$, so $\kappa\rightarrow(\alpha)^{<\omega}_{2^{\weakpower{\lambda}{\pi}}}$. By lemma 4, $\kappa$ has property $\ast(\alpha,\lambda)_{\pi,\omega}$. $\square$
+
+\bibliographystyle{plain}
+\bibliography{infinitaryindiscernibles}
+
+\end{document}
