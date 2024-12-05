@@ -4,13 +4,13 @@ Lemma 1: Let $M$ be nonstandard. If $M\vDash\theta(e)$ for every nonstandard $e\
 
 Proof: For all nonstandard $e$ in $M$ we have not only $M\vDash\theta(e)$, but also $M\vDash\forall(e' > e)\theta(e'). Then apply overspill to the latter formula to get that there is a standard natural $n$ in $M$ such that $M\vDash\forall(n' > n)\theta(n')$. QED
 
-Lemma 2: Let $f$ and $g$ be recursive functions and let $M$ be a nonstandard model of $\mathsf I\Delta_0$. If there is a standard natural $n$ such that $M$ satisfies $\theta(n)$ where $\theta$ is $\Pi^0_2$, then $\theta(n)$ holds in the real $\mathbb N$.
+Lemma 2: Let $\theta(n)$ be a $\Pi^0_2$ formula whose only free variable is $n$ and let $M$ be a nonstandard model of $\mathsf I\Delta_0$. If there is a standard natural $n$ such that $M$ satisfies $\theta(n)$ where $\theta$ is $\Pi^0_2$, then $\theta(n)$ holds in the real $\mathbb N$.
 
-Proof: Assume $\theta(n)$ is of the form $\forall x\exists y\chi(x,y,\vec p)$, where $\chi$ is $\Delta_0$. WIP
+Proof: Assume $\theta(n)$ is of the form $\forall x\exists y\chi(x,y,n)$, where $\chi$ is $\Delta_0$, and $M$ satisfies $\theta(n)$. Choose an arbitrary $x$ in $M$. WIP
 
-Lemma 3: Let $f$ and $g$ be recursive functions and let $M$ be a nonstandard model of $\mathsf I\Delta_0$. If there is a standard natural $n$ such that $M$ satisfies $\forall(n' > n)(g(n') < f(n'))$, i.e. "$f$ eventually dominates $g$ starting at $n$", then $f$ eventually dominates $g$ in the real $\mathbb N$.
+Lemma 3: Let $f$ and $g$ be recursive functions ("in the real world", with standard Goedel-codes) and let $M$ be a nonstandard model of $\mathsf I\Delta_0$. If there is a standard natural $n$ such that $M$ satisfies $\forall(n' > n)(g(n') < f(n'))$, i.e. "$f$ eventually dominates $g$ starting at $n$", then $f$ eventually dominates $g$ in the real $\mathbb N$.
 
-Proof: The formula $g(n') < f(n')$ is $\exists(y_f,f_g)(y_g = \{e_g\}(n')\land y_f = \{e_f\}(n')\land y_g < y_f)$ where $e_g$, $e_f$ are indices for the recursive functions $g$ and $f$ (see <a href="https://en.wikipedia.org/wiki/Kleene%27s_T_predicate#Normal_form_theorem">Kleene's normal form theorem</a>), so it is $\Sigma^0_1$. Thus there is a standard natural $n$ such that $M$ satisfies $\theta(n)$, where $\theta$ is $\Pi^0_2$, and lemma 2 can be applied. QED
+Proof: The formula $g(n') < f(n')$ is $\exists(y_f,f_g)(y_g = \{e_g\}(n')\land y_f = \{e_f\}(n')\land y_g < y_f)$ where $e_g$, $e_f$ are indices for the recursive functions $g$ and $f$ (see <a href="https://en.wikipedia.org/wiki/Kleene%27s_T_predicate#Normal_form_theorem">Kleene's normal form theorem</a>), so it is $\Sigma^0_1$. Thus there is a standard natural $n$ such that $M$ satisfies $\theta(n)$, where $\theta(n)$ is $\Pi^0_2$ and only has the variable $n$ free, and lemma 2 can be applied. QED
 
 Now we can prove via an overspill dialect proof that the function obtained from Bovykin's adapted Kanamori-McAloon principle (how exactly to make it unary may not matter too much) eventually dominates all recursive functions provably total in PA.
 
