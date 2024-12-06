@@ -6,7 +6,7 @@ However, it doesn't have to be a decision between either large cardinals or thei
 
 Definition:
 
-For a natural number $n$, let $\sigma_n$ be the $n$th stable ordinal, i.e. the $n$th ordinal $\sigma$ such that $L_\sigma\prec_{\Sigma_1} L$. Let $S$ be $\{\sigma_n\mid n<\omgea\}$, and restrict $\pi$ to ordinals in $S$. Define the following simultaneously by transfinite recursion on $\alpha$:
+For a natural number $n$, let $\sigma_n$ be the $n$th stable ordinal, i.e. the $n$th ordinal $\sigma$ such that $L_\sigma\prec_{\Sigma_1} L$. Let $S$ be $\{\sigma_n\mid n<\omega\}$, and restrict $\pi$ to ordinals in $S$. Define the following simultaneously by transfinite recursion on $\alpha$:
 
 \begin{align*}
 C_0(\alpha,\beta) & = \beta \cup \{0,\sigma_n\mid n<\omega\} \\
@@ -15,6 +15,6 @@ C(\alpha,\beta) & = \bigcup_{i<\omega}C_i(\alpha,\beta) \\
 \psi_\pi(\alpha) & = \min\{\beta \mid C(\alpha,\beta)\cap\pi\subseteq\beta\}
 \end{align*}
 
-Lemma: For all ordinals $\alpha,\beta$ and $\pi\in S$, if $\beta<\pi$ then the order type of $C(\alpha,\beta)$ is less than $\pi$.
+Lemma: For all ordinals $\alpha$ and $\pi\in S$, it holds that $\psi_\pi(\alpha) < \pi$.
 
 Proof: We construct a $\beta$ such that $C(\alpha,\beta)\cap\pi\subseteq\beta$ and show that it is less than $\pi$. WIP
