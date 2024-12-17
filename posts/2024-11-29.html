@@ -1,18 +1,42 @@
-Useful lemma from overspill
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Some results on the Kanamori-McAloon theorem</title>
+  <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$']]
+    },
+    svg: {
+      fontCache: 'global'
+    }
+  };
+  </script>
+  <script type="text/javascript" id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+  </script>
+</head>
+<body>
 
-Lemma 1: Let $M$ be a nonstandard model of $\mathsf I\Delta_0$. If $M\vDash\theta(e)$ for every nonstandard $e\in M$, then there is some standard $n\in M$ such that for all standard $n' > n$, $M\vDash\theta(n')$. The tagline is "if it holds for every nonstandard natural, it holds for a cofinal segment of the standard naturals".
+<h1>Some results on the Kanamori-McAloon theorem</h1>
 
-Proof: For all nonstandard $e$ in $M$ we have not only $M\vDash\theta(e)$, but also $M\vDash\forall(e' > e)\theta(e'). Then apply overspill to the latter formula to get that there is a standard natural $n$ in $M$ such that $M\vDash\forall(n' > n)\theta(n')$. QED
+<h2>Useful lemma from overspill</h2>
 
-Lemma 2: Let $f$ and $g$ be recursive functions ("in the real world", with standard Goedel-codes) and let $M$ be a nonstandard model of $\mathsf I\Delta_0$. If there is a standard natural $n$ such that $M$ satisfies $\forall(n' > n)(g(n') < f(n'))$, i.e. "$f$ eventually dominates $g$ starting at $n$", then $f$ eventually dominates $g$ in the real $\mathbb N$.
+<p>Lemma 1: Let $M$ be a nonstandard model of $\mathsf I\Delta_0$. If $M\vDash\theta(e)$ for every nonstandard $e\in M$, then there is some standard $n\in M$ such that for all standard $n' > n$, $M\vDash\theta(n')$. The tagline is "if it holds for every nonstandard natural, it holds for a cofinal segment of the standard naturals".</p>
 
-Proof: The formula $g(n') < f(n')$ is $\exists(y_f,f_g)(y_g = \{e_g\}(n')\land y_f = \{e_f\}(n')\land y_g < y_f)$ where $e_g$, $e_f$ are indices for the recursive functions $g$ and $f$ (see <a href="https://en.wikipedia.org/wiki/Kleene%27s_T_predicate#Normal_form_theorem">Kleene's normal form theorem</a>), so it is $\Sigma^0_1$. Thus there is a standard natural $n$ such that $M$ satisfies $\theta(n)$, where $\theta(n)$ is $\Pi^0_2$. Write $\theta(n)$ in the form $\forall x\exists y\chi(x,y,n)$, where $\chi$ is $\Delta^0_0$. Choose an arbitrary standard natural number $x$. Skolemizing $\theta(n)$ yields a $\Sigma^0_1$ Skolem function $h$ such that a $y < h(x)$ can be found where $M\vDash \chi(x,y,n)$. Since $\Sigma^0_1$ functions (with standard Goedel-codes) take standard values on standard inputs (is this true?), $h(x)$ is standard, so a standard $y$ with $M\vDash\chi(x,y,n)$ can be found. Thus $\theta(n)$ holds in the real $\mathbb N$. QED
+<p>Proof: For all nonstandard $e$ in $M$ we have not only $M\vDash\theta(e)$, but also $M\vDash\forall(e' > e)\theta(e'). Then apply overspill to the latter formula to get that there is a standard natural $n$ in $M$ such that $M\vDash\forall(n' > n)\theta(n')$. QED</p>
 
-Now we can prove via an overspill dialect proof that the function obtained from Bovykin's adapted Kanamori-McAloon principle (how exactly to make it unary may not matter too much) eventually dominates all recursive functions provably total in PA.
+<p>Lemma 2: Let $f$ and $g$ be recursive functions ("in the real world", with standard Goedel-codes) and let $M$ be a nonstandard model of $\mathsf I\Delta_0$. If there is a standard natural $n$ such that $M$ satisfies $\forall(n' > n)(g(n') < f(n'))$, i.e. "$f$ eventually dominates $g$ starting at $n$", then $f$ eventually dominates $g$ in the real $\mathbb N$.</p>
 
-Proof: Let $f$ be a unary function somehow derived from Bovykin's adapted Kanamori-McAloon principle, and let $g$ be an arbitrary recursive function that PA proves total. ($g$ is a recursive function "in the real world", i.e. one with standard Goedel-number, since we haven't picked a nonstandard model yet.) Let $M$ be a nonstandard model of $\mathsf I\Delta_0+\mathrm{KM}$, and let $e$ be an arbitrary nonstandard integer in $M$. Construct the model $I$ as in Bovykin's proof. Since $I$ is a model of PA, we have that $I$ satisfies "$g(e)$ is defined", and since $g$ is recursive, we have that $g(e)$ evaluated in $M$ does not exceed $g(e)$ evaluated in $I$. Also, $I$ also satisfies "$f(e)$ is not defined". Since $I$ is a cut of $M$, this means that $M$ satisfies "$g(e) < f(e)$".
+<p>Proof: The formula $g(n') < f(n')$ is $\exists(y_f,f_g)(y_g = \{e_g\}(n')\land y_f = \{e_f\}(n')\land y_g < y_f)$ where $e_g$, $e_f$ are indices for the recursive functions $g$ and $f$ (see <a href="https://en.wikipedia.org/wiki/Kleene%27s_T_predicate#Normal_form_theorem">Kleene's normal form theorem</a>), so it is $\Sigma^0_1$. Thus there is a standard natural $n$ such that $M$ satisfies $\theta(n)$, where $\theta(n)$ is $\Pi^0_2$. Write $\theta(n)$ in the form $\forall x\exists y\chi(x,y,n)$, where $\chi$ is $\Delta^0_0$. Choose an arbitrary standard natural number $x$. Skolemizing $\theta(n)$ yields a $\Sigma^0_1$ Skolem function $h$ such that a $y < h(x)$ can be found where $M\vDash \chi(x,y,n)$. Since $\Sigma^0_1$ functions (with standard Goedel-codes) take standard values on standard inputs (is this true?), $h(x)$ is standard, so a standard $y$ with $M\vDash\chi(x,y,n)$ can be found. Thus $\theta(n)$ holds in the real $\mathbb N$. QED</p>
 
-Since $e$ was an arbitrary nonstandard integer, we have proven $M$ satisfies $g(e) < f(e)$ for all nonstandard $e$ in $M$. Thus by lemma 1, there is some standard $n$ in $M$ such that for all standard $n' > n$, we have $M \vDash g(n') < f(n')$, meaning $M$ satisfies that $f$ eventually dominates $g$. By lemma 2, it holds in the real $\mathbb N$ that $f$ eventually dominates $g$. Since $g$ was arbitrary, we have that $f$ eventually dominates all recursive functions provably total in PA. QED
+<p>Now we can prove via an overspill dialect proof that the function obtained from Bovykin's adapted Kanamori-McAloon principle (how exactly to make it unary may not matter too much) eventually dominates all recursive functions provably total in PA.</p>
+
+<p>Proof: Let $f$ be a unary function somehow derived from Bovykin's adapted Kanamori-McAloon principle, and let $g$ be an arbitrary recursive function that PA proves total. ($g$ is a recursive function "in the real world", i.e. one with standard Goedel-number, since we haven't picked a nonstandard model yet.) Let $M$ be a nonstandard model of $\mathsf I\Delta_0+\mathrm{KM}$, and let $e$ be an arbitrary nonstandard integer in $M$. Construct the model $I$ as in Bovykin's proof. Since $I$ is a model of PA, we have that $I$ satisfies "$g(e)$ is defined", and since $g$ is recursive, we have that $g(e)$ evaluated in $M$ does not exceed $g(e)$ evaluated in $I$. Also, $I$ also satisfies "$f(e)$ is not defined". Since $I$ is a cut of $M$, this means that $M$ satisfies "$g(e) < f(e)$".</p>
+
+<p>Since $e$ was an arbitrary nonstandard integer, we have proven $M$ satisfies $g(e) < f(e)$ for all nonstandard $e$ in $M$. Thus by lemma 1, there is some standard $n$ in $M$ such that for all standard $n' > n$, we have $M \vDash g(n') < f(n')$, meaning $M$ satisfies that $f$ eventually dominates $g$. By lemma 2, it holds in the real $\mathbb N$ that $f$ eventually dominates $g$. Since $g$ was arbitrary, we have that $f$ eventually dominates all recursive functions provably total in PA. QED</p>
 
 <hr />
-Another thing: proving Con(PA+Con(PA)) directly from Kanamori-McAloon.
+<p>Another thing: proving Con(PA+Con(PA)) directly from Kanamori-McAloon.</p>
+</body>
+</html>
