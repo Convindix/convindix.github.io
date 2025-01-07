@@ -1,0 +1,11 @@
+<h1>Elementary embeddings and nonstandard models of Peano arithmetic</h1>
+
+First, we will show that $\Sigma_1$-elementarity implies full elementarity.
+
+Lemma: Let $M$ be a nonstandard model of $\PA$. If $j:M\to M$ is a $\Sigma_1$-elementary embedding, then $j$ is fully elementary.
+
+Proof: WIP $\square$
+
+<p>Theorem: Let $M$ (really $(I,0,1,+,\times)$) be a structure satisfying $\mathsf I\Delta_0$ that is not isomorphic to the standard model of $\PA$. Then $M$ is a model of $\PA$ iff there is a nontrivial elementary embedding $j:M\to M$.</p>
+
+<p>Proof: ($\rightarrow$) Assume $M$ is a nonstandard model of $\PA$, and $\phi$ is a $\Sigma_1$ formula such that $M\vDash\phi(x_1,\ldots,x_n)$. It is a theorem of Friedman that every nonstandard model of $\PA$ is isomorphic to a proper initial segment of itself, let $I$ be such an initial segment and $j$ be the isomorphism. Then we have $I\vDash\phi(j(x_1),\ldots,j(x_n))$, and by upwards absoluteness we have that $M$ satisfies this as well. So $j:M\to M$ is $\Sigma_1$-elementary. Then by the previous lemma, $j:M\to M$ is fully elementary. ($\leftarrow$) WIP, get indiscernibles from $j$ and use them to prove PA holds in $M$. $\square$
