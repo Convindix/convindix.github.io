@@ -1,5 +1,9 @@
 A problem about PoR-nonprojectible ordinals
 
-What is the least PoR-nonprojectible ordinal? I.e. what is the least $\alpha$ such that for all $\beta<\alpha$, there is no $\Sigma_1$ (in the language of PoR)-definable surjection from $\beta$ onto $\alpha$?
+What is the least PoR-nonprojectible ordinal greater than $\omega$? I.e. what is the least $\alpha > \omega$ such that for all $\beta<\alpha$, there is no $\Sigma_1$ (in the language of PoR)-definable surjection from $\beta$ onto $\alpha$?
 
 Let $\alpha$ be the supremum of an infinite $<_1$-chain $(\alpha_i)_{i<\omega}$. Then $\alpha$ is PoR-nonprojectible? Taking any $f:\beta\to\alpha$ which is $\Sigma_1$ on $(\alpha,\leq,\leq_1)$, for any $\xi<\beta$, if it holds that $\alpha\vDash\exists\gamma(f(\xi)=\gamma)$, then this holds in some $\alpha_i$ containing $\xi$. But for all I know there may be an $f$ that for any $\alpha_i$ has a $\xi$ where $f(\xi)<\alpha_i$ fails.
+
+Lemma: Let $\alpha$ be an ordinal. $\rho^1_\alpha$ is greater than or equal to the least ordinal $\alpha^*$ such that $\alpha^*\leq_2\alpha$.
+
+Proof: Assume towards a contradiction that there is a $\beta < \alpha^*$ and a surjection $f:\beta\to\alpha$ which is $\Sigma_1$ on $\alpha$. Choose a $\gamma < \beta$ such that $f(\gamma) = \alpha^*$. Since $\alpha\vDash\forall\delta,\zeta(\delta=f(\gamma)\land\zeta=f(\gamma)\implies\delta=\zeta)$, by $\Pi_2$-elementarity the value $f(\gamma)$ is well-defined in $\alpha^*$. We have $\alpha\vDash\forall(\xi < \alpha)(\xi < f(\gamma))$. By $\alpha^*\leq_2\alpha$, and Tarski-Vaught for $\Pi_2$ formulas, we have $\alpha^*\vDash\forall\xi(\xi < f(\gamma))$. However there can be no value $f(\gamma)$ can take in $\alpha^*$ such that $\xi < f(\gamma^{\alpha^*}$ holds for all $\xi < \alpha^*$, contradiction. \(\square\)
