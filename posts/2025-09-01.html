@@ -1,3 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>You can't embed a cube into a square poset</title>
+  <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$']]
+    },
+    svg: {
+      fontCache: 'global'
+    }
+  };
+  </script>
+  <script type="text/javascript" id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+  </script>
+</head>
+<body>
 <h1>You can't embed a cube into a square poset</h1>
 
 <p>Let $P$ be the poset which is the powerset of $\{0,1,2\}$ ordered by inclusion, and for a natural number let $Q_n$ be the poset whose underlying set is $\{0,1,\ldots,n-1\}$ ordered by componentwise comparison, i.e. the relation $(a_1,b_1)\leq(a_2,b_2)$ iff $a_1\leq a_2$ and $b_1\leq b_2$. The posets $P$ and $Q_n$ can be visualized as a $2\times 2\times 2$ cube and an $n\times n$ square respectively. Below are Hasse diagrams (as directed graphs) for $P$ and $Q_4$.</p>\
@@ -18,3 +37,5 @@
 <p>The order dimension of $P$ is $3$ (see Bergman, inequality 1.7), so it cannot embed into $Q_n$ for any natural number $n$, since each of those posets $Q_n$ is the Cartesian product of two linearly ordered sets $\{0,1,\ldots,n-1\}$.</p>
 
 <p>This has implications in some of my attempts to get a model-theoretic proof of independence of the finite adjacent Ramsey theorem.</p>
+</body>
+</html>
