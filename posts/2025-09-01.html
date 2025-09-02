@@ -8,10 +8,13 @@
 
 <p>It turns out that the answer is no.</p>
 
-<p>The notion of the <a href="https://en.wikipedia.org/wiki/Order_dimension">order dimension</a> of a poset $(R,\prec)$ has two equivalent definitions: (both from Wikipedia)</p>
+<p>The notion of the <a href="https://en.wikipedia.org/wiki/Order_dimension">order dimension</a> of a poset $(R,\prec)$ has two equivalent definitions: (see G. Bergman, "<a href="https://math.berkeley.edu/~gbergman/papers/poset_dim.pdf">Some Frustrating Questions on Dimensions of Products of Posets</a>", 2025, definition 1.1)</p>
 
 <ul>
-  <li>The largest number of linear extensions of $(R,\prec)$ whose intersection is </li>
+  <li>The smallest $n$ such that there is a set of $n$ linear extensions of $(R,\prec)$ on $R$ whose intersection is $(R,\prec)$,</li>
+  <li>The smallest $n$ such that $R$ is embeddable into a Cartesian product of $n$ linearly orderable posets with the componentwise ordering.</li>
 </ul>
+
+<p>The order dimension of $P$ is $3$ (see Bergman, inequality 1.7), so it cannot embed into $Q_n$ for any natural number $n$, since each of those posets $Q_n$ is the Cartesian product of two linearly ordered sets $\{0,1,\ldots,n-1\}$.</p>
 
 <p>This has implications in some of my attempts to get a model-theoretic proof of independence of the finite adjacent Ramsey theorem.</p>
