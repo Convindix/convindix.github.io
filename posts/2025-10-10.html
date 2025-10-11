@@ -1,7 +1,19 @@
 Finite indiscernibles and $H_{\varepsilon_0}$
 
-This work is implicit in work of the 70s. From Bovykin's proof of the Kanamori-McAloon theorem.
+This work appears in work of the 70s and is likely well-known.
 
-Let $e$, $r$, $k$ be natural numbers and let $N$ be the least natural number such that for all regressive $f:[N]^{e+1}\to [r]$ there is a min-homogeneous set $H$ of size at least $k$. Let $(\phi_i)_{i\in\mathbb N}$ enumerate formulas with at most $e+1$ free variables by Goedel-code.  Define the coloring $f(a,x_1,\ldots,x_e)$ to be $\left\langle (\phi_i(p,x_1,\ldots,x_e))_{1\leq i\leq e, p < a} \right\rangle$. There is a min-homogeneous set $H$ of size at least $k$. So for any natural numbers $a,x_1,\ldots,x_e,y_1,\ldots,y_e$ from $H$ with $a < x_1 < \ldots < x_e$ and $a < y_1 < \ldots < y_e$, we have that for all $1\leq i\leq e$ and all $p < h_{i_0}$, it holds that $\phi_i(p,x_1,\ldots,x_e)$ iff $\phi_i(p,y_1,\ldots,y_e)$.
+<h2>Finite indiscernibles</h2>
 
-This means that $H$ is a set of diagonal indiscernibles for $\mathbb N$ for the first $e$ formulas by Goedel-code.
+Let $e$, $r$, and $k$ be natural numbers and let $N$ be the least natural number such that $N\rightarrow(k)^{2e}_r$. Let $(\phi_i)_{i\in\mathbb N}$ enumerate formulas with at most $2e$ free variables by Goedel-code. Define the coloring $f(x_1,\ldots,x_{2e})$ to be $0$ if for all $1\leq i\leq e$ we have $\phi_i(x_1,\ldots,x_e)$ iff $\phi_i(x_{e+1},\ldots,x_{2e})$. There is a homogeneous set $H$ of size at least $k$. Suppose towards a contradiction that its color is $1$. Given an $e$-subset tuple $\{x_1 < \ldots < x_e\}$ of $H$, define its footprint to be the set $\{1\leq i\leq e \mid \phi_i(x_1,\ldots,x_e)\}$. There are at most $2^e$ possible footprints. But since $H$ has color $1$, for any distinct $e$-subsets $\{x_1 < \ldots < x_e\}$ and $\{x_{e+1} < \ldots < x_{2e}\}$ from $H$, we have that there is some $1\leq i\leq e$ such that $\phi_i(x_1,\ldots,x_e) \iff \phi_i(x_{e+1},\ldots,x_{2e})$ is false, so $\{x_1,\ldots,x_e\}$ and $\{x_{e+1},\ldots,x_{2e}\}$ have different footprints. Since there are $\binom{k}{e}$ different $e$-subsets of $H$, WIP. So for any natural numbers $x_1 < \ldots < x_e$ and $y_1 < \ldots < y_e$ from $H$, we have that for all $1\leq i\leq e$, it holds that $\phi_i(p,x_1,\ldots,x_e)$ iff $\phi_i(p,y_1,\ldots,y_e)$.
+
+If defining $I(e)$ to be the supremum of the pointwise least set of size at least $e$ of indiscernibles for $\mathbb N$ for the first $e$ formulas, then $D$ should be upper-bounded by some tetration.
+
+<h2>Diagonal indiscernibles</h2>
+
+From <a href="https://www.aemea.org/math/Intro_to_unprovability.pdf#page=15">Bovykin's proof of the Kanamori-McAloon theorem</a>.
+
+Let $e$ and $k$ be natural numbers and let $N$ be the least natural number such that for all $\lambda x.2^{ex}$-regressive $f:[N]^{e+1}\to\mathbb N$ there is a min-homogeneous set $H$ of size at least $k$. Let $(\phi_i)_{i\in\mathbb N}$ enumerate formulas with at most $e+1$ free variables by Goedel-code. Define the coloring $f(a,x_1,\ldots,x_e)$ to be $\left\langle (\phi_i(p,x_1,\ldots,x_e))_{1\leq i\leq e, p < a} \right\rangle$. Since this code is at most $2^{ea}$, this coloring is regressive. There is a min-homogeneous set $H$ of size at least $k$. So for any natural numbers $a,x_1,\ldots,x_e,y_1,\ldots,y_e$ from $H$ with $a < x_1 < \ldots < x_e$ and $a < y_1 < \ldots < y_e$, we have that for all $1\leq i\leq e$ and all $p < h_{i_0}$, it holds that $\phi_i(p,x_1,\ldots,x_e)$ iff $\phi_i(p,y_1,\ldots,y_e)$.
+
+This means that for the first $e$ formulas by Goedel-code, $H$ is a set of diagonal indiscernibles for $\mathbb N$.
+
+If defining $D(e)$ to be the supremum of the pointwise least set of size at least $e$ of diagonal indiscernibles for $\mathbb N$ for the first $e$ formulas, then $D$ should grow at around $H_{\varepsilon_0}$ in the Hardy hierarchy.
