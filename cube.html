@@ -8,26 +8,48 @@
     const ctx = document.getElementById("a").getContext("2d");
   
     let frame = 0; //Frame number
+
+    let v1 = [-1, -1];
+    let v2 = [0, 0];
+    let v3 = [0, 0];
+    let v4 = [0, 0];
+    let v5 = [0, 0];
+    let v6 = [0, 0];
+    let v7 = [0, 0];
+    let v8 = [0, 0];
+
+    function convertToCentered(x, y){
+      //Convert coordinates from 0 to 512 to a coordinate system with the origin at the center of the canvas. The canvas stretches from -2 to 2.
+      let width = document.getElementById("a").width;
+      let height = document.getElementById("a").height;
+      return [-2 + x * 4/width, -2 + y * 4/height];
+    }
     
     function drawPixel(x, y){
       //Draws a black pixel at (x, y).
+      //Here x and y are in a coordinate system with the origin at the center of the canvas.
       ctx.fillStyle = "rgb(0, 0, 0)";
-      ctx.fillRect(x, y, 1, 1);
+      let centered = convertToCentered(x, y);
+      ctx.fillRect(centered[0], centered[1], 1, 1);
     }
     
     function drawLine(x1, y1, x2, y2, thickness){
       //Draws a line from (x1, y1) to (x2, y2) of the specified thickness.
+      //Here x1, x2, y1, y2, and thickness are in a coordinate system with the origin at the center of the canvas.
+      let centered1 = convertToCentered(x1, y1);
+      let centered2 = convertToCentered(x2, y2);
+      
       ctx.strokeStyle = "rgb(0, 0, 0)";
-      ctx.lineWidth = thickness;
+      ctx.lineWidth = thickness * document.getElementById("a").width;
       ctx.beginPath();
-      ctx.moveTo(x1, y1);
-      ctx.lineTo(x2, y2);
+      ctx.moveTo(centered1[0], centered1[1]);
+      ctx.lineTo(centered2[0], centered2[1]);
       ctx.stroke();
     }
 
     function drawFrame(){
       ctx.reset();
-      drawLine(50 + frame * 5, 50 + frame * 5, 100 + frame * 5, 100 + frame * 5, 5);
+      drawLine(-1 + frame * 0.2, -1 + frame * 0.2, -1 + frame * 0.2, -1 + frame * 0.2, 0.2);
       frame++;
     }
 
