@@ -18,11 +18,11 @@
     let v7 = [0, 0];
     let v8 = [0, 0];
 
-    function convertToCentered(x, y){
-      //Convert coordinates from 0 to 512 to a coordinate system with the origin at the center of the canvas. The canvas stretches from -2 to 2.
+    function convertToCanvasCoords(x, y){
+      //Convert coordinates from a coordinate system with the origin at the center (the canvas stretches from -2 to 2), to the coordinates used by the canvas (0 to 511)
       let width = document.getElementById("a").width;
       let height = document.getElementById("a").height;
-      return [-2 + x * 4/width, -2 + y * 4/height];
+      return [256 + x * width/4, 256 + y * height/4];
     }
     
     function drawPixel(x, y){
