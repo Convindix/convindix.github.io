@@ -9,14 +9,17 @@
   
     let frame = 0; //Frame number
 
-    let v1 = [-1, -1];
-    let v2 = [0, 0];
-    let v3 = [0, 0];
-    let v4 = [0, 0];
+    let v1 = [0, -1];
+    let v2 = [1, 0];
+    let v3 = [0, 1];
+    let v4 = [-1, 0];
     let v5 = [0, 0];
     let v6 = [0, 0];
     let v7 = [0, 0];
     let v8 = [0, 0];
+
+    let s = 0;
+    let c = 0;
 
     function convertToCanvasCoords(x, y){
       //Convert coordinates from a coordinate system with the origin at the center (the canvas stretches from -2 to 2), to the coordinates used by the canvas (0 to 511)
@@ -49,10 +52,20 @@
 
     function drawFrame(){
       ctx.reset();
-      drawLine(-1 + frame * 0.02, -1 + frame * 0.02, -1 + frame * 0.02 + 50, -1 + frame * 0.02 + 50, 0.04);
+      s = Math.sin(frame / 40);
+      c = Math.cos(frame / 40);
+      v1 = [-c, -c];
+      v2 = [c, -c];
+      v3 = [-c, c];
+      v4 = [c, c];
+      
+      drawLine(v1[0], v1[1], v2[0], v2[1], 0.02);
+      drawLine(v2[0], v2[1], v3[0], v3[1], 0.02);
+      drawLine(v3[0], v3[1], v4[0], v4[1], 0.02);
+      drawLine(v4[0], v4[1], v1[0], v1[1], 0.02);
       frame++;
     }
 
-    setInterval(drawFrame, 500);
+    setInterval(drawFrame, 200);
   </script>
 </body>
