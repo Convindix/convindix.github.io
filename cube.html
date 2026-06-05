@@ -28,6 +28,7 @@
     function drawFrame(){
       ctx.reset();
       drawLine(50 + frame * 5, 50 + frame * 5, 100 + frame * 5, 100 + frame * 5, 5);
+      frame++;
     }
 
     setInterval(drawFrame, 500);
