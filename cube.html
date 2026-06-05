@@ -36,14 +36,14 @@
     function drawLine(x1, y1, x2, y2, thickness){
       //Draws a line from (x1, y1) to (x2, y2) of the specified thickness.
       //Here x1, x2, y1, y2, and thickness are in a coordinate system with the origin at the center of the canvas.
-      let centered1 = convertToCentered(x1, y1);
-      let centered2 = convertToCentered(x2, y2);
+      let coords1 = convertToCanvasCoords(x1, y1);
+      let coords2 = convertToCanvasCoords(x2, y2);
       
       ctx.strokeStyle = "rgb(0, 0, 0)";
       ctx.lineWidth = thickness * document.getElementById("a").width;
       ctx.beginPath();
-      ctx.moveTo(centered1[0], centered1[1]);
-      ctx.lineTo(centered2[0], centered2[1]);
+      ctx.moveTo(coords1[0], coords1[1]);
+      ctx.lineTo(coords2[0], coords2[1]);
       ctx.stroke();
     }
 
