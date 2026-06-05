@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<head>
+  <title>Trying to create a rotating 3D cube</title>
+</head>
+<body>
+  <canvas id="a" width = "512" height="512"></canvas>
+  <script>
+    const ctx = document.getElementById("a").getContext("2d");
+  
+    let frame = 0; //Frame number
+    
+    function drawPixel(x, y){
+      //Draws a black pixel at (x, y).
+      ctx.fillStyle = "rgb(0, 0, 0)";
+      ctx.fillRect(x, y, 1, 1);
+    }
+    
+    function drawLine(x1, y1, x2, y2, thickness){
+      //Draws a line from (x1, y1) to (x2, y2) of the specified thickness.
+      ctx.strokeStyle = "rgb(0, 0, 0)";
+      ctx.lineWidth = thickness;
+      ctx.beginPath();
+      ctx.moveTo(x1, y1);
+      ctx.lineTo(x2, y2);
+      ctx.stroke();
+    }
+
+    function drawFrame(){
+      ctx.reset();
+      drawLine(50 + frame * 5, 50 + frame * 5, 100 + frame * 5, 100 + frame * 5, 5);
+    }
+
+    setInterval(drawFrame, 500);
+  </script>
+</body>
