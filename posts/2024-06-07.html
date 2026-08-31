@@ -1,3 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Higher Paris-Harrington principles</title>
+  <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$']]
+    },
+    svg: {
+      fontCache: 'global'
+    }
+  };
+  </script>
+  <script type="text/javascript" id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+  </script>
+</head>
+<body>
 <h1>Higher Paris-Harrington principles</h1>
 
 <p>A somewhat disappointing, but clear in retrospect, note on the Paris-Harrington principle at cardinals larger than $\aleph_0$</p>
@@ -17,3 +36,5 @@
 <p>Theorem: Assume $\kappa$ is a weakly compact cardinal such that $\mathrm{RT}(\kappa)$ holds. Then $\mathrm{KP}(\kappa)$ holds.</p>
 
 <p>Proof: We lift the original proof of the Paris-Harrington principle from the infinite Ramsey theorem. Assume towards a contradiction that $\mathrm{RT}(\kappa)$ holds but $\mathrm{KP}(\kappa)$ does not hold. Then for all $\alpha,\lambda,\pi<\kappa$ and natural number $e$ there is an $f:[\pi]^e\to\lambda$ that does not have a relatively large homogeneous subset with size at least $\alpha$. Let a counterexample refer to such a function $f$. Construct the tree of counterexamples as in ParisHarrington77, ordered by extension (and thus each counterexample on a higher level is for a larger $\pi$ than any counterexample on a lower level). This tree is $<\kappa$-branching, so by K&odblac;nig's lemma for trees of size $\kappa$ (applicable due to the previous lemma) it must have a branch $\langle f_\pi\mid\pi<\kappa\rangle$, linearly ordered by extension. Define $f$ to be the union $\bigcup_{\pi<\kappa}f_\pi$. This function $f$ is a function $f:[\kappa]^e\to \lambda$, and by $\mathrm{RT}(\kappa)$, there is a set $H\subseteq\kappa$ with $\kappa$ elements that is homogeneous for $\kappa$. Choose a $\xi<\kappa$ such that $H\cap\xi$ has at least as many elements as $\max\{\alpha,\min(H)\}$, then $H\cap\xi$ is a relatively large subset of $\xi$ homogeneous for $f_\xi$, contradicting our assumption that $\lnot\mathrm{PH}(\kappa)$. $\square$</p>
+</body>
+</html>
