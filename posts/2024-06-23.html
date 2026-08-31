@@ -1,4 +1,23 @@
-<h1>The consistency strength of Ord-indescribability</h1>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>The consistency strength of Ord-indescribability</title>
+  <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$']]
+    },
+    svg: {
+      fontCache: 'global'
+    }
+  };
+  </script>
+  <script type="text/javascript" id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+  </script>
+</head>
+<body>
+<h1>The consistency strength of $\mathrm{Ord}$-indescribability</h1>
 
 <p>For an ordinal $\alpha$, say that a cardinal $\kappa$ is $\alpha$-indescribable if for all first-order formulas $\phi$ with parameters from $V_\kappa$ and all $A\subseteq V_\kappa$, if $V_{\kappa+\alpha}\vDash\phi(A)$ then there is a $\beta < \kappa$ such that $V_{\beta+\alpha}\vDash\phi(A\cap V_\beta)$. It is known (e.g. it is an exercise at the end of chapter 9 of Drake's <i>Set Theory: An Introduction to Large Cardinals</i>, 1974) that there is no $\kappa$ that is $\kappa$-indescribable. The trick used in the inconsistency proof is to let $A=\kappa$, then write a formula $\phi(A)$ that roughly says "$A$ is an ordinal and $\mathrm{Ord}$ is $A\cdot 2$", the contradiction being that for any $\beta < \alpha$, $A\cap V_\beta=\beta$, yet $V_\kappa$ does not satisfy "$\mathrm{Ord}$ is $\beta\cdot 2$" since $V_{\beta+\kappa}=V_\kappa$.</p>
 
@@ -11,3 +30,5 @@
 <p>Stronger than shrewdness, which holds for each $\lambda > \kappa$ but is not single uniform truth in $V$? Also shrewdness is weaker than subtlety?</p>
 
 <p>Edit October 2024: In "<a href="https://arxiv.org/pdf/1203.2270">Reflective Cardinals</a>", Taranovsky calls these ordinals "fully indescribable" and says that the least fully indescribable is less than the least subtle cardinal.</p>
+</body>
+</html>
